@@ -13,11 +13,6 @@ Explore a collection of meticulously crafted block templates for Minecraft Bedro
 - **Easy Integration:** Seamless incorporation into your Minecraft projects.
 - **Professional Quality:** Each template is carefully designed to ensure a polished and authentic look.
 
-## Showcase
-
-![Block Templates Showcase](link-to-image-or-gif)
-
-*Caption: A sneak peek at some of the stunning block templates included in this repository.*
 
 ## Usage
 
