@@ -19,6 +19,14 @@ Explore a collection of meticulously crafted block templates for Minecraft Bedro
 2. **Integration:** Easily incorporate the templates into your Minecraft Bedrock Edition world or project.
 3. **Customization:** Feel free to customize and tweak the templates to suit your unique creations.
 
+## Why This Project?
+
+Creating this repository stems from my passion for contributing to the Minecraft Bedrock Edition Add-Ons community. Here are my reasons:
+
+1. **Community Support:** I aim to help the Minecraft Bedrock Edition Add-Ons community in creating new and unique blocks, fostering the development of wonderful content.
+2. **Coding Enjoyment:** I find joy in coding blocks, and my expertise allows me to contribute high-quality templates.
+3. **Addressing a Gap:** I identified a challenge within the vanilla packs – the absence of block files. To overcome this issue, I decided to create my own block templates, providing a solution for the community.
+
 ## Credits
 
 This project is exclusively crafted by Kaioga. Special thanks to the Minecraft community for their continuous support and inspiration.
