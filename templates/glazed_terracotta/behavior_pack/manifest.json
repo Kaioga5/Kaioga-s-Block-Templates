@@ -1,8 +1,8 @@
 {
   "format_version": 2,
   "header": {
-      "name": "Kaioga's Block Templates",
-      "description": "Block Templates created by Kaioga for Minecraft Bedrock Edition.",
+      "name": "Kaioga's Glazed Terracotta",
+      "description": "Glazed Terracotta block template created by Kaioga for Minecraft Bedrock Edition.",
       "uuid": "d513d67c-c03e-4a89-9e13-0243f2bfeb5a",
       "version": [ 1, 0, 0 ],
       "min_engine_version": [ 1, 20, 50 ]
