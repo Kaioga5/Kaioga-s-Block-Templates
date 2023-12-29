@@ -13,12 +13,6 @@ Explore a collection of meticulously crafted block templates for Minecraft Bedro
 - **Easy Integration:** Seamless incorporation into your Minecraft projects.
 - **Professional Quality:** Each template is carefully designed to ensure a polished and authentic look.
 
-## Showcase
-
-![Block Templates Showcase](link-to-image-or-gif)
-
-*Caption: A sneak peek at some of the stunning block templates included in this repository.*
-
 ## Usage
 
 1. **Clone or Download:** Get the templates by cloning the repository or downloading the ZIP file.
@@ -33,4 +27,8 @@ This project is exclusively crafted by Kaioga. Special thanks to the Minecraft c
 
 This repository is licensed under the [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0).
 
+<<<<<<< HEAD
 Feel free to explore, build, and create with these block templates. Happy crafting! 🛠️🎮
+=======
+Feel free to explore, build, and create with these block templates. Happy crafting! 🛠️🎮
+>>>>>>> eca0a8b2879f4eecdbfc37b9ddd0daa4de6bef64
