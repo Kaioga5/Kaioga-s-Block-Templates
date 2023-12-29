@@ -1,8 +1,8 @@
 {
-    "format_version": "1.20.40",
+    "format_version": "1.20.50",
     "minecraft:block": {
         "description": {
-            "identifier": "wiki:glazed_terracotta_template",
+            "identifier": "kai:glazed_terracotta_template",
             "menu_category": {
                 "category": "construction",
                 "group": "itemGroup.name.glazedTerracotta"
