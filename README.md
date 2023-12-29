@@ -27,8 +27,4 @@ This project is exclusively crafted by Kaioga. Special thanks to the Minecraft c
 
 This repository is licensed under the [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0).
 
-<<<<<<< HEAD
 Feel free to explore, build, and create with these block templates. Happy crafting! 🛠️🎮
-=======
-Feel free to explore, build, and create with these block templates. Happy crafting! 🛠️🎮
->>>>>>> eca0a8b2879f4eecdbfc37b9ddd0daa4de6bef64
