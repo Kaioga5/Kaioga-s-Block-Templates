@@ -2,7 +2,7 @@
     "format_version": "1.20.50",
     "minecraft:block": {
         "description": {
-            "identifier": "kai:custom_slab",
+            "identifier": "kai:slab",
             "menu_category": {
                 "category": "construction",
                 "group": "itemGroup.name.slab"
@@ -36,7 +36,7 @@
                     },
                     "minecraft:on_interact": {
                         "event": "kai:form_double",
-                        "condition": "q.block_face == 1.0 && q.is_item_name_any('slot.weapon.mainhand', 'kai:custom_slab')"
+                        "condition": "q.block_face == 1.0 && q.is_item_name_any('slot.weapon.mainhand', 'kai:slab')"
                     }
                 }
             },
@@ -54,7 +54,7 @@
                     },
                     "minecraft:on_interact": {
                         "event": "kai:form_double",
-                        "condition": "q.block_face == 0.0 && q.is_item_name_any('slot.weapon.mainhand', 'kai:custom_slab')"
+                        "condition": "q.block_face == 0.0 && q.is_item_name_any('slot.weapon.mainhand', 'kai:slab')"
                     }
                 }
             },

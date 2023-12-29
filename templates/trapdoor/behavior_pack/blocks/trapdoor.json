@@ -2,7 +2,7 @@
     "format_version": "1.20.50",
     "minecraft:block": {
       "description": {
-        "identifier": "kai:custom_trapdoor",
+        "identifier": "kai:trapdoor",
         "menu_category": {
           "category": "construction",
           "group": "itemGroup.name.trapdoor"
