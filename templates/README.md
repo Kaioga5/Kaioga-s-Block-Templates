@@ -50,3 +50,19 @@ This document provides details about each block template in the repository, incl
 - [x] Experimental Version.
 
 ---
+
+## Fence
+
+**Features:**
+- [x] Block connection.
+- [x] Correct texture display.
+
+**Missing Features:**
+- [x] Waterloggable.
+- [x] Stops entities from jumping.
+
+**Compatibility:**
+- [ ] Stable Version.
+- [x] Experimental Version.
+
+---

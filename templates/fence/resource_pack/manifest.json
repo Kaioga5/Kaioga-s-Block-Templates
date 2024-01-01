@@ -1,0 +1,22 @@
+{
+  "format_version": 2,
+  "header": {
+      "name": "Kaioga's Fence",
+      "description": "Fence block template created by Kaioga for Minecraft Bedrock Edition.",
+      "uuid": "37fb6c46-09e1-4f5a-820e-0e79906d4212",
+      "version": [1, 0, 1],
+      "min_engine_version": [1, 20, 50]
+  },
+  "modules": [
+      {
+          "type": "resources",
+          "uuid": "fb8240a1-01b1-4db3-a3f8-80570f8cf0f6",
+          "version": [1, 0, 1]
+      }
+  ],
+  "metadata": {
+      "authors": [
+          "Kaioga"
+      ]
+  }
+}

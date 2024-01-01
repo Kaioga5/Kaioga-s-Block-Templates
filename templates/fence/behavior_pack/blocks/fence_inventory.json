@@ -1,0 +1,237 @@
+{
+	"format_version": "1.20.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kai:fence_inventory", // This block purpose is to show the correct display at inventory and add the missing size to the fence to make a total of 1.5.
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.fence"
+			},
+			"states": {
+				"kai:post": [0, 1],
+				"kai:north_picket": [0, 1],
+				"kai:south_picket": [0, 1],
+				"kai:east_picket": [0, 1],
+				"kai:west_picket": [0, 1]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -8],
+						"size": [10, 16, 10]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -8],
+						"size": [10, 16, 10]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [10, 16, 10]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -2],
+						"size": [10, 16, 10]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -2],
+						"size": [8, 16, 8]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, 2],
+						"size": [4, 16, -4]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -4],
+						"size": [7, 16, 8]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-4, 0, -4],
+						"size": [6, 16, 8]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-4, 0, -4],
+						"size": [8, 16, 6]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-4, 0, -2],
+						"size": [8, 16, 7]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -8],
+						"size": [4, 16, 10]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:south_picket') && !q.block_state('kai:north_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -2],
+						"size": [4, 16, 10]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:east_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:north_picket') && !q.block_state('kai:south_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [10, 16, 4]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:west_picket') && !q.block_state('kai:east_picket') && !q.block_state('kai:north_picket') && !q.block_state('kai:south_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -2],
+						"size": [10, 16, 4]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -8],
+						"size": [4, 16, 16]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [16, 16, 4]
+					},
+					"minecraft:selection_box": false
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:post')",
+				"components": {
+					"minecraft:on_placed": { // Triggers an event when the block is placed in the world with kai:post block state set at zero.
+						"event" : "kai:set_fence",
+						"target": "self"
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:post')", // When kai:post block state value is 1, hides the geometry for this block in the world, not the inventory.
+				"components": {
+					"minecraft:geometry": {
+						"identifier": "geometry.fence_inventory",
+						"bone_visibility": {
+							"fence": false
+						}
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": "geometry.fence_inventory", // Geometry displayed at player's inventory.
+			"minecraft:queued_ticking": {
+				"looping": true,
+				"interval_range": [0, 0],
+				"on_tick": {
+					"event": "kai:fence_combiner",
+					"target": "self"
+				}
+			},
+			"tag:inventory_fence": {}, // Tag used for inventory fences, which avoid this fence to connect with the real fences.
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "oak_planks",
+					"render_method": "opaque"
+				}
+			}
+		},
+		"events": {
+			"kai:fence_combiner": {
+				"set_block_state": {
+					"kai:north_picket": "q.block_neighbor_has_any_tag(0, 0, -1, 'inventory_fence', 'wood', 'metal', 'stone', 'dirt', 'sand', 'gravel', 'grass') ? 1 : 0",
+					"kai:south_picket": "q.block_neighbor_has_any_tag(0, 0, 1, 'inventory_fence', 'wood', 'metal', 'stone', 'dirt', 'sand', 'gravel', 'grass') ? 1 : 0",
+					"kai:east_picket": "q.block_neighbor_has_any_tag(1, 0, 0, 'inventory_fence', 'wood', 'metal', 'stone', 'dirt', 'sand', 'gravel', 'grass') ? 1 : 0",
+					"kai:west_picket": "q.block_neighbor_has_any_tag(-1, 0, 0, 'inventory_fence', 'wood', 'metal', 'stone', 'dirt', 'sand', 'gravel', 'grass') ? 1 : 0"
+				}
+			},
+			"kai:set_fence": { // Places the real fence in it's place and places itself (the inventory fence) in top of it only if there is air.
+				"run_command": {
+					"command": [
+						"setblock ~~~ kai:fence",
+						"fill ~~1~ ~~1~ kai:fence_inventory [\"kai:post\"=1] replace air"
+					]
+				}
+			}
+		}
+	}
+}
