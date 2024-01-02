@@ -59,7 +59,6 @@ This document provides details about each block template in the repository, incl
 
 **Missing Features:**
 - [x] Waterloggable.
-- [x] Stops entities from jumping.
 
 **Compatibility:**
 - [ ] Stable Version.
