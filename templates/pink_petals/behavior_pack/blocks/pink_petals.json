@@ -19,9 +19,19 @@
             {
                 "condition": "query.block_state('kai:growth') <= 2",
                 "components": {
-                    "minecraft:on_interact": { // Makes the pink petals grow when interacted with another pink petal item.
-                        "condition": "q.is_item_name_any('slot.weapon.mainhand','kai:pink_petals_item')",
+                    "minecraft:on_interact": { // Makes the pink petals grow when interacted with another pink petal item or bone meal.
+                        "condition": "q.is_item_name_any('slot.weapon.mainhand','kai:pink_petals_item','minecraft:bone_meal')",
                         "event": "kai:flourish",
+                        "target": "self"
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kai:growth') == 3",
+                "components": {
+                    "minecraft:on_interact": { // Makes the pink petals drop a pink petal item if interacted with bone meal when the block is fully grown.
+                        "condition": "q.is_item_name_any('slot.weapon.mainhand','minecraft:bone_meal')",
+                        "event": "kai:fertilize",
                         "target": "self"
                     }
                 }
@@ -112,11 +122,33 @@
         },
         "events": {
             "kai:flourish": {
+                "sequence": [
+                    {
                 "set_block_state": {
                     "kai:growth": "query.block_state('kai:growth') + 1" // Sums a value to kai:growth block state.
                 },
                 "decrement_stack": {} // Reduces the item stack.
+                    },
+                    {
+                    "run_command": {
+                        "command": [
+                            "particle minecraft:crop_growth_emitter ~~~" // Plays the crop_growth_emitter particle if interacted with bone meal.
+                            ]
+                        },
+                    "condition": "q.is_item_name_any('slot.weapon.mainhand','minecraft:bone_meal')"
+                    }
+                ]
             },
+            "kai:fertilize": {
+                "condition": "q.is_item_name_any('slot.weapon.mainhand','minecraft:bone_meal')",
+                "spawn_loot":  { "table": "loot_tables/blocks/pink_petals.json" },
+                "decrement_stack": {},
+				    "run_command": {
+                        "command": [
+                            "particle minecraft:crop_growth_emitter ~~~"
+                    ]
+                }
+			},
             "kai:destroy_double": {
                 "spawn_loot":  { "table": "loot_tables/blocks/pink_petals.json" }
             },
