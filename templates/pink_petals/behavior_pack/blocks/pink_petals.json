@@ -1,0 +1,148 @@
+{
+    "format_version": "1.20.50",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:pink_petals", // Identifier for your pink petals.
+            "menu_category": {
+                "category": "none" // Makes the block impossible to get from the creative inventory. Remember you are using an item to place it!
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": ["minecraft:cardinal_direction"]
+                }
+            },
+            "states": {
+                "kai:growth": [0, 1, 2, 3]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('kai:growth') <= 2",
+                "components": {
+                    "minecraft:on_interact": { // Makes the pink petals grow when interacted with another pink petal item.
+                        "condition": "q.is_item_name_any('slot.weapon.mainhand','kai:pink_petals_item')",
+                        "event": "kai:flourish",
+                        "target": "self"
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kai:growth') == 1",
+                "components": {
+                    "minecraft:on_player_destroyed": { // Makes the block drop two pink petal items once destroyed.
+                        "event": "kai:destroy_double"
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kai:growth') == 2",
+                "components": {
+                    "minecraft:on_player_destroyed": { // Makes the block drop three pink petal items once destroyed.
+                        "event": "kai:destroy_triple"
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kai:growth') == 3",
+                "components": {
+                    "minecraft:on_player_destroyed": { // Makes the block drop four pink petal items once destroyed.
+                        "event": "kai:destroy_quadruple"
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 180, 0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, -90, 0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 90, 0]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": {
+                "identifier": "geometry.pink_petals", // The geometry used for your pink petals block.
+                "bone_visibility": { // Decides how many flowers to show based on the block state value for kai:growth.
+                    "flower_1": "query.block_state('kai:growth') >= 0",
+                    "flower_2": "query.block_state('kai:growth') >= 1",
+                    "flower_3": "query.block_state('kai:growth') >= 2",
+                    "flower_4": "query.block_state('kai:growth') >= 3"
+                }
+            },
+            "minecraft:light_dampening": 0,
+            "minecraft:placement_filter": { // This components defines in what blocks the pink petals can be placed.
+                "conditions": [
+                    {
+                    "block_filter": ["grass", "dirt", "podzol", "mycelium", "dirt_with_roots", "moss_block", "mud", "farmland", "muddy_mangrove_roots"]
+                    }
+                ]
+            },
+            "minecraft:collision_box": false, // Removes collision box.
+            "minecraft:selection_box": {
+                "origin": [-8, 0, -8],
+                "size": [16, 3, 16]
+            },
+            "minecraft:loot": "loot_tables/blocks/pink_petals.json", // Makes the block drop it's item version.
+            "minecraft:material_instances": { // This component is defining the texture and render method of the pink petals.
+                "*": {
+                    "texture": "pink_petals",
+                    "render_method": "alpha_test"
+                },
+                "stem": {
+                    "texture": "pink_petals_stem",
+                    "render_method": "alpha_test"
+                }
+            }
+        },
+        "events": {
+            "kai:flourish": {
+                "set_block_state": {
+                    "kai:growth": "query.block_state('kai:growth') + 1" // Sums a value to kai:growth block state.
+                },
+                "decrement_stack": {} // Reduces the item stack.
+            },
+            "kai:destroy_double": {
+                "spawn_loot":  { "table": "loot_tables/blocks/pink_petals.json" }
+            },
+            "kai:destroy_triple": {
+                "sequence": [
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/pink_petals.json"}
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/pink_petals.json"}
+                    }
+                ]
+            },
+            "kai:destroy_quadruple": {
+                "sequence": [
+                    {
+                "spawn_loot":{"table": "loot_tables/blocks/pink_petals.json" }
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/pink_petals.json"}
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/pink_petals.json"}
+                    }
+                ]
+            }
+        }
+    }
+}

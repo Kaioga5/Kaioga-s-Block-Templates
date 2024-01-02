@@ -1,0 +1,21 @@
+{
+	"pools": [
+	  {
+		"rolls": 1,
+		"entries": [
+		  {
+			"type": "item",
+			"name": "kai:pink_petals_item",
+			"weight": 1,
+			"functions": [
+			  {
+				"function": "set_count",
+				"count": 1
+			  }
+			]
+		  }
+		]
+	  }
+	]
+  }
+  

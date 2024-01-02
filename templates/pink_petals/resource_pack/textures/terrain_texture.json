@@ -1,0 +1,11 @@
+{
+	"texture_name": "atlas.terrain",
+	"resource_pack_name": "Kaioga's Pink Petals",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"pink_petals_stem": { // Name of the texture used for the block's stem.
+			"textures": "textures/blocks/pink_petals_stem" // Path of the texture.
+		}
+	}
+}
