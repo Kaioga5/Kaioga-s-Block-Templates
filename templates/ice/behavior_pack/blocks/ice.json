@@ -70,7 +70,7 @@
             "kai:on_player_destroyed": {
 				"run_command": {
 					"command": [
-						"execute unless block ~~-1~ air run setblock ~~~ water"
+						"execute unless block ~~-1~ air run setblock ~~~ flowing_water"
 					]
 				}
 			}
