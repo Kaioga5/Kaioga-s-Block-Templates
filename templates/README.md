@@ -76,6 +76,7 @@ This document provides details about each block template in the repository, incl
 
 **Missing Features:**
 - [x] Destroyable by water.
+- [x] Bees interaction.
 
 **Compatibility:**
 - [ ] Stable Version.
