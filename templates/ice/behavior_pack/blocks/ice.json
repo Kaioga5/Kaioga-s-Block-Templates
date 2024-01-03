@@ -1,0 +1,79 @@
+{
+    "format_version": "1.20.50",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:ice",
+            "menu_category": { // The location of the ice block in the creative inventory.
+                "category": "nature",
+                "group": "itemGroup.name.ice"
+            },
+            "states": {
+                "kai:north": [0, 1],
+                "kai:south": [0, 1],
+                "kai:east": [0, 1],
+                "kai:west": [0, 1],
+                "kai:up": [0, 1],
+                "kai:down": [0, 1]
+              }
+        },
+        "components": {
+            "minecraft:friction": 0.02, // Makes the surface slippery.
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "ice", // The texture used for ice.
+                    "render_method": "blend"
+                }
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.ice", // The name for the ice geometry.
+                "bone_visibility": { // Hides the specified face if it's block state is set to false.
+                    "north_face": "!q.block_state('kai:north')",
+                    "east_face": "!q.block_state('kai:east')",
+                    "south_face": "!q.block_state('kai:south')",
+                    "west_face": "!q.block_state('kai:west')",
+                    "up_face": "!q.block_state('kai:up')",
+                    "down_face": "!q.block_state('kai:down')"
+                }
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.5
+            },
+            "minecraft:on_player_destroyed": { // Transforms the ice into water once destroyed if there is a block below.
+				"event" : "kai:on_player_destroyed",
+				"target": "self"
+			},
+            "minecraft:queued_ticking": { // Triggers the event kai:face_culling on each tick.
+                "looping": true,
+                "interval_range": [0, 0],
+                "on_tick": {
+                    "event": "kai:face_culling",
+                    "target": "self"
+                }
+            },
+            "tag:ice": {}, // Tag used to check for neighboring blocks.
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
+            },
+            "minecraft:loot": "loot_tables/blocks/ice.json" // As this path does not exists, the block has no drop unless destroyed with silk touch.
+        },
+        "events": {
+            "kai:face_culling": { // Checks if neighboring blocks has the ice tag, and if they do, sets the defined block states to true.
+                "set_block_state": {
+                    "kai:north": "q.block_neighbor_has_any_tag(0, 0, -1, 'ice') ? 1 : 0",
+                    "kai:south": "q.block_neighbor_has_any_tag(0, 0, 1, 'ice') ? 1 : 0",
+                    "kai:east": "q.block_neighbor_has_any_tag(1, 0, 0, 'ice') ? 1 : 0",
+                    "kai:west": "q.block_neighbor_has_any_tag(-1, 0, 0, 'ice') ? 1 : 0",
+                    "kai:up": "q.block_neighbor_has_any_tag(0, 1, 0, 'ice') ? 1 : 0",
+                    "kai:down": "q.block_neighbor_has_any_tag(0, -1, 0, 'ice') ? 1 : 0"
+                }
+            },
+            "kai:on_player_destroyed": {
+				"run_command": {
+					"command": [
+						"execute unless block ~~-1~ air run setblock ~~~ water"
+					]
+				}
+			}
+        }
+    }
+}

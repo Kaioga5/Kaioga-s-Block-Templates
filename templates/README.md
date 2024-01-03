@@ -71,7 +71,7 @@ This document provides details about each block template in the repository, incl
 **Features:**
 - [x] Can be grown.
 - [x] Correct texture display.
-- [x] Can be fertilized
+- [x] Can be fertilized.
 - [x] Can only be placed in specified blocks.
 
 **Missing Features:**
@@ -81,3 +81,21 @@ This document provides details about each block template in the repository, incl
 **Compatibility:**
 - [ ] Stable Version.
 - [x] Experimental Version.
+
+---
+
+## Ice
+
+**Features:**
+- [x] Slippery surface.
+- [x] Face culling.
+- [x] Places water when destroyed.
+
+**Missing Features:**
+- [x] Melting.
+
+**Compatibility:**
+- [ ] Stable Version.
+- [x] Experimental Version.
+
+---

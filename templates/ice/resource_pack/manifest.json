@@ -1,0 +1,22 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Ice",
+        "description": "Ice block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "057fa5c8-3cc4-4c18-bdf3-2e4d8b82ce53",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 50]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "f1dbb9bb-49ed-471b-a860-6a594a3e2b76",
+            "version": [1, 0, 0]
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}  
