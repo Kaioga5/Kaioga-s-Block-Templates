@@ -99,3 +99,19 @@ This document provides details about each block template in the repository, incl
 - [x] Experimental Version.
 
 ---
+
+## Planks
+
+**Features:**
+- [x] Flammable.
+- [x] Accurate destruction times.
+- [x] Accurate blast resistance values.
+
+**Missing Features:**
+- [x] None.
+
+**Compatibility:**
+- [x] Stable Version.
+- [ ] Experimental Version.
+
+---
