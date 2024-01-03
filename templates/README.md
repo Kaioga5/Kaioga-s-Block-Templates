@@ -65,3 +65,18 @@ This document provides details about each block template in the repository, incl
 - [x] Experimental Version.
 
 ---
+
+## Pink Petals
+
+**Features:**
+- [x] Can be grown.
+- [x] Correct texture display.
+- [x] Can be fertilized
+- [x] Can only be placed in specified blocks.
+
+**Missing Features:**
+- [x] Destroyable by water.
+
+**Compatibility:**
+- [ ] Stable Version.
+- [x] Experimental Version.
