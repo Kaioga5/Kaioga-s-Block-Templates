@@ -115,3 +115,19 @@ This document provides details about each block template in the repository, incl
 - [ ] Experimental Version.
 
 ---
+
+## Basalt
+
+**Features:**
+- [x] Acurrate rotation.
+- [x] Accurate destruction times.
+- [x] Accurate blast resistance values.
+
+**Missing Features:**
+- [x] None.
+
+**Compatibility:**
+- [x] Stable Version.
+- [ ] Experimental Version.
+
+---

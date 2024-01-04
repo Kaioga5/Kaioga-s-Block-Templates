@@ -1,0 +1,11 @@
+{
+	"texture_name": "atlas.terrain",
+	"resource_pack_name": "Kaioga's Basalt",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"basalt_side": { // Name of the texture used for the block sides.
+			"textures": "textures/blocks/basalt_side" // Path of the texture.
+		}
+	}
+}

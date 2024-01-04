@@ -1,0 +1,28 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Basalt",
+        "description": "Basalt block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "65a1225a-7ec5-4f85-9f58-59a20718d31d",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 50]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "57d6d41f-aa43-47c1-b02d-4bda92f7da9c",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "version": [1, 0, 0],
+            "uuid": "50b13c01-0498-4c9c-8c6f-65b7192c31e2"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}  
