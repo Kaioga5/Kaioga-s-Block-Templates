@@ -4,8 +4,8 @@
         "description": {
             "identifier": "kai:log",
             "menu_category": {
-                "category": "construction",
-                "group": "itemGroup.name.copper"
+                "category": "nature",
+                "group": "itemGroup.name.wood"
             },
             "traits": {
                 "minecraft:placement_position": {
