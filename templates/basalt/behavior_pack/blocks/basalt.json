@@ -4,8 +4,7 @@
         "description": {
             "identifier": "kai:basalt",
             "menu_category": {
-                "category": "construction",
-                "group": "itemGroup.name.copper"
+                "category": "nature"
             },
             "traits": {
                 "minecraft:placement_position": {
