@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "kai:fence",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.fence"
+				"category": "none"
 			},
 			"states": {
 				"kai:post": [0, 1],
