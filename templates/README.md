@@ -131,3 +131,20 @@ This document provides details about each block template in the repository, incl
 - [ ] Experimental Version.
 
 ---
+
+## Logs
+
+**Features:**
+- [x] Acurrate rotation.
+- [x] Accurate destruction times.
+- [x] Accurate blast resistance values.
+- [x] Can be stripped.
+
+**Missing Features:**
+- [x] Reduce items durability when stripping a log..
+
+**Compatibility:**
+- [ ] Stable Version.
+- [x] Experimental Version.
+
+---

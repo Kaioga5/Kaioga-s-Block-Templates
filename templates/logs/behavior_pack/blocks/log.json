@@ -1,0 +1,116 @@
+{
+    "format_version": "1.20.50",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:log",
+            "menu_category": {
+                "category": "construction",
+                "group": "itemGroup.name.copper"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "permutations": [
+            // Makes the block rotate like logs. This rotation is used in similar blocks, like pillars.
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            -90
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            -90
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": "geometry.block", // Makes the block have a 16x16x16 cube unit, since that is what geometry.block contains. A custom geometry can be used.
+            "minecraft:destructible_by_mining": { // Hardness.
+                "seconds_to_destroy": 2
+            },
+            "minecraft:destructible_by_explosion": { // Blast resistance.
+                "explosion_resistance": 2
+            },
+            "minecraft:flammable": { // Makes the block flammable.
+                "catch_chance_modifier": 5,
+                "destroy_chance_modifier": 20
+            },
+            "minecraft:on_interact": {
+                "condition": "q.is_item_name_any('slot.weapon.mainhand',0,'minecraft:wooden_axe','minecraft:stone_axe','minecraft:iron_axe','minecraft:golden_axe','minecraft:diamond_axe','minecraft:netherite_axe')", // The items that can strip the log.
+                "event": "kai:strip",
+                "target": "self"
+            },
+            "minecraft:material_instances": {
+                "*": {
+					"texture": "log_oak",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "oak_log_top",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "oak_log_top",
+					"render_method": "opaque"
+				}
+            }
+        },
+        "events": {
+			"kai:strip": { // Changes the log to it's stripped version, making sure to keep the correct rotation values.
+				"run_command": {
+					"command": [
+						"fill ~~~ ~~~ kai:stripped_log [\"minecraft:block_face\"=\"north\"] replace kai:log [\"minecraft:block_face\"=\"north\"]",
+                        "fill ~~~ ~~~ kai:stripped_log [\"minecraft:block_face\"=\"south\"] replace kai:log [\"minecraft:block_face\"=\"south\"]",
+                        "fill ~~~ ~~~ kai:stripped_log [\"minecraft:block_face\"=\"east\"] replace kai:log [\"minecraft:block_face\"=\"east\"]",
+                        "fill ~~~ ~~~ kai:stripped_log [\"minecraft:block_face\"=\"west\"] replace kai:log [\"minecraft:block_face\"=\"west\"]",
+                        "fill ~~~ ~~~ kai:stripped_log [\"minecraft:block_face\"=\"up\"] replace kai:log [\"minecraft:block_face\"=\"up\"]",
+                        "fill ~~~ ~~~ kai:stripped_log [\"minecraft:block_face\"=\"down\"] replace kai:log [\"minecraft:block_face\"=\"down\"]"
+					]
+				}
+			}
+		}
+    }
+}
