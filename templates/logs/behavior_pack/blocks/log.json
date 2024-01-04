@@ -79,7 +79,7 @@
                 "destroy_chance_modifier": 20
             },
             "minecraft:on_interact": {
-                "condition": "q.is_item_name_any('slot.weapon.mainhand',0,'minecraft:wooden_axe','minecraft:stone_axe','minecraft:iron_axe','minecraft:golden_axe','minecraft:diamond_axe','minecraft:netherite_axe')", // The items that can strip the log.
+                "condition": "query.equipped_item_all_tags('slot.weapon.mainhand','minecraft:is_axe')", // Triggers kai:strip if interacted with an item with the minecraft:is_axe tag.
                 "event": "kai:strip",
                 "target": "self"
             },
