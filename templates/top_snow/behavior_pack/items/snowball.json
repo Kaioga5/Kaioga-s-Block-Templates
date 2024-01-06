@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.50",
+	"minecraft:item": {
+		"description": {
+			"identifier": "kai:snowball", // Identifier for the snowball item.
+			"menu_category": {
+                "category": "equipment" // The location of your item in the creative inventory.
+              }
+		},
+		"components": {
+			"minecraft:max_stack_size": 16, // Makes the snowball item stackable up to 16 items per stack.
+			"minecraft:icon": {
+				"texture": "snowball" // Texture used for your snowball item.
+			},
+            "minecraft:throwable": { // Makes the item throwable.
+				"do_swing_animation": true
+			},
+			"minecraft:projectile": {
+				"projectile_entity": "kai:snowball" // The identifier for your snowball entity, which is what is being shot.
+			}
+		}
+	}
+}

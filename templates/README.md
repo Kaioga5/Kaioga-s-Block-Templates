@@ -141,7 +141,24 @@ This document provides details about each block template in the repository, incl
 - [x] Can be stripped.
 
 **Missing Features:**
-- [x] Reduce items durability when stripping a log..
+- [x] Reduce items durability when stripping a log.
+
+**Compatibility:**
+- [ ] Stable Version.
+- [x] Experimental Version.
+
+---
+
+## Top Snow
+
+**Features:**
+- [x] Texture rotation.
+- [x] Accurate layer drops.
+- [x] Layers can be increased.
+- [x] Custom snowball item and entity.
+
+**Missing Features:**
+- [x] Falling snow.
 
 **Compatibility:**
 - [ ] Stable Version.

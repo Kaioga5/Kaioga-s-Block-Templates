@@ -1,0 +1,288 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kai:top_snow",
+            "menu_category": {
+				"category": "nature"
+			},
+            "states": {
+				"kai:layer_level": [0, 1, 2, 3, 4, 5, 6, 7],
+                "kai:random_rotation": [0, 1, 2, 3]
+			}
+		},
+		"permutations": [
+            {
+                "condition": "query.block_state('kai:random_rotation') == 1",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 180, 0 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kai:random_rotation') == 2",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 270, 0 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kai:random_rotation') == 3",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, -270, 0 ]
+                    }
+                }
+            },
+			{
+				"condition": "query.block_state('kai:layer_level') == 0",
+				"components": {
+                    "minecraft:selection_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 2, 16 ]
+                    }
+				}
+			},
+            {
+				"condition": "query.block_state('kai:layer_level') == 1",
+				"components": {
+                    "minecraft:selection_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 4, 16 ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 2, 16 ] 
+                    }
+				}
+			},
+            {
+				"condition": "query.block_state('kai:layer_level') == 2",
+				"components": {
+                    "minecraft:selection_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 6, 16 ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 4, 16 ] 
+                    }
+				}
+			},
+            {
+				"condition": "query.block_state('kai:layer_level') == 3",
+				"components": {
+                    "minecraft:selection_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 8, 16 ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 6, 16 ] 
+                    },
+                    "minecraft:on_player_destroyed": { // Makes the block drop two snowball items once destroyed.
+                        "condition": "query.equipped_item_all_tags('slot.weapon.mainhand','minecraft:is_shovel')",
+                        "event": "kai:destroy_double"
+                    }
+				}
+			},
+            {
+				"condition": "query.block_state('kai:layer_level') == 4",
+				"components": {
+                    "minecraft:selection_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 10, 16 ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 8, 16 ] 
+                    },
+                    "minecraft:on_player_destroyed": { // Makes the block drop two snowball items once destroyed.
+                        "condition": "query.equipped_item_all_tags('slot.weapon.mainhand','minecraft:is_shovel')",
+                        "event": "kai:destroy_double"
+                    }
+				}
+			},
+            {
+				"condition": "query.block_state('kai:layer_level') == 5",
+				"components": {
+                    "minecraft:selection_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 12, 16 ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 10, 16 ] 
+                    },
+                    "minecraft:on_player_destroyed": { // Makes the block drop three snowball items once destroyed.
+                        "condition": "query.equipped_item_all_tags('slot.weapon.mainhand','minecraft:is_shovel')",
+                        "event": "kai:destroy_triple"
+                    }
+				}
+			},
+            {
+				"condition": "query.block_state('kai:layer_level') == 6",
+				"components": {
+                    "minecraft:selection_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 14, 16 ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 12, 16 ] 
+                    },
+                    "minecraft:on_player_destroyed": { // Makes the block drop three snowball items once destroyed.
+                        "condition": "query.equipped_item_all_tags('slot.weapon.mainhand','minecraft:is_shovel')",
+                        "event": "kai:destroy_triple"
+                    }
+				}
+			},
+            {
+				"condition": "query.block_state('kai:layer_level') == 7",
+				"components": {
+                    "minecraft:unit_cube": {
+					},
+                    "minecraft:collision_box": {
+                        "origin": [ -8, 0, -8 ],
+                        "size": [ 16, 14, 16 ] 
+                    },
+                    "minecraft:on_player_destroyed": { // Makes the block drop three snowball items once destroyed.
+                        "condition": "query.equipped_item_all_tags('slot.weapon.mainhand','minecraft:is_shovel')",
+                        "event": "kai:destroy_quadruple"
+                    }
+				}
+			}
+		],
+		"components": {
+            "minecraft:geometry": {
+				"identifier": "geometry.top_snow",
+				"bone_visibility": { // Decides what layers of top snow to show based on the block state kai:layer_level values.
+					"layer_one": "query.block_state('kai:layer_level') >= 0",
+					"layer_two": "query.block_state('kai:layer_level') >= 1",
+                    "layer_three": "query.block_state('kai:layer_level') >= 2",
+                    "layer_four": "query.block_state('kai:layer_level') >= 3",
+                    "layer_five": "query.block_state('kai:layer_level') >= 4",
+                    "layer_six": "query.block_state('kai:layer_level') >= 5",
+                    "layer_seven": "query.block_state('kai:layer_level') >= 6"
+				}
+			},
+            "minecraft:collision_box": {
+                "origin": [ -8, 0, -8 ],
+                "size": [ 16, 0, 16 ] 
+            },
+            "minecraft:on_interact": {
+                "condition": "q.is_item_name_any('slot.weapon.mainhand','kai:top_snow') && query.block_state('kai:layer_level') <= 6", // Triggers the event kai:layer_upgrade once the top snow block is interacted with another top snow block, only if the state kai:layer_level is less than or equal to 6.
+                "event": "kai:layer_upgrade",
+                "target": "self"
+            },
+            "minecraft:destructible_by_mining": { // Hardness.
+                "seconds_to_destroy": 0.1
+            },
+            "minecraft:loot": "loot_tables/blocks/none.json", // Makes the block nothing if broken without a shovel.
+            "minecraft:on_player_destroyed": { // Makes the block drop the snowball item once destroyed with a shovel.
+                    "condition": "query.equipped_item_all_tags('slot.weapon.mainhand','minecraft:is_shovel')",
+                    "event": "kai:destroy_default"
+                },
+            "minecraft:destructible_by_explosion": { // Blast resistance.
+                "explosion_resistance": 0.1
+            },
+            "minecraft:on_player_placing": { // Triggers kai:rotate once placed.
+                "event": "kai:rotate",
+                "target": "self"
+            },
+            "minecraft:material_instances": { // Defines the texture and render method for the snow layer block.
+                "*": { 
+                    "texture": "snow", // Texture name for your snow layer block.
+                    "render_method": "alpha_test"
+                }
+		    }
+	    },
+        "events": {
+			"kai:layer_upgrade": {
+					"set_block_state": {
+						"kai:layer_level": "query.block_state('kai:layer_level') + 1" // Sums a value to kai:layer_level.
+				},
+                "run_command": {
+					"command": [
+						"playsound dig.snow @a ~~~ 1 0.8"
+					]
+				},
+				"decrement_stack": {
+					"ignore_game_mode": false
+				}
+			},
+            "kai:rotate": { // Once triggered, rotates the block into four different possible rotations, all of them having a 25% chance of being selected.
+                "randomize": [
+                    {
+                        "weight": 25,
+                        "set_block_state": {
+						    "kai:random_rotation": 0
+				        }
+                    },
+                    {
+                        "weight": 25,
+                        "set_block_state": {
+						    "kai:random_rotation": 1
+				        }
+                    },
+                    {
+                        "weight": 25,
+                        "set_block_state": {
+						    "kai:random_rotation": 2
+				        }
+                    },
+                    {
+                        "weight": 25,
+                        "set_block_state": {
+						    "kai:random_rotation": 3
+				        }
+                    }
+                ]
+		    },
+            "kai:destroy_default": {
+                "spawn_loot":  { "table": "loot_tables/blocks/top_snow.json" } // Makes the block drop the snowball item once destroyed.
+            },
+            "kai:destroy_double": {
+                "sequence": [
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/top_snow.json"}
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/top_snow.json"}
+                    }
+                ]
+            },
+            "kai:destroy_triple": {
+                "sequence": [
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/top_snow.json"}
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/top_snow.json"}
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/top_snow.json"}
+                    }
+                ]
+            },
+            "kai:destroy_quadruple": {
+                "sequence": [
+                    {
+                "spawn_loot":{"table": "loot_tables/blocks/top_snow.json" }
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/top_snow.json"}
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/top_snow.json"}
+                    },
+                    {
+                "spawn_loot": {"table": "loot_tables/blocks/top_snow.json"}
+                    }
+                ]
+            }
+        }
+    }
+}
