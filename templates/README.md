@@ -165,3 +165,17 @@ This document provides details about each block template in the repository, incl
 - [x] Experimental Version.
 
 ---
+
+## Glass
+
+**Features:**
+- [x] Accurate destroy times.
+- [x] Accurate explosion resistance values.
+
+**Missing Features:**
+- None.
+
+**Compatibility:**
+- [x] Stable Version.
+
+---

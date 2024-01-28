@@ -1,0 +1,27 @@
+{
+    "format_version": "1.20.50",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:glass", // Block identifier.
+            "menu_category": {
+                "category": "construction",
+                "group": "itemGroup.name.glass"
+            }
+        },
+        "components": {
+            "minecraft:light_dampening": 0,
+            "minecraft:material_instances": {
+                "*": {
+                "render_method": "blend"
+                }
+            },
+            "minecraft:loot": "loot_tables/blocks/none.json", // As this directory does not exists, the block will not drop anything.
+            "minecraft:destructible_by_mining": { // Hardness.
+                "seconds_to_destroy": 0.3
+            },
+            "minecraft:destructible_by_explosion": { // Blast resistance.
+                "explosion_resistance": 0.3
+            }
+        }
+    }
+}
