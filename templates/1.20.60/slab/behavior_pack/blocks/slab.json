@@ -1,0 +1,107 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:slab",
+            "menu_category": {
+                "category": "construction",
+                "group": "itemGroup.name.slab"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:vertical_half"
+                    ]
+                }
+            },
+            "states": {
+                "kai:double": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            // Bottom Slab
+            {
+                "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && !q.block_state('kai:double')",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [-8, 0, -8],
+                        "size": [16, 8, 16]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [-8, 0, -8],
+                        "size": [16, 8, 16 ]
+                    },
+                    "minecraft:on_interact": {
+                        "event": "kai:form_double",
+                        "condition": "q.block_face == 1.0 && q.is_item_name_any('slot.weapon.mainhand', 'kai:slab')" // This kai:slab must be the identifier of your slab.
+                    }
+                }
+            },
+            // Top Slab
+            {
+                "condition": "q.block_state('minecraft:vertical_half') == 'top' && !q.block_state('kai:double')",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [-8, 8, -8],
+                        "size": [16, 8, 16]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [-8, 8, -8],
+                        "size": [16, 8, 16]
+                    },
+                    "minecraft:on_interact": {
+                        "event": "kai:form_double",
+                        "condition": "q.block_face == 0.0 && q.is_item_name_any('slot.weapon.mainhand', 'kai:slab')" // This kai:slab must be the identifier of your slab.
+                    }
+                }
+            },
+            // Double Slab
+            {
+                "condition": "q.block_state('kai:double')",
+                "components": {
+                    "minecraft:geometry": "minecraft:geometry.full_block",
+                    "minecraft:on_player_destroyed": {
+                        "event": "kai:destroy_double"
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.slab",
+                "bone_visibility": {
+                    "bottom_slab": "q.block_state('minecraft:vertical_half') == 'bottom'",
+                    "top_slab": "q.block_state('minecraft:vertical_half') == 'top'"
+                }
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "stone"
+                }
+            }
+        },
+        "events": {
+            "kai:form_double": {
+                "set_block_state": {
+                    "kai:double": true
+                },
+                "run_command": {
+                    "command": "playsound use.stone @a ~~~ 1 0.8"
+                },
+                "decrement_stack": {}
+            },
+            "kai:destroy_double": {
+                "spawn_loot": {} // Spawns the block's default loot
+            }
+        }
+    }
+}
