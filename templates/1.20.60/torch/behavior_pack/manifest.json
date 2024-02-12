@@ -1,0 +1,28 @@
+{
+  "format_version": 2,
+  "header": {
+      "name": "Kaioga's Torch",
+      "description": "Torch block template created by Kaioga for Minecraft Bedrock Edition.",
+      "uuid": "83f3d21c-af79-4e4e-a701-fd862c62fe10",
+      "version": [1, 0, 0],
+      "min_engine_version": [1, 20, 60]
+  },
+  "modules": [
+      {
+          "type": "data",
+          "uuid": "ecb01942-47a9-4591-b2d8-951180f0d8ab",
+          "version": [1, 0, 0]
+      }
+  ],
+  "dependencies": [
+      {
+          "version": [1, 0, 0],
+          "uuid": "db0c8483-5e34-4b69-8a6e-d54a8672e5db"
+      }
+  ],
+  "metadata": {
+      "authors": [
+          "Kaioga"
+      ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Planks",
+        "description": "Planks block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "4f0e50da-5107-4774-82bb-354a843e01bc",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 60]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "f93e9d56-e0c2-4e65-91bf-0d23c08edf7a",
+            "version": [1, 0, 0]
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}  

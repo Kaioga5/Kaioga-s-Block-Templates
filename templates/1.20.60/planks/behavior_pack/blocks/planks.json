@@ -1,0 +1,25 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:planks", // Block identifier.
+            "menu_category": {
+                "category": "construction",
+                "group": "itemGroup.name.planks"
+            }
+        },
+        "components": {
+            "minecraft:light_dampening": 4,
+            "minecraft:destructible_by_mining": { // Hardness.
+                "seconds_to_destroy": 2
+            },
+            "minecraft:flammable": { // Makes the block flammable.
+                "catch_chance_modifier": 5,
+                "destroy_chance_modifier": 20
+            },
+            "minecraft:destructible_by_explosion": { // Blast resistance.
+                "explosion_resistance": 3
+            }
+        }
+    }
+}

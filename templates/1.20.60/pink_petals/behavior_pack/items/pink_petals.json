@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:item": {
+		"description": {
+			"identifier": "kai:pink_petals_item", // Identifier for the pink petals item.
+			"menu_category": {
+                "category": "nature", // The location of your item in the creative inventory.
+                "group": "itemGroup.name.flower"
+              }
+		},
+		"components": {
+			"minecraft:max_stack_size": 64,
+			"minecraft:icon": {
+				"textures": {
+					"default": "pink_petals_item" // Texture used for your pink petals item.
+				}
+			},
+            "minecraft:block_placer": { // Places the pink petals.
+				"block": "kai:pink_petals"
+            }
+		}
+	}
+}
