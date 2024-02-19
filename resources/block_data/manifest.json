@@ -1,0 +1,42 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "View block data directly on your hud screen.",
+        "name": "Kaioga's Block Data Viewer",
+        "uuid": "ca2a795b-8aa1-41dc-b872-daadc18cf619",
+        "version": [ 1, 0, 0 ],
+        "min_engine_version": [ 1, 20, 60 ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "description": "",
+            "uuid": "00c765d7-1999-4181-9e79-0f6b18ee6beb",
+            "version": [ 0, 1, 0 ]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "description": "ScriptAPI",
+            "entry": "mechanics.js",
+            "uuid": "57dce8c4-00f9-4c14-a214-baa6b82847af",
+            "version": [ 1, 0, 0 ]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "1.9.0-beta"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "1.2.0-beta"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga",
+            "xkingdark"
+        ]
+    }
+}
