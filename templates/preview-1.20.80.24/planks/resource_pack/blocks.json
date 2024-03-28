@@ -1,0 +1,7 @@
+{
+	"format_version": [1, 20, 80],
+	"kai:planks": {
+		"sound": "wood", // The sound made upon placement.
+		"textures": "oak_planks" // Texture used for the planks.
+	}
+}

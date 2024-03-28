@@ -1,0 +1,7 @@
+{
+	"format_version": [1, 20, 80],
+	"kai:glass": {
+		"sound": "glass", // The sound made upon placement.
+		"textures": "glass" // Texture used for the glass.
+	}
+}

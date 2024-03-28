@@ -1,0 +1,28 @@
+{
+  "format_version": 2,
+  "header": {
+      "name": "Kaioga's Glazed Terracotta",
+      "description": "Glazed Terracotta block template created by Kaioga for Minecraft Bedrock Edition.",
+      "uuid": "d513d67c-c03e-4a89-9e13-0243f2bfeb5a",
+      "version": [ 1, 0, 0 ],
+      "min_engine_version": [ 1, 20, 80 ]
+  },
+  "modules": [
+      {
+          "type": "data",
+          "uuid": "6530969f-0737-48e3-bb59-c0e4634ff2da",
+          "version": [ 1, 0, 0 ]
+      }
+  ],
+  "dependencies": [
+      {
+          "version": [ 1, 0, 0 ],
+          "uuid": "a0ccaed5-ec65-4efc-8db0-c1c2f82ee27d"
+      }
+  ],
+  "metadata": {
+      "authors": [
+          "Kaioga"
+      ]
+  }
+}

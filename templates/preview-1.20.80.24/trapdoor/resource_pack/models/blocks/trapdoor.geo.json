@@ -1,0 +1,36 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:geometry": [
+      {
+        "description": {
+          "identifier": "geometry.trapdoor",
+          "texture_width": 16,
+          "texture_height": 16,
+          "visible_bounds_width": 2,
+          "visible_bounds_height": 1.5,
+          "visible_bounds_offset": [0, 0.25, 0]
+        },
+        "bones": [
+          {
+            "name": "trapdoor",
+            "pivot": [0, 0, 0],
+            "cubes": [
+              {
+                "origin": [-8, 0, -8],
+                "size": [16, 3, 16],
+                "uv": {
+                  "north": {"uv": [16, 3], "uv_size": [-16, -3]},
+                  "east": {"uv": [16, 3], "uv_size": [-16, -3]},
+                  "south": {"uv": [16, 3], "uv_size": [-16, -3]},
+                  "west": {"uv": [16, 3], "uv_size": [-16, -3]},
+                  "up": {"uv": [16, 16], "uv_size": [-16, -16]},
+                  "down": {"uv": [0, 0], "uv_size": [16, 16]}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

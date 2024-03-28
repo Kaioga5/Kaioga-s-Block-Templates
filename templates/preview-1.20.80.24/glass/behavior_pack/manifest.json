@@ -1,0 +1,28 @@
+{
+  "format_version": 2,
+  "header": {
+      "name": "Kaioga's Glass",
+      "description": "Glass block template created by Kaioga for Minecraft Bedrock Edition.",
+      "uuid": "c6899b6a-d7a5-4560-817b-4c9b9d6f7b9d",
+      "version": [1, 0, 0],
+      "min_engine_version": [1, 20, 80]
+  },
+  "modules": [
+      {
+          "type": "data",
+          "uuid": "c1d3a542-8d42-4346-a86b-07df10d7e35c",
+          "version": [1, 0, 0]
+      }
+  ],
+  "dependencies": [
+      {
+          "version": [1, 0, 0],
+          "uuid": "b48ec24c-7c44-4e01-9c1b-bd0d52508713"
+      }
+  ],
+  "metadata": {
+      "authors": [
+          "Kaioga"
+      ]
+  }
+}
