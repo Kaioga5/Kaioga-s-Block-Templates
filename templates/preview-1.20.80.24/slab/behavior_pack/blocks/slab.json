@@ -58,7 +58,8 @@
             {
                 "condition": "q.block_state('kai:double')",
                 "components": {
-                    "minecraft:geometry": "minecraft:geometry.full_block"
+                    "minecraft:geometry": "minecraft:geometry.full_block",
+                    "minecraft:custom_components": ["kai:on_player_destroy"] // Adds our custom on_player_destroy component
                 }
             }
         ],
@@ -76,7 +77,7 @@
                     "top_slab": "q.block_state('minecraft:vertical_half') == 'top'"
                 }
             },
-            "minecraft:custom_components": ["kai:on_interact"],
+            "minecraft:custom_components": ["kai:on_interact"], // Adds our custom on_interact component
             "minecraft:material_instances": {
                 "*": {
                     "texture": "stone"
