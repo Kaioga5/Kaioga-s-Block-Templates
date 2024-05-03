@@ -1,6 +1,6 @@
-# Block Templates Details
+# Block Templates Details - 1.20.60
 
-This document provides details about each block template in the repository, including features, missing features, and compatibility.
+This document provides details about each block template in the 1.20.60 module, including features, missing features, and compatibility.
 
 ---
 
