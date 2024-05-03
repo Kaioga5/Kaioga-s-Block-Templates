@@ -1,0 +1,36 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Slab",
+        "description": "Slab block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "3df0a1b7-2904-488c-8850-d0315cf3fc2a",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 80]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "05450fc4-f30d-4ec4-8edb-f8eac65ff18c",
+            "version": [1, 0, 0]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "description": "ScriptAPI",
+            "entry": "main.js", // Activates our main.js file for it to be able to import more files
+            "uuid": "86a67118-8031-4809-98c7-1f914a33ce6a",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server", // Adds the module @minecraft/server to our pack
+            "version": "1.11.0-beta"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}

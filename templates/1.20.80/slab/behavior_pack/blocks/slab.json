@@ -1,0 +1,88 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:slab",
+            "menu_category": {
+                "category": "construction",
+                "group": "itemGroup.name.slab"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:vertical_half"
+                    ]
+                }
+            },
+            "states": {
+                "kai:double": [
+                    false,
+                    true
+                ],
+                "kai:waterlogged": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            // Bottom Slab
+            {
+                "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && !q.block_state('kai:double')",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [-8, 0, -8],
+                        "size": [16, 8, 16]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [-8, 0, -8],
+                        "size": [16, 8, 16 ]
+                    }
+                }
+            },
+            // Top Slab
+            {
+                "condition": "q.block_state('minecraft:vertical_half') == 'top' && !q.block_state('kai:double')",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [-8, 8, -8],
+                        "size": [16, 8, 16]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [-8, 8, -8],
+                        "size": [16, 8, 16]
+                    }
+                }
+            },
+            // Double Slab
+            {
+                "condition": "q.block_state('kai:double')",
+                "components": {
+                    "minecraft:geometry": "minecraft:geometry.full_block",
+                    "minecraft:custom_components": ["kai:on_player_destroy"] // Adds our custom on_player_destroy component
+                }
+            }
+        ],
+        "components": {
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.slab",
+                "bone_visibility": {
+                    "bottom_slab": "q.block_state('minecraft:vertical_half') == 'bottom'",
+                    "top_slab": "q.block_state('minecraft:vertical_half') == 'top'"
+                }
+            },
+            "minecraft:custom_components": ["kai:on_interact"], // Adds our custom on_interact component
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "stone"
+                }
+            }
+        }
+    }
+}
