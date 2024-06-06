@@ -1,0 +1,22 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Trapdoor",
+        "description": "Trapdoor block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "724c6351-d4fe-4df5-959c-529f19082a66",
+        "version": [ 1, 0, 0 ],
+        "min_engine_version": [ 1, 20, 80 ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "fc7fc5ab-7f5a-4f38-b5e3-7384a0341a32",
+            "version": [ 1, 0, 0 ]
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}  

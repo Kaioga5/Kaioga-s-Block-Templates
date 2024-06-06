@@ -1,0 +1,105 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:lantern", // Block identifier
+            "menu_category": {
+                "category": "nature",
+                "group": "itemGroup.name.grass"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            },
+            "states": {
+                "kai:waterlogged": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            // Makes the block rotate like torches and modifies the selection boxes
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'up'",
+                "components": {
+                    "minecraft:selection_box": {
+                        "origin": [-3, 0, -3],
+                        "size": [6, 8, 6]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [-3, 0, -3],
+                        "size": [6, 8, 6]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'down'",
+                "components": {
+                    "minecraft:selection_box": {
+                      "origin": [-3, 1, -3],
+                      "size": [6, 8, 6]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [-3, 1, -3],
+                        "size": [6, 8, 6]
+                      }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:destructible_by_mining": { // Hardness
+                "seconds_to_destroy": 3.5
+            },
+            "minecraft:geometry": {
+				"identifier": "geometry.lantern",
+				"bone_visibility": { // Enables and disables bones according to the fence's block states.
+					"lantern_floor": "query.block_state('minecraft:block_face') == 'up'",
+					"lantern_hanging": "query.block_state('minecraft:block_face') == 'down'"
+				}
+			},
+            "minecraft:light_emission": 15,
+            "minecraft:light_dampening": 0,
+            "minecraft:placement_filter": { 
+                "conditions": [
+                    {
+                        "allowed_faces": [ // Decides in which faces the torch can be placed
+                            "up",
+                            "down"
+                        ]
+                    }
+                ]
+            },
+            "minecraft:custom_components": ["kai:on_interact"], // Adds our custom on_interact component
+            "minecraft:material_instances": { // This component is defining the texture and render method of the pink petals.
+                "*": {
+                    "texture": "lantern",
+                    "render_method": "alpha_test",
+                    "ambient_occlusion": false,
+                    "face_dimming": false
+                }
+            },
+            "minecraft:transformation": {
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ]
+            },
+            "minecraft:collision_box": {
+                "origin": [-8, 0, -8],
+                "size": [16, 15, 16]
+            },
+            "minecraft:selection_box": {
+                "origin": [-8, 0, -8],
+                "size": [16, 15, 16 ]
+            },
+            "minecraft:destructible_by_explosion": { // Blast resistance
+                "explosion_resistance": 3.5
+            }
+        }
+    }
+}

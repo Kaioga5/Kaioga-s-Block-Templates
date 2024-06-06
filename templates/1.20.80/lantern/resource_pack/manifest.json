@@ -1,0 +1,22 @@
+{
+  "format_version": 2,
+  "header": {
+      "name": "Kaioga's Lantern",
+      "description": "Lantern block template created by Kaioga for Minecraft Bedrock Edition.",
+      "uuid": "f853dbd0-a8ad-4fa4-b6c3-8a729b5713ec",
+      "version": [1, 0, 0],
+      "min_engine_version": [1, 20, 80]
+  },
+  "modules": [
+      {
+          "type": "resources",
+          "uuid": "46926247-b375-42d4-b9a7-04d2ac81d72c",
+          "version": [1, 0, 0]
+      }
+  ],
+  "metadata": {
+      "authors": [
+          "Kaioga"
+      ]
+  }
+}

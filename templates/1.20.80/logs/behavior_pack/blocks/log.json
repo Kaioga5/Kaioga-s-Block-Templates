@@ -1,0 +1,98 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:log",
+            "menu_category": {
+                "category": "nature",
+                "group": "itemGroup.name.wood"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "permutations": [
+            // Makes the block rotate like logs. This rotation is used in similar blocks, like pillars.
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            -90
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            -90
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": "minecraft:geometry.full_block", // Makes the block have a 16x16x16 cube unit, since that is what minecraft:geometry.full_block contains. A custom geometry can be used.
+            "minecraft:destructible_by_mining": { // Hardness.
+                "seconds_to_destroy": 2
+            },
+            "minecraft:destructible_by_explosion": { // Blast resistance.
+                "explosion_resistance": 2
+            },
+            "minecraft:flammable": { // Makes the block flammable.
+                "catch_chance_modifier": 5,
+                "destroy_chance_modifier": 20
+            },
+            "minecraft:custom_components": ["kai:on_interact"],
+            "minecraft:material_instances": {
+                "*": {
+					"texture": "log_oak",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "oak_log_top",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "oak_log_top",
+					"render_method": "opaque"
+				}
+            }
+        }
+    }
+}

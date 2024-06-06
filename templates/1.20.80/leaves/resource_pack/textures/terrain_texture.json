@@ -1,0 +1,11 @@
+{
+	"texture_name": "atlas.terrain",
+	"resource_pack_name": "Kaioga's Leaves",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"oak_leaves_custom": { // Name of the texture used for the block sides.
+			"textures": "textures/blocks/oak_leaves" // Path of the texture.
+		}
+	}
+}

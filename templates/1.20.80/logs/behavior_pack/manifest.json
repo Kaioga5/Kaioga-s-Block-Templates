@@ -1,0 +1,36 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Logs",
+        "description": "Log block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "423776f0-8960-4afc-a0b8-2562ea5c6c1e",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 80]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "c420e9eb-c6f7-4791-bda0-f70f93f09ce5",
+            "version": [1, 0, 0]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "description": "ScriptAPI",
+            "entry": "main.js", // Activates our main.js file for it to be able to import more files
+            "uuid": "5b50dff3-7b28-44dd-8612-98954987aaf2",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server", // Adds the module @minecraft/server to our pack
+            "version": "1.11.0-beta"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}

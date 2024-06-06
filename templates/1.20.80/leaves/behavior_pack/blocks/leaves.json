@@ -1,0 +1,34 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:leaves", // Our block identifier
+            "menu_category": {
+                "category": "nature", // The location of our block in the creative inventory
+                "group": "itemGroup.name.leaves"
+            },
+            "states": {
+                "kai:persistent_bit": [false, true],
+                "kai:placed": [false, true]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "minecraft:geometry.full_block", // Makes the block have a 16x16x16 cube unit. A custom geometry can be used
+            "minecraft:destructible_by_mining": { // Hardness.
+                "seconds_to_destroy": 0.2
+            },
+            "minecraft:custom_components": ["kai:on_random_tick", "kai:on_interact"], // The name of our custom components
+            "minecraft:destructible_by_explosion": { // Blast resistance.
+                "explosion_resistance": 0.2
+            },
+            "minecraft:loot": "loot_tables/blocks/leaves.json", // Makes our block use the loot table replica for oak leaves
+            "minecraft:light_dampening": 10,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "oak_leaves_custom", // Texture used for all faces of the block
+                    "render_method": "blend"
+                }
+            }
+        }
+    }
+}

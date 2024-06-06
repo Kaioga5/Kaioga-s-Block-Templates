@@ -1,0 +1,167 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:fence_gate", // The identifier of your custom fence gate
+            "menu_category": {
+                "category": "none"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": ["minecraft:cardinal_direction"] // Block trait used to rotate the fence gate
+                }
+            },
+            "states": {
+                "kai:open": [false, true],
+                "kai:in_wall_bit": [false, true],  // Wheter the fence gate is connected to a wall or not
+                "kai:invisible": [false, true], // When true, the fence gate is invisible, this is made to add an extra block in top of our fence gate, which results in a 1.5y collision box.
+                "kai:direction": [false, true] // When true, minecraft:cardinal_direction is south. This block state is the real 'south' value of our fence gate.
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, -90, 0]
+                    }
+                }
+            },
+            // This permutation is only used to render the block in the inventory with the proper rotation. This rotation is never seen in the world, just the inventory.
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 180, 0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, -180, 0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, -180, 0]
+                    }
+                }
+            },
+            // The true rotation of 'south'.
+            {
+                "condition": "q.block_state('kai:direction')",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, -90, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('kai:open')",
+                "components": {
+                    "minecraft:collision_box": false
+                }
+            },
+            {
+                "condition": "!q.block_state('kai:invisible')",
+                "components": {
+                    "minecraft:custom_components": [ // Custom components that add the main functionalities to our fence gate.
+                        "kai:on_interact",
+                        "kai:on_tick",
+                        "kai:on_player_placed",
+                        "kai:on_player_destroy"
+                    ]
+                }
+            },
+            // This permutation is the other half of our fence gate. Should always be invisible.
+            {
+                "condition": "q.block_state('kai:invisible') && !q.block_state('kai:open')",
+                "components": {
+                    "minecraft:selection_box": false,
+                    "minecraft:collision_box": {
+                        "origin": [-2, 0, -8],
+                        "size": [4, 8, 16]
+                    },
+                    "minecraft:geometry": {
+                        "identifier": "geometry.fence_gate",
+                        "bone_visibility": {
+                            "fence_gate_closed": false,
+                            "fence_gate_open": false,
+                            "fence_gate_open_inverted": false,
+                            "post": false,
+                            "fence_gate_closed_wall": false,
+                            "fence_gate_open_wall": false,
+                            "fence_gate_open_inverted_wall": false,
+                            "post_wall": false
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('kai:invisible') && q.block_state('kai:open')",
+                "components": {
+                    "minecraft:selection_box": false,
+                    "minecraft:collision_box": false,
+                    "minecraft:geometry": {
+                        "identifier": "geometry.fence_gate",
+                        "bone_visibility": {
+                            "fence_gate_closed": false,
+                            "fence_gate_open": false,
+                            "fence_gate_open_inverted": false,
+                            "post": false,
+                            "fence_gate_closed_wall": false,
+                            "fence_gate_open_wall": false,
+                            "fence_gate_open_inverted_wall": false,
+                            "post_wall": false
+                        }
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": {
+                "identifier": "geometry.fence_gate", // Our fence gate geometry.
+                "bone_visibility": {
+                    "fence_gate_closed": "!q.block_state('kai:open') && !q.block_state('kai:in_wall_bit')",
+                    "fence_gate_open": "q.block_state('kai:open') && ((q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('kai:direction')) || q.block_state('minecraft:cardinal_direction') == 'west') && !q.block_state('kai:in_wall_bit')",
+                    "fence_gate_open_inverted": "q.block_state('kai:open') && (q.block_state('minecraft:cardinal_direction') == 'north' || q.block_state('minecraft:cardinal_direction') == 'east') && !q.block_state('kai:in_wall_bit')",
+                    "post": "!q.block_state('kai:in_wall_bit')",
+                    "fence_gate_closed_wall": "!q.block_state('kai:open') && q.block_state('kai:in_wall_bit')",
+                    "fence_gate_open_wall": "q.block_state('kai:open') && ((q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('kai:direction')) || q.block_state('minecraft:cardinal_direction') == 'west') && q.block_state('kai:in_wall_bit')",
+                    "fence_gate_open_inverted_wall": "q.block_state('kai:open') && (q.block_state('minecraft:cardinal_direction') == 'north' || q.block_state('minecraft:cardinal_direction') == 'east') && q.block_state('kai:in_wall_bit')",
+                    "post_wall": "q.block_state('kai:in_wall_bit')"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [-2, 0, -8],
+                "size": [4, 16, 16]
+            },
+            "minecraft:selection_box": {
+                "origin": [-2, 0, -8],
+                "size": [4, 16, 16]
+            },
+            "minecraft:flammable": {
+                "catch_chance_modifier": 5,
+                "destroy_chance_modifier": 20
+            },
+            "minecraft:tick": { // Allows onTick to work.
+                "interval_range": [3, 3]
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 3
+            },
+            "tag:fence_gate": {},
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "oak_planks", // The name of your texture.
+                    "render_method": "alpha_test"
+                }
+            }
+        }
+    }
+}

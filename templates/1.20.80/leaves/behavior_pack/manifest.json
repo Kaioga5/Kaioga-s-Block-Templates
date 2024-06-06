@@ -1,0 +1,36 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Leaves",
+        "description": "Leave block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "1e06e952-b59a-4c4a-8b23-7aeedb874dc3",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 80]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "192e31c3-379e-464a-93d7-59062ef53f4e",
+            "version": [1, 0, 0]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "description": "ScriptAPI",
+            "entry": "main.js", // Activates our main.js file for it to be able to import more files
+            "uuid": "00e71c09-4c18-4688-b3de-69a5606d415e",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+      {
+          "module_name": "@minecraft/server", // Adds the module @minecraft/server to our pack
+          "version": "1.11.0-beta"
+      }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+  }

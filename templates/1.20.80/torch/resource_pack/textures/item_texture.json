@@ -1,0 +1,9 @@
+{
+	"resource_pack_name": "Torch Template",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"torch_item": { // Name of the texture for your item.
+			"textures": "textures/blocks/torch_on" // Path of the texture used for your item.
+		}
+	}
+}

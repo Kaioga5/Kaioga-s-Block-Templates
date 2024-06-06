@@ -1,0 +1,92 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:basalt",
+            "menu_category": {
+                "category": "nature"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "permutations": [
+            // Makes the block rotate like basalt. This rotation is used in similar blocks, like pillars and logs.
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            -90
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            -90
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": "minecraft:geometry.full_block", // Makes the block have a 16x16x16 cube unit. A custom geometry can be used
+            "minecraft:destructible_by_mining": { // Hardness.
+                "seconds_to_destroy": 7
+            },
+            "minecraft:destructible_by_explosion": { // Blast resistance.
+                "explosion_resistance": 4.2
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "basalt_side", // Texture used for all sides of the texture. If you want to define unique textures for specific sides, do so like done in this template for the upper and botom faces but with the cardinal directions.
+                    "render_method": "opaque"
+                },
+                "up": {
+                    "texture": "basalt_top", // Texture used for the top face of the block.
+                    "render_method": "opaque"
+                },
+                "down": {
+                    "texture": "basalt_top", // Texture used for the bottom face of the block.
+                    "render_method": "opaque"
+                }
+            }
+        }
+    }
+}

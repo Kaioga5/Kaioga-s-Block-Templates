@@ -1,0 +1,11 @@
+{
+	"texture_name": "atlas.terrain",
+	"resource_pack_name": "Kaioga's Logs",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"log_oak": { // Name of the texture used for the block sides.
+			"textures": "textures/blocks/log_oak" // Path of the texture.
+		}
+	}
+}

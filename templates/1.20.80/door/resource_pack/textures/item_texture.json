@@ -1,0 +1,9 @@
+{
+	"resource_pack_name": "Door Template",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"door_item": { // Name of the texture for your item.
+			"textures": "textures/items/mangrove_door" // Path of the texture used for your item.
+		}
+	}
+}

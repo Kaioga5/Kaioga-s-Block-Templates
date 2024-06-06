@@ -1,0 +1,36 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Door",
+        "description": "Door block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "161bda15-75a3-4273-a28c-03d7dbcc9af9",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 80]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "3e3e4b9c-5070-4d35-b009-b85b1a5a25c0",
+            "version": [1, 0, 0]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "description": "ScriptAPI",
+            "entry": "main.js", // Activates our main.js file for it to be able to import more files
+            "uuid": "d0ab69cf-b6ea-48f9-9ef4-d510af27f8e3",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server", // Adds the module @minecraft/server to our pack
+            "version": "1.11.0-beta"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}

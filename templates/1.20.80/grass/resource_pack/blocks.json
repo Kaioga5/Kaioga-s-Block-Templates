@@ -1,0 +1,7 @@
+{
+	"format_version": [1, 20, 60],
+	"kai:dirt": {
+		"sound": "dirt", // The sound made upon placement.
+		"textures": "dirt" // Texture used for the planks.
+	}
+}

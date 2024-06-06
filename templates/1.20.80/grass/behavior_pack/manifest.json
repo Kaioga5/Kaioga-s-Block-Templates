@@ -1,0 +1,36 @@
+{
+  "format_version": 2,
+  "header": {
+      "name": "Kaioga's Grass Block",
+      "description": "Grass block block template created by Kaioga for Minecraft Bedrock Edition.",
+      "uuid": "83f3d21c-af79-4e4e-a701-fd862c62fe10",
+      "version": [1, 0, 0],
+      "min_engine_version": [1, 20, 80]
+  },
+  "modules": [
+      {
+          "type": "data",
+          "uuid": "ecb01942-47a9-4591-b2d8-951180f0d8ab",
+          "version": [1, 0, 0]
+      },
+      {
+          "type": "script",
+          "language": "javascript",
+          "description": "ScriptAPI",
+          "entry": "main.js", // Activates our main.js file for it to be able to import more files
+          "uuid": "86a67118-8031-4809-98c7-1f914a33ce6a",
+          "version": [1, 0, 0]
+      }
+  ],
+  "dependencies": [
+    {
+        "module_name": "@minecraft/server", // Adds the module @minecraft/server to our pack
+        "version": "1.11.0-beta"
+    }
+  ],
+  "metadata": {
+      "authors": [
+          "Kaioga"
+      ]
+  }
+}

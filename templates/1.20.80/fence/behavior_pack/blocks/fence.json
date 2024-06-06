@@ -1,0 +1,262 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kai:fence",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+				"kai:post": [0, 1],
+				"kai:north_picket": [0, 1],
+				"kai:south_picket": [0, 1],
+				"kai:east_picket": [0, 1],
+				"kai:west_picket": [0, 1]
+			}
+		},
+		"permutations": [ // Collision and selection boxes for all possible combinations of fences.
+			{
+				"condition": "q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -8],
+						"size": [10, 16, 10]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [10, 16, 10]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -8],
+						"size": [10, 16, 10]
+					},
+					"minecraft:selection_box": {
+						"origin": [-2, 0, -8],
+						"size": [10, 16, 10]
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [10, 16, 10]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [10, 16, 10]
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -2],
+						"size": [10, 16, 10]
+					},
+					"minecraft:selection_box": {
+						"origin": [-2, 0, -2],
+						"size": [10, 16, 10]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -2],
+						"size": [8, 16, 8]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 16, 16]
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, 2],
+						"size": [4, 16, -4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-2, 0, -2],
+						"size": [4, 16, 4]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -4],
+						"size": [7, 16, 8]
+					},
+					"minecraft:selection_box": {
+						"origin": [-2, 0, -8],
+						"size": [10, 16, 16]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-4, 0, -4],
+						"size": [6, 16, 8]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [10, 16, 16]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-4, 0, -4],
+						"size": [8, 16, 6]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 16, 10]
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-4, 0, -2],
+						"size": [8, 16, 7]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [16, 16, 10]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -8],
+						"size": [4, 16, 10]
+					},
+					"minecraft:selection_box": {
+						"origin": [-2, 0, -8],
+						"size": [4, 16, 10]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:south_picket') && !q.block_state('kai:north_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -2],
+						"size": [4, 16, 10]
+					},
+					"minecraft:selection_box": {
+						"origin": [-2, 0, -2],
+						"size": [4, 16, 10]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:east_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:north_picket') && !q.block_state('kai:south_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [10, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [10, 16, 4]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:west_picket') && !q.block_state('kai:east_picket') && !q.block_state('kai:north_picket') && !q.block_state('kai:south_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -2],
+						"size": [10, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-2, 0, -2],
+						"size": [10, 16, 4]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('kai:north_picket') && q.block_state('kai:south_picket') && !q.block_state('kai:west_picket') && !q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-2, 0, -8],
+						"size": [4, 16, 16]
+					},
+					"minecraft:selection_box": {
+						"origin": [-2, 0, -8],
+						"size": [4, 16, 16]
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('kai:north_picket') && !q.block_state('kai:south_picket') && q.block_state('kai:west_picket') && q.block_state('kai:east_picket')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [16, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [16, 16, 4]
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": {
+				"identifier": "geometry.fence",
+				"bone_visibility": { // Enables and disables bones according to the fence's block states.
+					"post": "!q.block_state('kai:post')",
+					"north_picket": "q.block_state('kai:north_picket')",
+					"south_picket": "q.block_state('kai:south_picket')",
+					"east_picket": "q.block_state('kai:east_picket')",
+					"west_picket": "q.block_state('kai:west_picket')"
+				}
+			},
+			"minecraft:loot": "loot_tables/blocks/oak_fence.json", // Drops the inventory fence block when the block is destroyed.
+			"minecraft:flammable": { // Makes the fences flammable.
+				"catch_chance_modifier": 5,
+				"destroy_chance_modifier": 20
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					3,
+					3
+				]
+			},
+			"minecraft:custom_components": ["kai:on_player_destroy", "kai:on_interact", "kai:on_tick"],			  
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 3
+			},
+			"tag:fence": {}, // Tag used for fences.
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "oak_planks",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

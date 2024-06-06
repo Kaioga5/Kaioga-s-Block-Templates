@@ -1,0 +1,36 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Top Snow",
+        "description": "Top Snow block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "6f05b97c-7ad5-43c1-a318-2b3368bc9932",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 80]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "57b7a7bf-240e-42c8-882c-45b43f2d8a5f",
+            "version": [1, 0, 0]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "description": "ScriptAPI",
+            "entry": "main.js", // Activates our main.js file for it to be able to import more files
+            "uuid": "44b8993e-185a-4e92-82a2-729bded7a142",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server", // Adds the module @minecraft/server to our pack
+            "version": "1.11.0-beta"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}  

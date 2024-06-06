@@ -1,0 +1,141 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "kai:door", // The identifier of your block
+      "menu_category": {
+        "category": "none" // This makes the block version of the door not appear in the creative inventory, remember you are using an item to place it
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
+        }
+      },
+      "states": {
+        "kai:open_bit": [false, true],
+        "kai:upper_block_bit": [false, true],
+        "kai:door_hinge_bit": [false, true] // Flipped
+      }
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai:open_bit') && !q.block_state('kai:door_hinge_bit')",
+        "components": {
+          "minecraft:collision_box": {
+            "origin": [5, 0, -8],
+            "size": [3, 16, 16]
+          },
+          "minecraft:selection_box": {
+            "origin": [5, 0, -8],
+            "size": [3, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai:open_bit') && q.block_state('kai:door_hinge_bit')",
+        "components": {
+          "minecraft:collision_box": {
+            "origin": [-8, 0, -8],
+            "size": [3, 16, 16]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [3, 16, 16]
+          }
+        }
+      },
+      // Bottom Slab
+      {
+        "condition": "!q.block_state('kai:upper_block_bit')",
+        "components": {
+          "minecraft:custom_components": [
+            "kai:on_place",
+            "kai:on_interact",
+            "kai:on_tick"
+          ],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "mangrove_door_bottom",
+              "render_method": "blend"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai:upper_block_bit')",
+        "components": {
+          "minecraft:custom_components": ["kai:on_interact", "kai:on_tick"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "mangrove_door_top",
+              "render_method": "blend"
+            }
+          }
+        }
+      }
+    ],
+    "components": {
+      "minecraft:custom_components": ["kai:on_interact"],
+      "minecraft:collision_box": {
+        "origin": [-8, 0, 5],
+        "size": [16, 16, 3]
+      },
+      "minecraft:selection_box": {
+        "origin": [-8, 0, 5],
+        "size": [16, 16, 3]
+      },
+      "minecraft:tick": {
+        "interval_range": [3, 3]
+      },
+      "minecraft:destructible_by_mining": {
+        // Hardness
+        "seconds_to_destroy": 3
+      },
+      "minecraft:destructible_by_explosion": {
+        // Blast resistance
+        "explosion_resistance": 3
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.door",
+        "bone_visibility": {
+          "door_open": "q.block_state('kai:open_bit') && !q.block_state('kai:door_hinge_bit')",
+          "door_closed": "!q.block_state('kai:open_bit') && !q.block_state('kai:door_hinge_bit')",
+          "door_open_flipped": "q.block_state('kai:open_bit') && q.block_state('kai:door_hinge_bit')",
+          "door_closed_flipped": "!q.block_state('kai:open_bit') && q.block_state('kai:door_hinge_bit')"
+        }
+      }
+    }
+  }
+}

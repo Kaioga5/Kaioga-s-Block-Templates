@@ -1,0 +1,125 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:torch", // Identifier for your torch block
+            "menu_category": {
+                "category": "none" // Hides the block in the creative inventory. Remember you are using an item to place it
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "permutations": [
+            // Makes the block rotate like torches and modifies the selection boxes
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                      "rotation": [
+                          0,
+                          90,
+                          0
+                      ]
+                    },
+                    "minecraft:selection_box": {
+                      "origin": [3, 3, -2.5],
+                      "size": [5, 10, 5]
+                  }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                      "origin": [2.5, 3, -2.5],
+                      "size": [5.5, 10, 5]
+                  }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                  "minecraft:selection_box": {
+                      "origin": [2.5, 3, -2.5],
+                      "size": [5.5, 10, 5]
+                  }
+              }
+          },
+          {
+                "condition": "query.block_state('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                      "origin": [2.5, 3, -2.5],
+                      "size": [5.5, 10, 5]
+                  }
+                }
+            }
+        ],
+        "components": {
+          "minecraft:geometry": {
+              "identifier": "geometry.torch", // Torch geometry identifier
+              "bone_visibility": { // Decides which part of the model to show based on it's block states; wall torches or normal torches
+                  "torch": "q.block_state('minecraft:block_face') == 'up' || q.block_state('minecraft:block_face') == 'down'",
+                  "torch_wall": "q.block_state('minecraft:block_face') == 'north' || q.block_state('minecraft:block_face') == 'south' || q.block_state('minecraft:block_face') == 'east' || q.block_state('minecraft:block_face') == 'west'"
+                  }
+            },
+            "minecraft:selection_box": {
+              "origin": [-1.75, 0, -1.75],
+              "size": [3.5, 10, 3.5]
+            },
+            "minecraft:placement_filter": { 
+                "conditions": [
+                    {
+                        "allowed_faces": [ // Decides in which faces the torch can be placed
+                            "up",
+                            "side"
+                        ],
+                        "block_filter": [
+                            {
+                                "tags": "q.any_tag('grass','stone','wood')" // Allowed blocks to place the torch at
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minecraft:loot": "loot_tables/blocks/torch.json", // Makes the block drop it's item version
+            "minecraft:collision_box": false,
+            "minecraft:destructible_by_mining": { // Hardness
+                "seconds_to_destroy": 0
+            },
+            "minecraft:destructible_by_explosion": { // Blast resistance
+                "explosion_resistance": 0
+            },
+            "minecraft:custom_components": ["kai:on_random_tick"], // The name of our custom component
+            "minecraft:light_emission": 14, // Makes the torch emit light
+            "minecraft:light_dampening": 0,
+            "minecraft:material_instances": {
+                "*": {
+                      "texture": "torch_on", // The texture used for the torch
+                      "render_method": "blend",
+                      "ambient_occlusion": false,
+                      "face_dimming": false
+                }
+            }
+        }
+    }
+}

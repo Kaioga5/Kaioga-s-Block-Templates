@@ -1,0 +1,60 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:grass", // Block identifier
+            "menu_category": {
+                "category": "nature"
+            },
+            "states": {
+                "kai:snowy": [false, true]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('kai:snowy')",
+                    "components": {
+                        "minecraft:material_instances": { // This component is defining the texture and render method of the pink petals.
+                            "up": {
+                                "texture": "snow",
+                                "render_method": "opaque"
+                            },
+                            "*": {
+                                "texture": "grass_side_snowed",
+                                "render_method": "opaque"
+                            },
+                            "down": {
+                                "texture": "dirt",
+                                "render_method": "opaque"
+                        }
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:light_dampening": 4,
+            "minecraft:destructible_by_mining": { // Hardness
+                "seconds_to_destroy": 2
+            },
+            "minecraft:geometry": "minecraft:geometry.full_block", // Makes the block have a 16x16x16 cube unit, since that is what minecraft:geometry.full_block contains. A custom geometry can be used.
+            "minecraft:material_instances": { // This component is defining the texture and render method of the pink petals.
+                "up": {
+                    "texture": "grass_carried_top",
+                    "render_method": "opaque"
+                },
+                "*": {
+                    "texture": "grass_carried",
+                    "render_method": "opaque"
+                },
+                "down": {
+                    "texture": "dirt",
+                    "render_method": "opaque"
+                }
+            },
+            "minecraft:custom_components": ["kai:on_random_tick", "kai:on_interact"], // The name of our custom component
+            "minecraft:destructible_by_explosion": { // Blast resistance
+                "explosion_resistance": 3
+            }
+        }
+    }
+}

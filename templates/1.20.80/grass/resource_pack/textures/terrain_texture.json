@@ -1,0 +1,11 @@
+{
+	"texture_name": "atlas.terrain",
+	"resource_pack_name": "Kaioga's Grass Block",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"grass_side_snowed": { // Name of the texture used for the block sides.
+			"textures": "textures/blocks/grass_side_snowed" // Path of the texture.
+		}
+	}
+}

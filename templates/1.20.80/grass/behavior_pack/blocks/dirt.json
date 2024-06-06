@@ -1,0 +1,21 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:dirt", // Block identifier
+            "menu_category": {
+                "category": "nature"
+            }
+        },
+        "components": {
+            "minecraft:light_dampening": 4,
+            "minecraft:destructible_by_mining": { // Hardness
+                "seconds_to_destroy": 2
+            },
+            "minecraft:custom_components": ["kai:on_interact"], // The name of our custom component
+            "minecraft:destructible_by_explosion": { // Blast resistance
+                "explosion_resistance": 3
+            }
+        }
+    }
+}

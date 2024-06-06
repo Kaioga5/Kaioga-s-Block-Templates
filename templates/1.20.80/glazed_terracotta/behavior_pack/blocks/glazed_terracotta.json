@@ -1,0 +1,95 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kai:glazed_terracotta",
+            "menu_category": {
+                "category": "construction",
+                "group": "itemGroup.name.glazedTerracotta"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": { "rotation": [0, 0, 0] },
+                    "minecraft:geometry": {
+                        "identifier": "geometry.glazed_terracotta",
+                        "bone_visibility": {
+                            "bottom_1": false,
+                            "bottom_2": false,
+                            "bottom_3": false,
+                            "bottom_4": true
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": { "rotation": [0, 90, 0] },
+                    "minecraft:geometry": {
+                        "identifier": "geometry.glazed_terracotta",
+                        "bone_visibility": {
+                            "bottom_1": false,
+                            "bottom_2": false,
+                            "bottom_3": true,
+                            "bottom_4": false
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": { "rotation": [0, 180, 0] },
+                    "minecraft:geometry": {
+                        "identifier": "geometry.glazed_terracotta",
+                        "bone_visibility": {
+                            "bottom_1": false,
+                            "bottom_2": true,
+                            "bottom_3": false,
+                            "bottom_4": false
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": { "rotation": [0, -90, 0] },
+                    "minecraft:geometry": {
+                        "identifier": "geometry.glazed_terracotta",
+                        "bone_visibility": {
+                            "bottom_1": true,
+                            "bottom_2": false,
+                            "bottom_3": false,
+                            "bottom_4": false
+                        }
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": {
+                "identifier": "geometry.glazed_terracotta" // The identifier of our geometry
+            },
+            "minecraft:destructible_by_mining": { // Hardness
+                "seconds_to_destroy": 7
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "purple_glazed_terracotta", // The texture of your block
+                    "render_method": "opaque"
+                }
+            }
+        }
+    }
+}
