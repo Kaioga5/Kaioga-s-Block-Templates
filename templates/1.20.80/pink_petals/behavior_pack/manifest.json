@@ -1,0 +1,36 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Kaioga's Pink Petals",
+        "description": "Pink petals block template created by Kaioga for Minecraft Bedrock Edition.",
+        "uuid": "7e1e2f1c-737e-4c40-a8de-f8fe32b64475",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 20, 80]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "8d79baee-81ff-417a-910c-8e2e227eba2c",
+            "version": [1, 0, 0]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "description": "ScriptAPI",
+            "entry": "main.js", // Activates our main.js file for it to be able to import more files
+            "uuid": "e530f917-a176-433c-9c2f-3aff2d6b168c",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server", // Adds the module @minecraft/server to our pack
+            "version": "1.11.0-beta"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Kaioga"
+        ]
+    }
+}  
