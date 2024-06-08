@@ -1,4 +1,4 @@
-import { world, BlockPermutation } from '@minecraft/server';
+import { world } from '@minecraft/server';
 
 world.beforeEvents.worldInitialize.subscribe(eventData => {
     // Register a custom component named kai:on_random_tick for grass spreading logic
@@ -40,18 +40,17 @@ world.beforeEvents.worldInitialize.subscribe(eventData => {
                         // Get the block at the current position within the range
                         const targetBlock = block.dimension.getBlock({ x: x + dx, y: y + dy, z: z + dz });
 
-                        // Check if the target block is KAI:dirt
-                        if (targetBlock && targetBlock.typeId === 'kai:dirt') {
-
+                        // Check if the target block is kai:dirt or kai:grass
+                        if (targetBlock && (targetBlock.typeId === 'kai:dirt' || targetBlock.typeId === 'kai:grass')) {
                             // Get the block above the target block
                             const blockAbove = targetBlock.above();
 
-                            // Check if the block above is not in the allowed blocks list
-                            if (blockAbove && !allowedBlocks.includes(blockAbove.typeId)) {
-                                // Turn the block into a kai:dirt block
+                            // If the target block is kai:grass and the block above is not in the allowed blocks list, turn it into kai:dirt
+                            if (targetBlock.typeId === 'kai:grass' && blockAbove && !allowedBlocks.includes(blockAbove.typeId)) {
                                 targetBlock.setType('kai:dirt');
-                            } else if (targetBlock.typeId === 'kai:dirt' && blockAbove && allowedBlocks.includes(blockAbove.typeId)) {
-                                // If the target block is kai:dirt and the block above is in the allowed blocks list, turn it into a kai:grass block
+                            }
+                            // If the target block is kai:dirt and the block above is in the allowed blocks list, turn it into kai:grass
+                            else if (targetBlock.typeId === 'kai:dirt' && blockAbove && allowedBlocks.includes(blockAbove.typeId)) {
                                 targetBlock.setType('kai:grass');
                             }
                         }
