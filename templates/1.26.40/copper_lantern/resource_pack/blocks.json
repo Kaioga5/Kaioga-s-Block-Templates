@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.40",
+  "kai_templates:copper_lantern": {
+    // Vanilla sound set used for placing, breaking and stepping on the block.
+    "sound": "lantern"
+  },
+  "kai_templates:exposed_copper_lantern": {
+    "sound": "lantern"
+  },
+  "kai_templates:weathered_copper_lantern": {
+    "sound": "lantern"
+  },
+  "kai_templates:oxidized_copper_lantern": {
+    "sound": "lantern"
+  },
+  "kai_templates:waxed_copper_lantern": {
+    "sound": "lantern"
+  },
+  "kai_templates:waxed_exposed_copper_lantern": {
+    "sound": "lantern"
+  },
+  "kai_templates:waxed_weathered_copper_lantern": {
+    "sound": "lantern"
+  },
+  "kai_templates:waxed_oxidized_copper_lantern": {
+    "sound": "lantern"
+  }
+}

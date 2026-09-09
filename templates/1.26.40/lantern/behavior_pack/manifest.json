@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Lantern",
+    "description": "Lantern block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "8a79485d-0e6a-51e2-bd22-37dd09d90339",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "fc9b2587-0db6-5218-b784-4b86fc0403c1",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "24540d13-592e-5418-abf2-6821ea671382",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

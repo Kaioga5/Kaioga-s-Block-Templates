@@ -1,0 +1,177 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:wooden_slab",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      },
+      // Allows the block to use exposed vanilla block states.
+      "traits": {
+        // Sets the enabled state from where the player clicked: the face hit, or the top or bottom half.
+        "minecraft:placement_position": {
+          "enabled_states": ["minecraft:vertical_half"]
+        }
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:double": [false, true]
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.wooden_slab.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:wooden_slab_combine": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_wooden_slab",
+        // The block culling rule used to hide faces against neighbours.
+        "culling": "kai_templates:wooden_slab_culling",
+        // The voxel shape used to cull the block.
+        "culling_shape": "kai_templates:wooden_slab"
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "oak_planks",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "opaque"
+        }
+      },
+      // The inventory model. A geometry's item_display_transforms only apply through item_visual, so the bottom slab geometry and its texture are named here again to get the gui pose.
+      "minecraft:item_visual": {
+        "geometry": "geometry.kai_templates_wooden_slab",
+        "material_instances": {
+          "*": {
+            "texture": "oak_planks",
+            "render_method": "opaque"
+          }
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 8, 16]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 8, 16]
+      },
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "can_contain_liquid": true,
+            "on_liquid_touches": "no_reaction"
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 1.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.75
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.4
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.35
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.25
+          }
+        ]
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 3
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#8F7748",
+      // How easily fire catches on and destroys the block.
+      "minecraft:flammable": true
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          // Rotates, scales or offsets the geometry and boxes for this permutation.
+          "minecraft:transformation": {
+            "translation": [0, 0.5, 0]
+          },
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_wooden_slab_top",
+            // The block culling rule used to hide faces against neighbours.
+            "culling": "kai_templates:wooden_slab_culling",
+            // The voxel shape used to cull the block.
+            "culling_shape": "kai_templates:wooden_slab"
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:double')",
+        "components": {
+          "minecraft:redstone_conductivity": {
+            "redstone_conductor": true
+          },
+          "minecraft:geometry": "minecraft:geometry.full_block",
+          "minecraft:transformation": {
+            "translation": [0, 0, 0]
+          },
+          "minecraft:collision_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          },
+          "minecraft:liquid_detection": {
+            "detection_rules": [
+              {
+                "liquid_type": "water",
+                "can_contain_liquid": false,
+                "on_liquid_touches": "blocking"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

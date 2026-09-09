@@ -1,0 +1,13 @@
+{
+  "resource_pack_name": "kaiogas_iron_door",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_iron_door_lower": {
+      "textures": "textures/blocks/door_iron_lower"
+    },
+    "kai_templates_iron_door_upper": {
+      "textures": "textures/blocks/door_iron_upper"
+    }
+  }
+}

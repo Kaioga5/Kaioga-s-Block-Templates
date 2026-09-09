@@ -1,0 +1,83 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:redstone_lamp",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "items"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:lit": [false, true]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:lit')",
+        "components": {
+          // A permutation replaces the whole material_instances component, it does not merge with the base one, so every field is restated here.
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "redstone_lamp_on",
+              // Controls how the block is rendered using vanilla render methods. Every instance on the block must use the same one.
+              "render_method": "opaque",
+              // Same directional shading as the unlit state. This is where you would change it per state.
+              "face_dimming": true
+            }
+          },
+          // Light level the block gives off, 0 to 15.
+          "minecraft:light_emission": 15
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.redstone_lamp.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "redstone_lamp_off",
+          // Controls how the block is rendered using vanilla render methods. Every instance on the block must use the same one.
+          "render_method": "opaque",
+          // Whether each face gets the vanilla directional shading. A lamp is a plain solid block, so it shades like one.
+          "face_dimming": true
+        }
+      },
+      // Makes the block receive redstone power and get onRedstoneUpdate events.
+      "minecraft:redstone_consumer": {
+        "min_power": 0,
+        "propagates_power": false
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true,
+        "allows_wire_to_step_down": true
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#8F7748",
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.45
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.3
+      },
+      // The instrument a note block plays when it sits on this block.
+      "minecraft:instrument_sound": {
+        "up": "note.hat"
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "push_pull"
+      },
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:redstone_lamp_power": {}
+    }
+  }
+}

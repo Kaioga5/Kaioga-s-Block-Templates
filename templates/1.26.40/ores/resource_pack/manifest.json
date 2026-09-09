@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Ore",
+    "description": "Ore block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "8118b895-004e-5a73-8ebd-0e5836742bba",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "11a5281c-5aae-5ec4-9f14-b08996c12017",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "461840ca-d68d-5bae-b654-0f538b6508ff",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

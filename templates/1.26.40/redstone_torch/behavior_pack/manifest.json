@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Redstone Torch",
+    "description": "Redstone Torch block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "36b20e9d-5be4-5c70-94f6-db77f68fd3ed",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "ad456478-979a-50b9-af8e-5688dfdf505c",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "d81981e7-c2dc-57eb-9265-d1f28ce19034",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "60069c4f-e6e6-5d88-afbe-ec3ee7fb4bfd",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.9.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

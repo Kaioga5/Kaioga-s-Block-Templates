@@ -1,0 +1,471 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:geometry": [
+    {
+      // One model for the whole plant. bone_visibility in the block file shows one stem, at most one set of leaves, or the shoot.
+      "description": {
+        "identifier": "geometry.kai_templates_bamboo",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        // The two stalk widths, straight from the Java models: 2 and 3 pixels square, reading the first strip of the stem texture.
+        {
+          "name": "stem_thin",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1.0,
+                0,
+                -1.0
+              ],
+              "size": [
+                2,
+                16,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "up": {
+                  "uv": [
+                    13,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ],
+                  "material_instance": "stem"
+                },
+                "down": {
+                  "uv": [
+                    13,
+                    4
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ],
+                  "material_instance": "stem"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "stem_thick",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1.5,
+                0,
+                -1.5
+              ],
+              "size": [
+                3,
+                16,
+                3
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    3,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    3,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    3,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    3,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "up": {
+                  "uv": [
+                    13,
+                    0
+                  ],
+                  "uv_size": [
+                    3,
+                    3
+                  ],
+                  "material_instance": "stem"
+                },
+                "down": {
+                  "uv": [
+                    13,
+                    4
+                  ],
+                  "uv_size": [
+                    3,
+                    3
+                  ],
+                  "material_instance": "stem"
+                }
+              }
+            }
+          ]
+        },
+        // Bamboo leaves make a plus, not a cross: two axis-aligned planes the full block wide. The Java model draws them 14.4 wide, but the placed vanilla Bedrock plant measures a whole block across, so 16 is what matches in game.
+        {
+          "name": "leaves_small",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0,
+                -0.025
+              ],
+              "size": [
+                16,
+                16,
+                0.05
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "material_instance": "leaf_small"
+                },
+                "south": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    16
+                  ],
+                  "material_instance": "leaf_small"
+                }
+              }
+            },
+            {
+              "origin": [
+                -0.025,
+                0,
+                -8
+              ],
+              "size": [
+                0.05,
+                16,
+                16
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "material_instance": "leaf_small"
+                },
+                "west": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    16
+                  ],
+                  "material_instance": "leaf_small"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "leaves_large",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0,
+                -0.025
+              ],
+              "size": [
+                16,
+                16,
+                0.05
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "material_instance": "leaf_large"
+                },
+                "south": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    16
+                  ],
+                  "material_instance": "leaf_large"
+                }
+              }
+            },
+            {
+              "origin": [
+                -0.025,
+                0,
+                -8
+              ],
+              "size": [
+                0.05,
+                16,
+                16
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "material_instance": "leaf_large"
+                },
+                "west": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    16
+                  ],
+                  "material_instance": "leaf_large"
+                }
+              }
+            }
+          ]
+        },
+        // The shoot is a plain plant cross, turned 45 degrees and authored at its final width because Bedrock has no rescale.
+        {
+          "name": "shoot",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -10.18235,
+                0,
+                -0.025
+              ],
+              "size": [
+                20.3647,
+                16,
+                0.05
+              ],
+              "pivot": [
+                0,
+                8,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "material_instance": "shoot"
+                },
+                "south": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    16
+                  ],
+                  "material_instance": "shoot"
+                }
+              }
+            },
+            {
+              "origin": [
+                -10.18235,
+                0,
+                -0.025
+              ],
+              "size": [
+                20.3647,
+                16,
+                0.05
+              ],
+              "pivot": [
+                0,
+                8,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "material_instance": "shoot"
+                },
+                "south": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    16
+                  ],
+                  "material_instance": "shoot"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

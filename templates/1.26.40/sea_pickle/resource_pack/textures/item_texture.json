@@ -1,0 +1,10 @@
+{
+  "resource_pack_name": "kai_templates_sea_pickle",
+  "texture_name": "atlas.items",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_sea_pickle_carried": {
+      "textures": "textures/items/sea_pickle"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Slime Block",
+    "description": "Slime block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "9641b604-db50-4193-9014-905b6f7a68dc",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "0f4f5f29-a6cf-479f-aec8-b09cc27618a9",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "a9f4b00f-1317-4061-886f-e73dfefdc02c",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

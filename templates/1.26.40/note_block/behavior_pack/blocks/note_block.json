@@ -1,0 +1,104 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:note_block",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "items"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:note_octave": [0, 1, 2],
+        "kai_templates:note_step": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.note_block.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "noteblock"
+        }
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#8F7748",
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 4,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 0.6
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.3
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.2
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.1
+          }
+        ]
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.8
+      },
+      // How easily fire catches on and destroys the block.
+      "minecraft:flammable": {
+        "catch_chance_modifier": 5,
+        "destroy_chance_modifier": 20
+      },
+      // Makes the block receive redstone power and get onRedstoneUpdate events.
+      "minecraft:redstone_consumer": {
+        "min_power": 0,
+        "propagates_power": false
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // The instrument a note block plays when it sits on this block.
+      "minecraft:instrument_sound": {
+        "up": "note.bassattack"
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "push_pull"
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/note_block.json",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:note_block_play": {}
+    }
+  }
+}

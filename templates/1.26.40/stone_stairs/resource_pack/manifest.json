@@ -1,0 +1,45 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Stone Stairs",
+    "description": "Stone Stairs block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "9c05e7a1-38d2-4f94-b520-7ea6c3d81f77",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      40
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "4b8d6c25-0a19-4e73-9f81-5c27b0e9a388",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "5a91b03c-7e46-4d28-8b17-9c4f2e0a6d55",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Kaioga"
+    ]
+  }
+}

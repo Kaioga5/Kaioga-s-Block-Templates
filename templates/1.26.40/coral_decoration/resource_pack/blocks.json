@@ -1,0 +1,22 @@
+{
+  "format_version": "1.21.40",
+  "kai_templates:coral": {
+    // Vanilla sound set used for placing, breaking and stepping on the block.
+    "sound": "stone"
+  },
+  "kai_templates:dead_coral": {
+    "sound": "stone"
+  },
+  "kai_templates:coral_fan": {
+    "sound": "stone"
+  },
+  "kai_templates:dead_coral_fan": {
+    "sound": "stone"
+  },
+  "kai_templates:coral_wall_fan": {
+    "sound": "stone"
+  },
+  "kai_templates:dead_coral_wall_fan": {
+    "sound": "stone"
+  }
+}

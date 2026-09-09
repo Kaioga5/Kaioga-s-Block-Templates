@@ -1,0 +1,230 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:jukebox",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "items"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:signal": [
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+        ]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:signal') == 1",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 1
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 2",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 2
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 3",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 3
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 4",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 4
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 5",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 5
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 6",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 6
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 7",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 7
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 8",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 8
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 9",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 9
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 10",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 10
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 11",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 11
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 12",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 12
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 13",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 13
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 14",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 14
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:signal') == 15",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 15
+          }
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.jukebox.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "jukebox_side"
+        },
+        "up": {
+          "texture": "jukebox_top"
+        }
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#8F7748",
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 10,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 1.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.75
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.4
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.35
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.25
+          }
+        ]
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 6
+      },
+      // How easily fire catches on and destroys the block.
+      "minecraft:flammable": {
+        "catch_chance_modifier": 5,
+        "destroy_chance_modifier": 20
+      },
+      // The instrument a note block plays when it sits on this block.
+      "minecraft:instrument_sound": {
+        "up": "note.bassattack"
+      },
+      // Makes the block output a redstone signal.
+      "minecraft:redstone_producer": {
+        "power": 0
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "push_pull"
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/jukebox.json",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:jukebox_slot": {}
+    }
+  }
+}

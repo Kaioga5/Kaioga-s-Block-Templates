@@ -1,0 +1,215 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_torch",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "torch",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                -1
+              ],
+              "size": [
+                2,
+                10,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    10
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    10
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    10
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    10
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    7,
+                    13
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_torch_wall",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "torch",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                3.5,
+                -9
+              ],
+              "size": [
+                2,
+                10,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    10
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    10
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    10
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    10
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    7,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    7,
+                    13
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              },
+              "pivot": [
+                0,
+                3.5,
+                -8
+              ],
+              "rotation": [
+                -22.5,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

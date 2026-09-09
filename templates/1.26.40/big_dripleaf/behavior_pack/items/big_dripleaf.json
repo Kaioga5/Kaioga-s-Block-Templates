@@ -1,0 +1,25 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:item": {
+    "description": {
+      // The ID for the item. Format must be namespace:item_name.
+      "identifier": "kai_templates:big_dripleaf",
+      // Where the item appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      // Places the block when the item is used. replace_block_item makes this item stand in for the block's own item. No icon is set, so the block's own model is shown.
+      "minecraft:block_placer": {
+        "block": "kai_templates:big_dripleaf",
+        "replace_block_item": true
+      },
+      // Chance the item adds a layer to a composter, vanilla's value for a big dripleaf.
+      "minecraft:compostable": {
+        "composting_chance": 65
+      }
+    }
+  }
+}

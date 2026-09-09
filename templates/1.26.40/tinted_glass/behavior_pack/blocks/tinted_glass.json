@@ -1,0 +1,47 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:tinted_glass",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.tinted_glass.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "tinted_glass",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "blend"
+        }
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 15,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.45
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.3
+      },
+      // The instrument a note block plays when it sits on this block.
+      "minecraft:instrument_sound": {
+        "up": "note.hat"
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#4C4C4C"
+    }
+  }
+}

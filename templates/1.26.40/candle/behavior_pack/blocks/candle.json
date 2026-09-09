@@ -1,0 +1,462 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:candle",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "items"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:candles": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "kai_templates:lit": [
+          false,
+          true
+        ]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:candles') == 0 && !q.block_state('kai_templates:lit')",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_candle_1",
+            "bone_visibility": {
+              "flames": "q.block_state('kai_templates:lit')"
+            }
+          },
+          // The block's collision box.
+          "minecraft:collision_box": {
+            "origin": [
+              -1,
+              0,
+              -1
+            ],
+            "size": [
+              2,
+              6,
+              2
+            ]
+          },
+          // The block's selection box.
+          "minecraft:selection_box": {
+            "origin": [
+              -1,
+              0,
+              -1
+            ],
+            "size": [
+              2,
+              6,
+              2
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:candles') == 0 && q.block_state('kai_templates:lit')",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_candle_1",
+            "bone_visibility": {
+              "flames": "q.block_state('kai_templates:lit')"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [
+              -1,
+              0,
+              -1
+            ],
+            "size": [
+              2,
+              6,
+              2
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -1,
+              0,
+              -1
+            ],
+            "size": [
+              2,
+              6,
+              2
+            ]
+          },
+          // Light level the block gives off, 0 to 15.
+          "minecraft:light_emission": 3,
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_candle_lit",
+              // Controls how the block is rendered using vanilla render methods.
+              "render_method": "alpha_test",
+              // Opposite of the unlit state, which keeps the default directional shading. Flame-lit wax reads evenly bright from every side.
+              "face_dimming": false
+            },
+            "flame": {
+              "texture": "kai_templates_candle_flame",
+              "render_method": "alpha_test",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:candles') == 1 && !q.block_state('kai_templates:lit')",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_candle_2",
+            "bone_visibility": {
+              "flames": "q.block_state('kai_templates:lit')"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [
+              -3,
+              0,
+              -2
+            ],
+            "size": [
+              6,
+              6,
+              3
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -3,
+              0,
+              -2
+            ],
+            "size": [
+              6,
+              6,
+              3
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:candles') == 1 && q.block_state('kai_templates:lit')",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_candle_2",
+            "bone_visibility": {
+              "flames": "q.block_state('kai_templates:lit')"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [
+              -3,
+              0,
+              -2
+            ],
+            "size": [
+              6,
+              6,
+              3
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -3,
+              0,
+              -2
+            ],
+            "size": [
+              6,
+              6,
+              3
+            ]
+          },
+          "minecraft:light_emission": 6,
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_candle_lit",
+              "render_method": "alpha_test",
+              // Opposite of the unlit state, which keeps the default directional shading. Flame-lit wax reads evenly bright from every side.
+              "face_dimming": false
+            },
+            "flame": {
+              "texture": "kai_templates_candle_flame",
+              "render_method": "alpha_test",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:candles') == 2 && !q.block_state('kai_templates:lit')",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_candle_3",
+            "bone_visibility": {
+              "flames": "q.block_state('kai_templates:lit')"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [
+              -2,
+              0,
+              -2
+            ],
+            "size": [
+              5,
+              6,
+              5
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -2,
+              0,
+              -2
+            ],
+            "size": [
+              5,
+              6,
+              5
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:candles') == 2 && q.block_state('kai_templates:lit')",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_candle_3",
+            "bone_visibility": {
+              "flames": "q.block_state('kai_templates:lit')"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [
+              -2,
+              0,
+              -2
+            ],
+            "size": [
+              5,
+              6,
+              5
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -2,
+              0,
+              -2
+            ],
+            "size": [
+              5,
+              6,
+              5
+            ]
+          },
+          "minecraft:light_emission": 9,
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_candle_lit",
+              "render_method": "alpha_test",
+              // Opposite of the unlit state, which keeps the default directional shading. Flame-lit wax reads evenly bright from every side.
+              "face_dimming": false
+            },
+            "flame": {
+              "texture": "kai_templates_candle_flame",
+              "render_method": "alpha_test",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:candles') == 3 && !q.block_state('kai_templates:lit')",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_candle_4",
+            "bone_visibility": {
+              "flames": "q.block_state('kai_templates:lit')"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [
+              -3,
+              0,
+              -3
+            ],
+            "size": [
+              6,
+              6,
+              5
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -3,
+              0,
+              -3
+            ],
+            "size": [
+              6,
+              6,
+              5
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:candles') == 3 && q.block_state('kai_templates:lit')",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_candle_4",
+            "bone_visibility": {
+              "flames": "q.block_state('kai_templates:lit')"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [
+              -3,
+              0,
+              -3
+            ],
+            "size": [
+              6,
+              6,
+              5
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -3,
+              0,
+              -3
+            ],
+            "size": [
+              6,
+              6,
+              5
+            ]
+          },
+          "minecraft:light_emission": 12,
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_candle_lit",
+              "render_method": "alpha_test",
+              // Opposite of the unlit state, which keeps the default directional shading. Flame-lit wax reads evenly bright from every side.
+              "face_dimming": false
+            },
+            "flame": {
+              "texture": "kai_templates_candle_flame",
+              "render_method": "alpha_test",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          }
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.candle.name",
+      // Block tags. Vanilla content and Molang queries can match on them.
+      "minecraft:tags": [
+        "kai_templates:candle"
+      ],
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_candle_1",
+        // The flames bone only shows while the candle is lit. The wicks stay in every state.
+        "bone_visibility": {
+          "flames": "q.block_state('kai_templates:lit')"
+        }
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_candle",
+          "render_method": "alpha_test"
+        },
+        // The flame quads. Drawn flat and unshaded like a particle; the bone is hidden while unlit, but every state has to declare the instance the geometry names.
+        "flame": {
+          "texture": "kai_templates_candle_flame",
+          "render_method": "alpha_test",
+          "ambient_occlusion": 0,
+          "face_dimming": false
+        }
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Faces and blocks the block may be placed against. When the rule stops holding, the block pops off.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": [
+              "up"
+            ],
+            "block_filter": [
+              {
+                "tags": "!q.any_tag('kai_templates:candle')"
+              }
+            ]
+          }
+        ]
+      },
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": false,
+            "on_liquid_touches": "popped"
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.15
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.1
+      },
+      // Texture used for the break particles.
+      "minecraft:destruction_particles": {
+        "texture": "kai_templates_candle"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#E6D3B3",
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/candle.json",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:candle_drops": {},
+      "kai_templates:candle_particles": {},
+      "kai_templates:candle_combine": {}
+    }
+  }
+}

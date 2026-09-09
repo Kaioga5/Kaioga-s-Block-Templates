@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Fence",
+    "description": "Fence block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "ee6c60e3-343a-4b37-af6e-327e10c45aba",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "2474fb87-7110-4ad6-9f72-e870a6316ec0",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "21d0df36-3447-49fc-97c0-6974ff7135dc",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

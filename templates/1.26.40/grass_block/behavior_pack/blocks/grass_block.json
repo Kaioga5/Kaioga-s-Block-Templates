@@ -1,0 +1,126 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:grass_block",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:snowy": [false, true]
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.grass_block.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:grass_spread": {},
+      "kai_templates:grass_snow": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_grass_side",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "kai_templates_grass_top",
+          "render_method": "opaque",
+          // Tints the texture with a biome color, like grass or foliage.
+          "tint_method": "grass"
+        },
+        "down": {
+          "texture": "kai_templates_grass_bottom",
+          "render_method": "opaque"
+        }
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.9,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_shovel', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 0.45
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_shovel', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.25
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_shovel', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_shovel', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_shovel', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.1
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_shovel', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.1
+          }
+        ]
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.6
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/grass_block.json",
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": {
+        "color": "#7FB238",
+        "tint_method": "grass"
+      },
+      // Block tags. Vanilla content and Molang queries can match on them.
+      "minecraft:tags": ["kai_templates:flower_support"]
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:snowy')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_grass_side_snowed",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "kai_templates_grass_top",
+              "render_method": "opaque",
+              "tint_method": "grass"
+            },
+            "down": {
+              "texture": "kai_templates_grass_bottom",
+              "render_method": "opaque"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

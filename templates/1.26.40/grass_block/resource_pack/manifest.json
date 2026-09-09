@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Grass Block",
+    "description": "Grass Block block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "f2b65f8d-001f-4ab4-81cc-df82730e785b",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "0eddf5ea-1cb4-4c10-8423-8337674e7ef0",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "9563c70e-04c1-47b9-a086-b3c867804f54",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

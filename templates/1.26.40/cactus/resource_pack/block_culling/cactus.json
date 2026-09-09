@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block_culling_rules": {
+    "description": {
+      "identifier": "kai_templates:cactus_culling"
+    },
+    // Each rule hides one face of one cube while a neighbour covers that direction.
+    "rules": [
+      {
+        "geometry_part": { "bone": "cactus", "cube": 0, "face": "up" },
+        "direction": "up",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": { "bone": "cactus", "cube": 0, "face": "down" },
+        "direction": "down",
+        "condition": "same_block"
+      }
+    ]
+  }
+}

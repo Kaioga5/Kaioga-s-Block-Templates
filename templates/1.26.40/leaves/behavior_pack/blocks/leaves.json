@@ -1,0 +1,152 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:leaves",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      },
+      // Custom block states. The scripts read and write these; the engine places the first
+      // value of each one, so the defaults here are what a leaf starts with.
+      "states": {
+        // How far this leaf is from a log, counted through connected leaves. 7 means no log
+        // in range, and it is listed first so an unmeasured leaf never claims to be attached.
+        "kai_templates:distance": [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        // Set on leaves a player placed. Those never rot.
+        "kai_templates:persistent": [
+          false,
+          true
+        ],
+        // True until the scripts have measured this leaf. Listed first so leaves that arrive
+        // from a command, a structure or another add-on are measured before they can rot.
+        "kai_templates:update": [
+          true,
+          false
+        ]
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.leaves.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:leaves_updates": {},
+      "kai_templates:leaves_decay": {},
+      "kai_templates:leaves_persistence": {},
+      "kai_templates:leaves_drops": {},
+      "kai_templates:leaves_particles": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "minecraft:geometry.full_block",
+        // Culling layer shared with vanilla blocks of the same kind.
+        "culling_layer": "minecraft:culling_layer.leaves"
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "oak_leaves",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "alpha_test",
+          // Whether neighbouring blocks darken this block's corners.
+          "ambient_occlusion": 0.8,
+          // Tints the texture with a biome color, like grass or foliage.
+          "tint_method": "default_foliage"
+        }
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.3,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.any_tag('minecraft:is_shears')"
+            },
+            "destroy_speed": 0.05
+          },
+          {
+            "item": {
+              "tags": "q.any_tag('minecraft:is_sword')"
+            },
+            "destroy_speed": 0.05
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.1
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.05
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.05
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.05
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.05
+          }
+        ]
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.2
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/leaves.json",
+      // How easily fire catches on and destroys the block.
+      "minecraft:flammable": {
+        "catch_chance_modifier": 30,
+        "destroy_chance_modifier": 60
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 1,
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // Texture used for the break particles.
+      "minecraft:destruction_particles": {
+        "texture": "oak_leaves",
+        "tint_method": "default_foliage"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": {
+        "color": "#7FB238",
+        "tint_method": "default_foliage"
+      },
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    }
+  }
+}

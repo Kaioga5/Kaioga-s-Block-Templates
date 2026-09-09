@@ -1,0 +1,22 @@
+{
+  "format_version": "1.21.40",
+  "kai_templates:amethyst_block": {
+    // Vanilla sound set used for placing, breaking and stepping on the block.
+    "sound": "amethyst_block"
+  },
+  "kai_templates:budding_amethyst": {
+    "sound": "amethyst_block"
+  },
+  "kai_templates:small_amethyst_bud": {
+    "sound": "small_amethyst_bud"
+  },
+  "kai_templates:medium_amethyst_bud": {
+    "sound": "medium_amethyst_bud"
+  },
+  "kai_templates:large_amethyst_bud": {
+    "sound": "large_amethyst_bud"
+  },
+  "kai_templates:amethyst_cluster": {
+    "sound": "amethyst_cluster"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "resource_pack_name": "kai_templates_amethyst",
+  "texture_name": "atlas.items",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates:small_amethyst_bud": {
+      "textures": "textures/blocks/small_amethyst_bud"
+    },
+    "kai_templates:medium_amethyst_bud": {
+      "textures": "textures/blocks/medium_amethyst_bud"
+    },
+    "kai_templates:large_amethyst_bud": {
+      "textures": "textures/blocks/large_amethyst_bud"
+    }
+  }
+}

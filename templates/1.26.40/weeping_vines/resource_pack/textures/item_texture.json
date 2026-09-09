@@ -1,0 +1,10 @@
+{
+  "resource_pack_name": "kai_templates_weeping_vines",
+  "texture_name": "atlas.items",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates:weeping_vines": {
+      "textures": "textures/blocks/weeping_vines_base"
+    }
+  }
+}

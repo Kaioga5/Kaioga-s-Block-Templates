@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Stone Slab",
+    "description": "Stone Slab block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "b1ce33e7-af73-4ee0-bea1-d62848242c6e",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "aa44bd43-11ad-4ee6-af29-95d1ba31500b",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "3ff71728-aa7f-4792-8cdb-c42ffa7fbe90",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "1dd1d22b-f1c4-4765-b2c1-9b0182967dd0",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.9.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

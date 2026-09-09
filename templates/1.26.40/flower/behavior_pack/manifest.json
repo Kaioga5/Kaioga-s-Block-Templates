@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Flower",
+    "description": "Flower block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "546bc160-24e1-4739-bf86-a06badd4129a",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "b25ba240-e504-4c37-8df3-11fa9770cac7",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "6684766b-b14e-4559-9875-56f4885c435e",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

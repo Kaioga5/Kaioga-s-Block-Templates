@@ -1,0 +1,18 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kai_templates:falling_powder",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/blocks/concrete_powder_white"
+      },
+      "geometry": {
+        "default": "geometry.kai_templates_falling_powder"
+      },
+      "render_controllers": ["controller.render.default"]
+    }
+  }
+}

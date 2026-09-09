@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Iron Trapdoor",
+    "description": "Iron Trapdoor block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "bd8ef463-2042-4ddf-a53d-529b96a5d18c",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "acf1fb99-6d29-4722-8cb4-e53407a8cd0b",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "5551dcf5-d759-4710-9c78-cf0a47b14694",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "7b545a4a-25ee-452e-82e1-91fbe76fc9c9",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.9.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

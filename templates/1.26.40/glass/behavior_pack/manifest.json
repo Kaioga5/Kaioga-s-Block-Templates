@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Glass",
+    "description": "Glass block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "1839a7e5-4b6b-45ec-9d9d-1cdc57dfa2fa",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "b1a95d0a-4a6f-4742-a945-bf98b50cb594",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "c8c46e72-0a31-4a08-b4ad-aac4b537fd77",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "resource_pack_name": "kai_templates_copper_lantern",
+  "texture_name": "atlas.items",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_copper_lantern": {
+      "textures": "textures/items/copper_lantern"
+    },
+    "kai_templates_exposed_copper_lantern": {
+      "textures": "textures/items/exposed_copper_lantern"
+    },
+    "kai_templates_weathered_copper_lantern": {
+      "textures": "textures/items/weathered_copper_lantern"
+    },
+    "kai_templates_oxidized_copper_lantern": {
+      "textures": "textures/items/oxidized_copper_lantern"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.kai_templates.primed_tnt_fuse": {
+      "loop": true,
+      // One tick long, so the smoke keyframe fires every tick the way vanilla puffs smoke from a primed charge.
+      "animation_length": 0.05,
+      "particle_effects": {
+        "0.0": {
+          "effect": "fuse_smoke",
+          "locator": "fuse"
+        }
+      },
+      "bones": {
+        "tnt": {
+          // Vanilla only swells the charge in its last ten ticks: the fraction of those ticks already gone, raised to the fourth power, scaled to a 30 percent growth. Nothing happens before that.
+          "scale": "1.0 + math.pow(math.clamp(1.0 - v.fuse_ticks / 10.0, 0.0, 1.0), 4.0) * 0.3"
+        }
+      }
+    }
+  }
+}

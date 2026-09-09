@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Hay Bale",
+    "description": "Hay Bale block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "99f2fd76-be82-4fb1-988c-97b5464dc313",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "78e453d5-bf88-48ce-b179-adb84933d37c",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "f3b03a83-7a03-493c-8861-15d765c92226",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

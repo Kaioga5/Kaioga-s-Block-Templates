@@ -1,0 +1,4 @@
+tile.kai_templates.log.name=Log
+tile.kai_templates.stripped_log.name=Stripped Log
+item.kai_templates:log=Log
+item.kai_templates:stripped_log=Stripped Log

@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Glazed Terracotta",
+    "description": "Glazed Terracotta block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "72ca8197-1765-4d22-b841-318a5d3aa34b",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "66001f96-fa48-4c6c-9f0d-b4715d912039",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "5c24f826-87d2-43bc-92d6-9b76b4242d20",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

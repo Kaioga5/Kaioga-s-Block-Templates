@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Concrete Powder",
+    "description": "Concrete Powder block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "7123d1cb-3c09-412a-a239-a6b07742fd24",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "c6d38300-2232-41ab-a6f3-47b046b6ca86",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "506d5cd1-bace-4e09-b93e-bbf0018633c3",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Sea Pickle",
+    "description": "Sea Pickle block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "64db2bb3-c2a4-59a9-83e5-2507025e01e3",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "48cd11f2-557c-53df-808e-834c4ca1d842",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "50989f5d-fcbd-5e80-86bb-b445466251ae",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

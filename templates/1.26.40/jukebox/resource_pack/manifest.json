@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Jukebox",
+    "description": "Jukebox block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "69161e2c-5cf7-5bff-840f-6d6de27325da",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "a7be1341-704f-553d-940f-e38695b5ebec",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "75149374-06c2-5128-ac56-36d78fa8f6e2",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

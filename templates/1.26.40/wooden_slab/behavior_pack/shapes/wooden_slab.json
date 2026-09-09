@@ -1,0 +1,17 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:voxel_shape": {
+    "description": {
+      "identifier": "kai_templates:wooden_slab"
+    },
+    "shape": {
+      // Boxes in block pixels. Faces flush with a full-cube neighbour are culled.
+      "boxes": [
+        {
+          "min": [0, 0, 0],
+          "max": [16, 8, 16]
+        }
+      ]
+    }
+  }
+}

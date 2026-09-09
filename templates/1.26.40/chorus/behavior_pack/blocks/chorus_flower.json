@@ -1,0 +1,142 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:chorus_flower",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:age": {
+          "values": {
+            "min": 0,
+            "max": 5
+          }
+        }
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.chorus_flower.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:chorus_flower_growth": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "geometry.kai_templates_chorus_flower",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "chorus_flower",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "opaque"
+        },
+        "plant": {
+          "texture": "chorus_plant",
+          "render_method": "opaque"
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": {
+        "origin": [
+          -8,
+          0,
+          -8
+        ],
+        "size": [
+          16,
+          16,
+          16
+        ]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [
+          -8,
+          0,
+          -8
+        ],
+        "size": [
+          16,
+          16,
+          16
+        ]
+      },
+      // Where the block may be placed. Vanilla roots a flower in end stone or on chorus, or hangs it off the side of one stem. The same rule pops it when its support goes.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": [
+              "up"
+            ],
+            "block_filter": [
+              "minecraft:end_stone",
+              "kai_templates:chorus_plant",
+              {
+                "tags": "q.any_tag('kai_templates:chorus_ground')"
+              }
+            ]
+          },
+          {
+            "allowed_faces": [
+              "north",
+              "south",
+              "east",
+              "west"
+            ],
+            "block_filter": [
+              "kai_templates:chorus_plant"
+            ]
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.6,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.any_tag('minecraft:is_axe')"
+            },
+            "destroy_speed": 0.3
+          }
+        ]
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.4
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#977897",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:age') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_chorus_flower_dead",
+              "render_method": "opaque"
+            },
+            "plant": {
+              "texture": "chorus_plant",
+              "render_method": "opaque"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

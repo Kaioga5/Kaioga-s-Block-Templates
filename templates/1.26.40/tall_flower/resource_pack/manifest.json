@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Tall Flower",
+    "description": "Tall Flower block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "a86e4719-8ef3-46cf-8947-3667a15e2bd9",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "d1e143ff-8acf-4500-8825-7523fab5ea45",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "2b15ca9f-da9a-44db-ae65-c52c8d3e28c0",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

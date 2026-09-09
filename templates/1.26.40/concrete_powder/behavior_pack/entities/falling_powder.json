@@ -1,0 +1,76 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kai_templates:falling_powder",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["kai_templates_falling_block", "inanimate"]
+      },
+      "minecraft:physics": {
+        "has_gravity": true,
+        "has_collision": true,
+        "push_towards_closest_space": false
+      },
+      "minecraft:collision_box": {
+        "width": 0.05,
+        "height": 0.05
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "event": "kai_templates:on_landed",
+            "target": "self",
+            "filters": {
+              "test": "on_ground",
+              "value": true
+            }
+          },
+          {
+            "event": "kai_templates:on_wet",
+            "target": "self",
+            "filters": {
+              "test": "in_water",
+              "value": true
+            }
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 100.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:persistent": {},
+      "minecraft:fire_immune": {}
+    },
+    "events": {
+      "kai_templates:on_landed": {
+        "queue_command": {
+          "command": ["scriptevent kai_templates:powder_fall landed"]
+        }
+      },
+      "kai_templates:on_wet": {
+        "queue_command": {
+          "command": ["scriptevent kai_templates:powder_fall wet"]
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,1 @@
-import 'blockDataView'
+import './blockDataView.js'

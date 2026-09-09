@@ -1,0 +1,159 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:skull",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "items"
+      },
+      // Allows the block to use exposed vanilla block states.
+      "traits": {
+        // Sets the enabled state from the direction the player faces when placing.
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:sixteen_way_rotation"],
+          "y_rotation_offset": 180
+        },
+        // Sets the enabled state from where the player clicked: the face hit, or the top or bottom half.
+        "minecraft:placement_position": {
+          "enabled_states": ["minecraft:block_face"]
+        }
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.skull.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_skull",
+        // Rotates the model from a rotation state instead of a permutation per angle.
+        "n_way_visual_rotation": {
+          "y": "minecraft:sixteen_way_rotation"
+        }
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_skull",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "alpha_test"
+        }
+      },
+      // The inventory model. item_display_transforms in a geometry file only take effect through item_visual, so the floor skull is named here again with the gui pose that matches the vanilla skull icon.
+      "minecraft:item_visual": {
+        "geometry": "geometry.kai_templates_skull",
+        "material_instances": {
+          "*": {
+            "texture": "kai_templates_skull",
+            "render_method": "alpha_test"
+          }
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": {
+        "origin": [-4, 0, -4],
+        "size": [8, 8, 8]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [-4, 0, -4],
+        "size": [8, 8, 8]
+      },
+      // Faces and blocks the block may be placed against. When the rule stops holding, the block pops off.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": ["up", "north", "south", "east", "west"]
+          }
+        ]
+      },
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": true,
+            "on_liquid_touches": "no_reaction"
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 1
+      },
+      // Texture used for the break particles.
+      "minecraft:destruction_particles": {
+        "texture": "kai_templates_skull"
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Color the block shows on maps.
+      "minecraft:map_color": "#BFBAB0",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:block_face') != 'up' && q.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_skull_wall"
+          },
+          "minecraft:collision_box": {
+            "origin": [-4, 4, 0],
+            "size": [8, 8, 8]
+          },
+          "minecraft:selection_box": {
+            "origin": [-4, 4, 0],
+            "size": [8, 8, 8]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'north'",
+        "components": {
+          // Rotates, scales or offsets the geometry and boxes for this permutation.
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      }
+    ]
+  }
+}

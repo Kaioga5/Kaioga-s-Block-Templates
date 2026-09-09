@@ -1,0 +1,441 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_wall",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 1,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "post",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-4, 0, -4],
+              "size": [8, 16, 8],
+              "uv": {
+                "north": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "south": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "east": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "west": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "up": {
+                  "uv": [4, 4],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [4, 4],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "arm_north",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-3, 0, -8],
+              "size": [6, 14, 8],
+              "uv": {
+                "north": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "south": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "east": {
+                  "uv": [0, 2],
+                  "uv_size": [8, 14]
+                },
+                "west": {
+                  "uv": [8, 2],
+                  "uv_size": [8, 14]
+                },
+                "up": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 8]
+                },
+                "down": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "arm_south",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-3, 0, 0],
+              "size": [6, 14, 8],
+              "uv": {
+                "north": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "south": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "east": {
+                  "uv": [8, 2],
+                  "uv_size": [8, 14]
+                },
+                "west": {
+                  "uv": [0, 2],
+                  "uv_size": [8, 14]
+                },
+                "up": {
+                  "uv": [5, 8],
+                  "uv_size": [6, 8]
+                },
+                "down": {
+                  "uv": [5, 8],
+                  "uv_size": [6, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "arm_east",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 0, -3],
+              "size": [8, 14, 6],
+              "uv": {
+                "north": {
+                  "uv": [8, 2],
+                  "uv_size": [8, 14]
+                },
+                "south": {
+                  "uv": [0, 2],
+                  "uv_size": [8, 14]
+                },
+                "east": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "west": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "up": {
+                  "uv": [0, 5],
+                  "uv_size": [8, 6]
+                },
+                "down": {
+                  "uv": [0, 5],
+                  "uv_size": [8, 6]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "arm_west",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [0, 0, -3],
+              "size": [8, 14, 6],
+              "uv": {
+                "north": {
+                  "uv": [0, 2],
+                  "uv_size": [8, 14]
+                },
+                "south": {
+                  "uv": [8, 2],
+                  "uv_size": [8, 14]
+                },
+                "east": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "west": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "up": {
+                  "uv": [8, 5],
+                  "uv_size": [8, 6]
+                },
+                "down": {
+                  "uv": [8, 5],
+                  "uv_size": [8, 6]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "arm_north_tall",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-3, 0, -8],
+              "size": [6, 16, 8],
+              "uv": {
+                "north": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 16]
+                },
+                "south": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 16]
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 16]
+                },
+                "west": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 16]
+                },
+                "up": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 8]
+                },
+                "down": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "arm_south_tall",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-3, 0, 0],
+              "size": [6, 16, 8],
+              "uv": {
+                "north": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 16]
+                },
+                "south": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 16]
+                },
+                "east": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 16]
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 16]
+                },
+                "up": {
+                  "uv": [5, 8],
+                  "uv_size": [6, 8]
+                },
+                "down": {
+                  "uv": [5, 8],
+                  "uv_size": [6, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "arm_east_tall",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 0, -3],
+              "size": [8, 16, 6],
+              "uv": {
+                "north": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 16]
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 16]
+                },
+                "east": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 16]
+                },
+                "west": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 16]
+                },
+                "up": {
+                  "uv": [0, 5],
+                  "uv_size": [8, 6]
+                },
+                "down": {
+                  "uv": [0, 5],
+                  "uv_size": [8, 6]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "arm_west_tall",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [0, 0, -3],
+              "size": [8, 16, 6],
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 16]
+                },
+                "south": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 16]
+                },
+                "east": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 16]
+                },
+                "west": {
+                  "uv": [5, 0],
+                  "uv_size": [6, 16]
+                },
+                "up": {
+                  "uv": [8, 5],
+                  "uv_size": [8, 6]
+                },
+                "down": {
+                  "uv": [8, 5],
+                  "uv_size": [8, 6]
+                }
+              }
+            }
+          ]
+        },
+        // The inventory icon only. Bedrock draws its wall item as a run one and a half blocks long with a full post at each end, a shape no single block state can show, so this bone models it: two posts and the low run between them, laid east to west. The block hides it in the world and item_visual shows only this bone, so the icon comes out like the vanilla wall icon at the usual block pose.
+        {
+          "name": "item",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            // The east post.
+            {
+              "origin": [-12, 0, -4],
+              "size": [8, 16, 8],
+              "uv": {
+                "north": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "south": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "east": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "west": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "up": {
+                  "uv": [4, 4],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [4, 4],
+                  "uv_size": [8, 8]
+                }
+              }
+            },
+            // The west post.
+            {
+              "origin": [4, 0, -4],
+              "size": [8, 16, 8],
+              "uv": {
+                "north": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "south": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "east": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "west": {
+                  "uv": [4, 0],
+                  "uv_size": [8, 16]
+                },
+                "up": {
+                  "uv": [4, 4],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [4, 4],
+                  "uv_size": [8, 8]
+                }
+              }
+            },
+            // The low run between them, the same size and texture as an in-world arm.
+            {
+              "origin": [-4, 0, -3],
+              "size": [8, 14, 6],
+              "uv": {
+                "north": {
+                  "uv": [8, 2],
+                  "uv_size": [8, 14]
+                },
+                "south": {
+                  "uv": [0, 2],
+                  "uv_size": [8, 14]
+                },
+                "east": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "west": {
+                  "uv": [5, 2],
+                  "uv_size": [6, 14]
+                },
+                "up": {
+                  "uv": [0, 5],
+                  "uv_size": [8, 6]
+                },
+                "down": {
+                  "uv": [0, 5],
+                  "uv_size": [8, 6]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

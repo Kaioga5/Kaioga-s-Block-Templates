@@ -1,0 +1,133 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kai_templates:primed_tnt",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      // How long this charge burns, in seconds. The script sets it when it primes the charge; client_sync lets the render controller and animation read it.
+      "properties": {
+        "kai_templates:fuse": {
+          "type": "float",
+          // Caps what the script may write: setProperty throws on a value outside it.
+          // A fuse longer than 10 seconds needs this raised first.
+          // Both ends carry a decimal point, written the same way as the default.
+          "range": [
+            0.0,
+            10.0
+          ],
+          // Write the default as 4.0, not 4.
+          // Bedrock rejects an int literal here and drops the whole property.
+          // setProperty and q.property then fail on a property that never loaded.
+          "default": 4.0,
+          "client_sync": true
+        }
+      }
+    },
+    // One group per chain fuse. A charge lit by another blast gets one of these instead of the four-second base fuse; the script picks which and fires the matching event.
+    "component_groups": {
+      "kai_templates:chain_lit_short": {
+        "minecraft:explode": {
+          "fuse_lit": true,
+          "fuse_length": 0.5,
+          "power": 4,
+          "breaks_blocks": true,
+          "causes_fire": false,
+          "allow_underwater": false
+        }
+      },
+      "kai_templates:chain_lit_medium": {
+        "minecraft:explode": {
+          "fuse_lit": true,
+          "fuse_length": 1.0,
+          "power": 4,
+          "breaks_blocks": true,
+          "causes_fire": false,
+          "allow_underwater": false
+        }
+      },
+      "kai_templates:chain_lit_long": {
+        "minecraft:explode": {
+          "fuse_lit": true,
+          "fuse_length": 1.5,
+          "power": 4,
+          "breaks_blocks": true,
+          "causes_fire": false,
+          "allow_underwater": false
+        }
+      },
+      "kai_templates:chain_lit_longest": {
+        "minecraft:explode": {
+          "fuse_lit": true,
+          "fuse_length": 2.0,
+          "power": 4,
+          "breaks_blocks": true,
+          "causes_fire": false,
+          "allow_underwater": false
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "kai_templates_primed_tnt",
+          "inanimate"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.98,
+        "height": 0.98
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_dropped_ticks": 5,
+          "max_optimized_distance": 80.0,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:is_ignited": {},
+      "minecraft:fire_immune": {},
+      // The blast itself. fuse_lit starts the countdown the moment the entity appears.
+      "minecraft:explode": {
+        "fuse_lit": true,
+        "fuse_length": 4,
+        "power": 4,
+        "breaks_blocks": true,
+        "causes_fire": false,
+        "allow_underwater": false
+      }
+    },
+    "events": {
+      "kai_templates:chain_lit_short": {
+        "add": {
+          "component_groups": [
+            "kai_templates:chain_lit_short"
+          ]
+        }
+      },
+      "kai_templates:chain_lit_medium": {
+        "add": {
+          "component_groups": [
+            "kai_templates:chain_lit_medium"
+          ]
+        }
+      },
+      "kai_templates:chain_lit_long": {
+        "add": {
+          "component_groups": [
+            "kai_templates:chain_lit_long"
+          ]
+        }
+      },
+      "kai_templates:chain_lit_longest": {
+        "add": {
+          "component_groups": [
+            "kai_templates:chain_lit_longest"
+          ]
+        }
+      }
+    }
+  }
+}

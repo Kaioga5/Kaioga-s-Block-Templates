@@ -1,0 +1,23 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:item": {
+    "description": {
+      // The ID for the item. Format must be namespace:item_name.
+      "identifier": "kai_templates:oxidized_copper_bars",
+      // Where the item appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      // Sprite shown in the inventory, resolved through item_texture.json.
+      "minecraft:icon": "kai_templates_oxidized_copper_bars",
+      // Places the block when the item is used. replace_block_item makes this item stand in for the block's own item.
+      "minecraft:block_placer": {
+        "block": "kai_templates:oxidized_copper_bars",
+        "replace_block_item": true
+      }
+    }
+  }
+}

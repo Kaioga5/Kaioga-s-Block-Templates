@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Copper Trapdoor",
+    "description": "Copper Trapdoor block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "1c84fb3e-40ea-4da8-8bd6-ba45e65c1299",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "a4a4de51-8218-48f5-8607-59554b22411a",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "9c4b10df-f3e6-4ceb-bf14-96993446a8dd",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "dd244067-2897-4a3d-81e8-766ccec2b368",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.9.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

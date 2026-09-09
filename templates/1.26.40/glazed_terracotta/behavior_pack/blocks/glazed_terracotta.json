@@ -1,0 +1,144 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:glazed_terracotta",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      },
+      // Allows the block to use exposed vanilla block states.
+      "traits": {
+        // Sets the enabled state from the direction the player faces when placing.
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
+        }
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          // Rotates, scales or offsets the geometry and boxes for this permutation.
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          },
+          // Vanilla draws the bottom of an east or west facing block turned half a turn from where a plain rotation of the north block would put it, so these two facings use a copy of the geometry whose down face is turned to match.
+          "minecraft:geometry": "geometry.kai_templates_glazed_terracotta_east_west"
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          },
+          // Vanilla draws the bottom of an east or west facing block turned half a turn from where a plain rotation of the north block would put it, so these two facings use a copy of the geometry whose down face is turned to match.
+          "minecraft:geometry": "geometry.kai_templates_glazed_terracotta_east_west"
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.glazed_terracotta.name",
+      // A full cube of this template's own, because the pattern has to be turned by a different amount on each face. The vanilla full block draws every face the same way.
+      "minecraft:geometry": "geometry.kai_templates_glazed_terracotta",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "white_glazed_terracotta",
+          // Exponent applied to the ambient occlusion value, a number from 0 to 10, default 1. Higher deepens the corner shading, lower softens it, 0 removes it.
+          // Vanilla only writes ambient_occlusion_exponent in its blocks.json when it wants something other than the default (leaves 0.80, sand 0.550, obsidian 2.0). The glazed terracotta entries write nothing, so 1 is the value that matches them.
+          // This is not the 0 to 15 light scale. 15 is out of range here; that number belongs to minecraft:light_dampening below.
+          "ambient_occlusion": 1
+        }
+      },
+      // The inventory model. item_display_transforms in a geometry only apply through item_visual, so the block's own geometry is named here again to get its gui pose.
+      "minecraft:item_visual": {
+        "geometry": "geometry.kai_templates_glazed_terracotta",
+        "material_instances": {
+          "*": {
+            "texture": "white_glazed_terracotta"
+          }
+        }
+      },
+      // How much light the block stops on the way through, 0 to 15. 15 stops it completely, which is what an opaque full block wants.
+      // 15 is already the default for a custom block, but it is written out so the two scales do not get mixed up: this one is 0 to 15, ambient_occlusion above is 0 to 10.
+      "minecraft:light_dampening": 15,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 7,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 1.05
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.55
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.35
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.3
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.25
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.2
+          }
+        ]
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 1.4
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "push"
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#FFFFFF"
+    }
+  }
+}

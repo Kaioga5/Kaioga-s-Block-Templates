@@ -1,0 +1,157 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:chorus_plant",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:up": [
+          false,
+          true
+        ],
+        "kai_templates:down": [
+          false,
+          true
+        ],
+        "kai_templates:north": [
+          false,
+          true
+        ],
+        "kai_templates:south": [
+          false,
+          true
+        ],
+        "kai_templates:east": [
+          false,
+          true
+        ],
+        "kai_templates:west": [
+          false,
+          true
+        ]
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.chorus_plant.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:chorus_plant_shape": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_chorus_plant",
+        // Controls which bones are visible when the block is rendered.
+        "bone_visibility": {
+          "arm_up": "q.block_state('kai_templates:up')",
+          "arm_down": "q.block_state('kai_templates:down')",
+          "arm_north": "q.block_state('kai_templates:north')",
+          "arm_south": "q.block_state('kai_templates:south')",
+          "arm_east": "q.block_state('kai_templates:east')",
+          "arm_west": "q.block_state('kai_templates:west')",
+          "cap_up": "q.block_state('kai_templates:up') == false",
+          "cap_down": "q.block_state('kai_templates:down') == false",
+          "cap_north": "q.block_state('kai_templates:north') == false",
+          "cap_south": "q.block_state('kai_templates:south') == false",
+          "cap_east": "q.block_state('kai_templates:east') == false",
+          "cap_west": "q.block_state('kai_templates:west') == false"
+        }
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "chorus_plant",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "opaque"
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": {
+        "origin": [
+          -4,
+          0,
+          -4
+        ],
+        "size": [
+          8,
+          16,
+          8
+        ]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [
+          -4,
+          0,
+          -4
+        ],
+        "size": [
+          8,
+          16,
+          8
+        ]
+      },
+      // Where the block may be placed. A stem stands on end stone or on more chorus, or reaches sideways off another stem. The same rule pops it when its support goes.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": [
+              "up"
+            ],
+            "block_filter": [
+              "minecraft:end_stone",
+              "kai_templates:chorus_plant",
+              {
+                "tags": "q.any_tag('kai_templates:chorus_ground')"
+              }
+            ]
+          },
+          {
+            "allowed_faces": [
+              "north",
+              "south",
+              "east",
+              "west"
+            ],
+            "block_filter": [
+              "kai_templates:chorus_plant"
+            ]
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.6,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.any_tag('minecraft:is_axe')"
+            },
+            "destroy_speed": 0.3
+          }
+        ]
+      },
+      // Resistance to explosions.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.4
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/chorus_plant.json",
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#5D395D",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    }
+  }
+}

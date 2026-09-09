@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Iron Bars",
+    "description": "Iron Bars block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "8a792b5c-6741-46d9-9258-2bd9afd67e76",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "8585e001-79e7-45ae-8bd5-f8bace3375bb",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "2a05922a-2cde-421b-9e33-b636409c453a",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

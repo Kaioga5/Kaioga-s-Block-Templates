@@ -1,0 +1,15 @@
+{
+  "format_version": "1.20.20",
+  "sound_definitions": {
+    "kai_templates:note.custom": {
+      "category": "record",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/note/pling",
+          "load_on_low_memory": true
+        }
+      ]
+    }
+  }
+}
