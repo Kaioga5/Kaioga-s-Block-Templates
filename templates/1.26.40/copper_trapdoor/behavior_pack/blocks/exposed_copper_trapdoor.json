@@ -57,6 +57,8 @@
         "origin": [-8, 0, -8],
         "size": [16, 3, 16]
       },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
       // Break time in seconds, with faster speeds for specific tools.
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 3,

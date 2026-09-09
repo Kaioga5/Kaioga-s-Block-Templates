@@ -26,6 +26,8 @@
           "isotropic": true
         }
       },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 15,
       // Break time in seconds, with faster speeds for specific tools.
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 0.3,

@@ -70,6 +70,8 @@
           }
         ]
       },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
       // Break time in seconds, with faster speeds for specific tools.
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 3,
@@ -149,6 +151,8 @@
           "minecraft:redstone_conductivity": {
             "redstone_conductor": true
           },
+          // Two halves make a whole cube, so the double slab stops light the way any solid block does.
+          "minecraft:light_dampening": 15,
           "minecraft:geometry": "minecraft:geometry.full_block",
           "minecraft:transformation": {
             "translation": [0, 0, 0]
