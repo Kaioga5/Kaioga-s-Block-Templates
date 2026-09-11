@@ -26,6 +26,12 @@ export const LANDING_TICKS = 2;
 // block's own sound group, the same way hit.pointed_dripstone in impact.ts is
 export const BREAK_SOUND = "break.pointed_dripstone";
 
+// The fragments a spike bursts into as it comes apart. A block breaking gets
+// the engine's own effect; a spike leaving as a falling entity, or one taken
+// away by a script, does not, so the pack draws the burst itself from
+// resource_pack/particles/dripstone_break.json
+export const BREAK_PARTICLE = "kai_templates:dripstone_break";
+
 // The placement trait gives the block this state. "up" means the spike was
 // placed on top of something and points upward, which is a stalagmite. "down"
 // means it hangs from a ceiling, which is a stalactite

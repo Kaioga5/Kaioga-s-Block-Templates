@@ -14,6 +14,7 @@ import {
     world,
 } from "@minecraft/server";
 import {
+    BREAK_PARTICLE,
     BREAK_SOUND,
     DRIPSTONE_ID,
     FACE_STATE,
@@ -230,6 +231,8 @@ export function collapse(block: Block): void {
     if (drop !== undefined) {
         dimension.spawnItem(drop, center);
     }
+    // A block a script sets to air gets no break effect from the engine
+    dimension.spawnParticle(BREAK_PARTICLE, block.location);
     dimension.playSound(BREAK_SOUND, center);
 }
 

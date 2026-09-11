@@ -4,7 +4,7 @@
 // keeps every segment's state matching it, and the world events that are the
 // only warning a column gets that whatever holds it up has gone.
 import { BlockPermutation, LiquidType, system, world, } from "@minecraft/server";
-import { BREAK_SOUND, DRIPSTONE_ID, FACE_STATE, THICKNESS_STATE, anchorIds, anchorTags, nonAnchorIds, nonAnchorTags, } from "./config.js";
+import { BREAK_PARTICLE, BREAK_SOUND, DRIPSTONE_ID, FACE_STATE, THICKNESS_STATE, anchorIds, anchorTags, nonAnchorIds, nonAnchorTags, } from "./config.js";
 import { dropColumn } from "./falling.js";
 const UP = { x: 0, y: 1, z: 0 };
 const DOWN = { x: 0, y: -1, z: 0 };
@@ -193,6 +193,8 @@ export function collapse(block) {
     if (drop !== undefined) {
         dimension.spawnItem(drop, center);
     }
+    // A block a script sets to air gets no break effect from the engine
+    dimension.spawnParticle(BREAK_PARTICLE, block.location);
     dimension.playSound(BREAK_SOUND, center);
 }
 // Support is a property of a column rather than of one spike: every segment

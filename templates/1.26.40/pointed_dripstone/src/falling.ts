@@ -9,7 +9,7 @@
 // entities/falling_dripstone.json, so nothing here polls a falling entity;
 // the sweep at the bottom only exists to catch a report that never arrived.
 import { Dimension, Entity, ItemStack, Vector3, system, world } from "@minecraft/server";
-import { BREAK_SOUND, DRIPSTONE_ID, FALLING_ID, LANDING_TICKS, THICKNESS_PROPERTY } from "./config.js";
+import { BREAK_PARTICLE, BREAK_SOUND, DRIPSTONE_ID, FALLING_ID, LANDING_TICKS, THICKNESS_PROPERTY } from "./config.js";
 
 // Give up on a fall after thirty seconds and leave the spike where the entity
 // got to. Vanilla has the same kind of failsafe, so a faller that somehow never
@@ -49,6 +49,7 @@ function land(faller: Entity): void {
     const { dimension } = faller;
     const at = faller.location;
     dimension.spawnItem(new ItemStack(DRIPSTONE_ID), at);
+    dimension.spawnParticle(BREAK_PARTICLE, at);
     dimension.playSound(BREAK_SOUND, at);
     faller.remove();
 }
