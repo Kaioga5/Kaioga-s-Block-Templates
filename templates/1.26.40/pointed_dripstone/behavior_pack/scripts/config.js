@@ -1,6 +1,25 @@
-// Everything about how this dripstone grows, drips and hurts.
+// Everything about how this dripstone grows, drips, falls and hurts.
 export const DRIPSTONE_ID = "kai_templates:pointed_dripstone";
 export const THICKNESS_STATE = "kai_templates:thickness";
+// The entity each spike of a hanging column turns into once nothing holds
+// the column up. Custom blocks have no native gravity at 1.26.40 and the
+// engine's falling-block conversion is hardcoded to vanilla blocks, so the
+// fall is an entity of our own, the same way the Concrete Powder template does
+// it, and the same way vanilla does: one falling block per spike
+export const FALLING_ID = "kai_templates:falling_dripstone";
+// Which shape the falling spike wears. One entity is one spike, the way
+// vanilla's falling blocks are, and it keeps the shape its block had: the
+// script writes it when the entity is spawned and the render controllers read
+// it back. It takes the same four values as the block's own thickness state
+export const THICKNESS_PROPERTY = "kai_templates:thickness";
+// How long a spike that has touched down waits before it breaks. Vanilla's
+// falling blocks sit on the ground for three ticks before they go, measured in
+// game, and the landing report already takes one of those to reach the script
+export const LANDING_TICKS = 2;
+// The sound a spike makes when it comes apart, whether that is a column losing
+// its support or a fallen one hitting the ground. Vanilla names it after the
+// block's own sound group, the same way hit.pointed_dripstone in impact.ts is
+export const BREAK_SOUND = "break.pointed_dripstone";
 // The placement trait gives the block this state. "up" means the spike was
 // placed on top of something and points upward, which is a stalagmite. "down"
 // means it hangs from a ceiling, which is a stalactite
@@ -19,9 +38,12 @@ export const anchorTags = ["kai_templates:dripstone_support"];
 // Never counts as an anchor, even though it does stop water
 export const nonAnchorIds = new Set();
 export const nonAnchorTags = [];
-// How long a column may get. Every walk in this template is bounded by it, so
-// no loop can run away on a strange world
-export const MAX_LENGTH = 8;
+// How long a drip may make a column. Vanilla stops feeding one once it has
+// this many spikes, which is what keeps a spring from growing dripstone all
+// the way to the floor of the world. It is the only length this pack decides:
+// a column stacked by hand, or two grown columns that meet, run as long as
+// there is room for them
+export const GROW_LENGTH = 8;
 // Chance that a random tick on a dripping tip does anything at all. Vanilla
 // dripstone grows over many minutes, and this is the knob that sets that pace
 export const DRIP_CHANCE = 0.15;

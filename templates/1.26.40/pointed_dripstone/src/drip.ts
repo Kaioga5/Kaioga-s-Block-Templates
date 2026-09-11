@@ -15,11 +15,11 @@ import {
     DripSource,
     FACE_STATE,
     GROW_CHANCE,
-    MAX_LENGTH,
+    GROW_LENGTH,
     THICKNESS_STATE,
     dripSources,
 } from "./config.js";
-import { facing, findAnchorEnd, findTip, isDripstone, restyle } from "./column.js";
+import { facing, findAnchorEnd, findTip, isAnchor, isDripstone, restyle, towards } from "./column.js";
 
 // The liquid feeding a column, read from the block one past its anchor
 function sourceFor(tip: Block): DripSource | undefined {
@@ -73,24 +73,31 @@ function fillCauldron(cauldron: Block, liquid: string): boolean {
     return true;
 }
 
-// Lengthen the column by one spike, keeping the direction it already runs in
-function lengthen(tip: Block): void {
-    const grows = tip.below();
-    if (grows === undefined || !grows.isAir) {
-        return;
-    }
-    // Refuse to grow past the length the pack allows
+// How many spikes the column already holds, counted back from its tip. Both
+// halves of the growth cycle refuse to add one past the length a drip may
+// build, so the count stops as soon as it has reached that: a longer column is
+// one somebody stacked, and no drip is going to add to that either
+function columnLength(tip: Block): number {
     let length = 1;
     let walk: Block = tip;
-    for (let step = 0; step < MAX_LENGTH; step++) {
-        const back: Block | undefined = walk.above();
+    for (let step = 0; step < GROW_LENGTH; step++) {
+        const back: Block | undefined = walk.offset(towards(tip));
         if (!isDripstone(back) || facing(back) !== facing(tip)) {
             break;
         }
         length++;
         walk = back;
     }
-    if (length >= MAX_LENGTH) {
+    return length;
+}
+
+// Lengthen the column by one spike, keeping the direction it already runs in
+function lengthen(tip: Block): void {
+    const grows = tip.below();
+    if (grows === undefined || !grows.isAir) {
+        return;
+    }
+    if (columnLength(tip) >= GROW_LENGTH) {
         return;
     }
     grows.setPermutation(
@@ -112,6 +119,9 @@ function raiseStalagmite(landing: Block): void {
         if (above === undefined || !above.isAir) {
             return;
         }
+        if (columnLength(tip) >= GROW_LENGTH) {
+            return;
+        }
         above.setPermutation(
             BlockPermutation.resolve(DRIPSTONE_ID, { [FACE_STATE]: "up", [THICKNESS_STATE]: "tip" }),
         );
@@ -122,12 +132,15 @@ function raiseStalagmite(landing: Block): void {
     // Bare floor: only stone-like ground grows a spike, which the anchor test
     // in column.ts already describes
     const space = landing.above();
-    if (space === undefined || !space.isAir || landing.isAir || landing.isLiquid) {
+    if (space === undefined || !space.isAir || !isAnchor(landing)) {
         return;
     }
     space.setPermutation(
         BlockPermutation.resolve(DRIPSTONE_ID, { [FACE_STATE]: "up", [THICKNESS_STATE]: "tip" }),
     );
+    // The floor can be two cells under the tip, which puts this new spike right
+    // against it. Both of them are a merge then, not two tips
+    restyle(space);
 }
 
 system.beforeEvents.startup.subscribe((init) => {

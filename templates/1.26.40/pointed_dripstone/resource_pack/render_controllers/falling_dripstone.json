@@ -1,0 +1,59 @@
+{
+  "format_version": "1.10.0",
+  // Which texture the falling spike wears. A spike keeps the shape it had as a
+  // block: the far end of a column is the tip, the one behind it a frustum,
+  // the one against the ceiling the base, and everything between them
+  // middle. The script writes that shape onto the entity, and one controller
+  // per shape draws the model while the property names it and hides it
+  // otherwise, so one model and one entity cover all four.
+  "render_controllers": {
+    "controller.render.kai_templates_falling_dripstone_tip": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": ["Texture.tip"],
+      "part_visibility": [
+        { "*": "q.property('kai_templates:thickness') == 'tip'" }
+      ]
+    },
+    "controller.render.kai_templates_falling_dripstone_frustum": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": ["Texture.frustum"],
+      "part_visibility": [
+        { "*": "q.property('kai_templates:thickness') == 'frustum'" }
+      ]
+    },
+    "controller.render.kai_templates_falling_dripstone_middle": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": ["Texture.middle"],
+      "part_visibility": [
+        { "*": "q.property('kai_templates:thickness') == 'middle'" }
+      ]
+    },
+    "controller.render.kai_templates_falling_dripstone_base": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": ["Texture.base"],
+      "part_visibility": [
+        { "*": "q.property('kai_templates:thickness') == 'base'" }
+      ]
+    }
+  }
+}
