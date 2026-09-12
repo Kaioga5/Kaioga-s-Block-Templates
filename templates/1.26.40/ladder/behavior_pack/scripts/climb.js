@@ -7,15 +7,21 @@
 import { ButtonState, EntityDamageCause, InputButton, system, world, } from "@minecraft/server";
 // The ladder block this template defines
 const LADDER_ID = "kai_templates:ladder";
-// Vanilla ladder speeds, in blocks per tick. Climbing is 2.35 blocks per
-// second and slipping down is 3.0, which is where these two numbers come
-// from, they are not tuned by feel
-// 0.1175 is vanilla's own climb rate, but the correction only lands once per
-// tick and the engine moves the player in between, so the target has to sit
-// above it for the result to arrive at vanilla speed. Descent is the same
-// number vanilla uses; there the engine helps rather than fights.
-const CLIMB_SPEED = 0.235;
-const DESCEND_SPEED = -0.15;
+// Vanilla ladder movement, measured in game tick by tick: climbing moves
+// exactly 0.2 blocks a tick from the first tick of input, sneaking holds the
+// player exactly still, and a player who lets go falls under ordinary gravity
+// until the ladder caps the slide at 0.2 blocks a tick
+const CLIMB_SPEED = 0.2;
+const SLIDE_SPEED = 0.2;
+// The vertical knockback that produces each of those, written every tick the
+// player is on the ladder. The engine's answer to a vertical knockback is not
+// the number itself: 0.2 does move a player 0.2 a tick, but holding still
+// takes a small upward push against gravity, and capping the slide takes a
+// much smaller downward one than the speed it holds. All three were read off
+// the same per-tick recording as the vanilla figures above
+const CLIMB_KNOCKBACK = 0.2;
+const HOLD_KNOCKBACK = 0.033;
+const SLIDE_KNOCKBACK = -0.05;
 // Get the ladder block the player currently overlaps, if any. The ladder's
 // collision plate is thin, so a player pressed against the wall stands
 // inside the ladder's block space
@@ -49,49 +55,36 @@ function pushesIntoLadder(player) {
     // Read the raw stick/keyboard input: x is strafe, y is forward
     return player.inputInfo.getMovementVector().y > 0;
 }
-// Gravity the engine takes off vertical speed every tick. Correcting only
-// by the difference to the target leaves the player permanently one tick of
-// gravity short of it, which is why the climb crawled and the slide sawtoothed
-// between falling and being yanked back
+// Gravity and drag, the engine's own per-tick change to vertical speed. Only
+// the slide needs them, to tell whether the next tick would pass the cap
 const GRAVITY = 0.08;
-// How much of the remaining error to take out each tick. Correcting the whole
-// error in one go is dead-beat control: the smallest overshoot turns into a
-// visible twitch, and applying a full-strength impulse every tick reads as a
-// series of little jumps. Taking most of it and letting the rest follow
-// converges in two or three ticks and looks continuous
-// Climbing wants to reach the target quickly; descending wants to settle onto
-// it without a visible step, so it takes a gentler share of the error.
-const CLIMB_CORRECTION = 0.8;
-const DESCEND_CORRECTION = 0.35;
-// Errors below this are left alone, so a player already moving at the target
-// speed is not nudged every tick for nothing
-const DEADBAND = 0.02;
-// Hold the player at one vertical speed. The same correction runs whatever
-// they are doing, so control never alternates with free fall
-function hold(player, target, share) {
-    // The engine will take a tick of gravity off after this runs, so the
-    // correction aims past the target by exactly that much
-    const error = target + GRAVITY - player.getVelocity().y;
-    if (Math.abs(error) < DEADBAND) {
-        return;
-    }
-    player.applyKnockback({ x: 0, z: 0 }, error * share);
+const DRAG = 0.98;
+// Write one vertical knockback. Vanilla sets the climb speed outright every
+// tick rather than nudging towards it, and so does this: a fixed value each
+// tick cannot oscillate, where correcting by the difference to a speed read a
+// tick late did, because a player's velocity reaches the script one tick
+// behind the client that owns it
+function push(player, knockback) {
+    player.applyKnockback({ x: 0, z: 0 }, knockback);
 }
 // Steer one player who is on a ladder this tick
 function steer(player) {
     // Jumping or walking into the ladder climbs, like vanilla
     const jumpHeld = player.inputInfo.getButtonState(InputButton.Jump) === ButtonState.Pressed;
     if (jumpHeld || pushesIntoLadder(player)) {
-        hold(player, CLIMB_SPEED, CLIMB_CORRECTION);
+        push(player, CLIMB_KNOCKBACK);
         return;
     }
     // Sneaking parks the player on the ladder
     if (player.isSneaking) {
-        hold(player, 0, DESCEND_CORRECTION);
+        push(player, HOLD_KNOCKBACK);
         return;
     }
-    // Otherwise the ladder slides them down at its own steady speed
-    hold(player, DESCEND_SPEED, DESCEND_CORRECTION);
+    // Otherwise gravity takes them down and the ladder only caps the speed. The
+    // velocity read here is a tick old, which is fine for a one-sided cap
+    if ((player.getVelocity().y - GRAVITY) * DRAG < -SLIDE_SPEED) {
+        push(player, SLIDE_KNOCKBACK);
+    }
 }
 // The movement loop. Runs every tick because climbing is continuous
 // motion; everything it does per player is a block read and some math
