@@ -131,9 +131,10 @@
           }
         ]
       },
-      // Resistance to explosions.
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
       "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 3.5
+        // 3.5 x 5
+        "explosion_resistance": 17.5
       },
       // Texture used for the break particles.
       "minecraft:destruction_particles": {

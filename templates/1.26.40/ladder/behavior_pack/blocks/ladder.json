@@ -121,9 +121,10 @@
           }
         ]
       },
-      // Resistance to explosions.
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
       "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 0.4
+        // 0.4 x 5
+        "explosion_resistance": 2
       },
       // How the block behaves when it detects liquids, such as waterlogging or being washed away.
       "minecraft:liquid_detection": {

@@ -68,9 +68,10 @@
           }
         ]
       },
-      // Resistance to explosions.
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
       "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 1.5
+        // 1.5 x 5
+        "explosion_resistance": 7.5
       },
       // The engine\'s own empty loot table, so the block drops nothing. No file of that name has to ship in this pack.
       "minecraft:loot": "loot_tables/empty.json",

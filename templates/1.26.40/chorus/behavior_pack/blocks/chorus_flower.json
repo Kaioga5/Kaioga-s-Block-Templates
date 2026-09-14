@@ -103,9 +103,10 @@
           }
         ]
       },
-      // Resistance to explosions.
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
       "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 0.4
+        // 0.4 x 5
+        "explosion_resistance": 2
       },
       // How much light the block stops. 0 lets light through, 15 blocks it fully.
       "minecraft:light_dampening": 0,
