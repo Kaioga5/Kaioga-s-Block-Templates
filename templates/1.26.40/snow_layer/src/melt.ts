@@ -14,6 +14,7 @@ import {
     system,
 } from "@minecraft/server";
 import { DROP_PER_LAYER, HEIGHT_STATE, MELT_LIGHT, SNOW_ID } from "./config.js";
+import { dropIfUnsupported } from "./falling.js";
 import { addLayer, isSnowingOn } from "./snowfall.js";
 
 // Heights count from zero, so a drift of height 3 is four layers deep
@@ -37,6 +38,12 @@ system.beforeEvents.startup.subscribe((init) => {
     init.blockComponentRegistry.registerCustomComponent("kai_templates:snow_melt", {
         onRandomTick(event: BlockComponentRandomTickEvent): void {
             const { block } = event;
+
+            // A drift whose floor went without anyone breaking it, a command
+            // or a piston say, notices here and falls before anything else
+            if (dropIfUnsupported(block)) {
+                return;
+            }
 
             // Falling snow is checked first. Combined light reads 12 or more
             // under an open daytime sky, so checking melting first would thaw

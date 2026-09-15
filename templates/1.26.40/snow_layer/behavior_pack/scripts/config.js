@@ -1,7 +1,21 @@
-// How deep snow can pile, when it melts, what a shovel gets out of it, and
-// where falling snow is allowed to build it up.
+// How deep snow can pile, when it melts, what a shovel gets out of it, where
+// falling snow is allowed to build it up, and what a drift turns into when the
+// block under it goes.
 export const SNOW_ID = "kai_templates:snow_layer";
 export const HEIGHT_STATE = "kai_templates:height";
+// The entity a drift turns into once nothing holds it up. Vanilla's top snow
+// falls in Bedrock, and custom blocks have no native gravity at 1.26.40, so
+// the fall is an entity of our own, the same way the Concrete Powder template
+// does it. One entity carries any depth: the drift's height goes onto it as a
+// property with the same name and range as the block state, and the render
+// controller draws that many layers
+export const FALLING_ID = "kai_templates:falling_snow";
+export const FALL_HEIGHT_PROPERTY = "kai_templates:height";
+// How long a falling drift has been in the air, in ticks. A dynamic property
+// rather than a script-side map, so a fall survives a chunk unload and a reload
+export const FALL_AGE_PROPERTY = "kai_templates:fall_age";
+// The sound a drift makes when it lands, which is the block's own placing sound
+export const LAND_SOUND = "place.snow";
 // Heights run 0..7, which is one to eight layers. Eight fills the block
 export const MAX_HEIGHT = 7;
 // Snow melts once the light where it stands reaches this level. Vanilla uses

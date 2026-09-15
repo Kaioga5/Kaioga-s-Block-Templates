@@ -95,7 +95,7 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 | [Sapling](sapling/) | none | Yes | A sapling that plants on soil, sits in a flower pot, grows through two stages with enough light, takes bone meal, and replaces itself with a tree described in its config. |
 | [Sculk](sculk/) | none | Yes | A sculk block that returns under Silk Touch and gives experience to any other break, with the vanilla sculk sound set. |
 | [Sea Pickle](sea_pickle/) | none | Yes | One to four sea pickles on a block, glowing only underwater with light rising per pickle, added by clicking, and spread by bone meal on live coral. |
-| [Snow Layer](snow_layer/) | none | Yes | A snow layer with eight thicknesses that deepen when stacked, a growing collision box, per-layer snowball drops, Silk Touch drops, and melting in bright light. |
+| [Snow Layer](snow_layer/) | none | Yes | A snow layer with eight thicknesses that deepen when stacked, a growing collision box, per-layer snowball drops, Silk Touch drops, melting in bright light, and a real falling entity that carries the drift down at its depth when the block under it goes. |
 | [Sponge](sponge/) | none | Yes | A sponge that drains up to sixty-four connected water blocks and turns wet, and a wet sponge that dries in the Nether with a puff of steam. |
 | [Stone Stairs](stone_stairs/) | placement_direction, placement_position | No | Stone stairs with vanilla inner and outer corners, upside-down placement, waterlogging and walk-up collision, mined with a pickaxe only. No script. |
 | [TNT](tnt/) | none | Yes | TNT lit by flint and steel, redstone or a neighbouring blast, with a primed charge that is a real entity arcing, landing and exploding. |

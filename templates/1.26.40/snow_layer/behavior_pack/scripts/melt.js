@@ -6,6 +6,7 @@
 // fight over the same tick.
 import { BlockPermutation, EquipmentSlot, ItemStack, system, } from "@minecraft/server";
 import { DROP_PER_LAYER, HEIGHT_STATE, MELT_LIGHT, SNOW_ID } from "./config.js";
+import { dropIfUnsupported } from "./falling.js";
 import { addLayer, isSnowingOn } from "./snowfall.js";
 // Heights count from zero, so a drift of height 3 is four layers deep
 function layersOf(states) {
@@ -26,6 +27,11 @@ system.beforeEvents.startup.subscribe((init) => {
     init.blockComponentRegistry.registerCustomComponent("kai_templates:snow_melt", {
         onRandomTick(event) {
             const { block } = event;
+            // A drift whose floor went without anyone breaking it, a command
+            // or a piston say, notices here and falls before anything else
+            if (dropIfUnsupported(block)) {
+                return;
+            }
             // Falling snow is checked first. Combined light reads 12 or more
             // under an open daytime sky, so checking melting first would thaw
             // a drift in the middle of a snowstorm

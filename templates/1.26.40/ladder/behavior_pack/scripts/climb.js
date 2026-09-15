@@ -10,14 +10,13 @@ const LADDER_ID = "kai_templates:ladder";
 // Vanilla ladder movement, measured in game tick by tick: climbing moves
 // exactly 0.2 blocks a tick from the first tick of input, sneaking holds the
 // player exactly still, and a player who lets go falls under ordinary gravity
-// until the ladder caps the slide at 0.2 blocks a tick
-const CLIMB_SPEED = 0.2;
+// until the ladder caps the slide at this many blocks a tick
 const SLIDE_SPEED = 0.2;
 // The vertical knockback that produces each of those, written every tick the
 // player is on the ladder. The engine's answer to a vertical knockback is not
-// the number itself: 0.2 does move a player 0.2 a tick, but holding still
-// takes a small upward push against gravity, and capping the slide takes a
-// much smaller downward one than the speed it holds. All three were read off
+// the number itself: 0.2 does move a player 0.2 a tick, the vanilla climb,
+// but holding still takes a small upward push against gravity, and capping
+// the slide takes a much smaller downward one than the speed it holds. All three were read off
 // the same per-tick recording as the vanilla figures above
 const CLIMB_KNOCKBACK = 0.2;
 const HOLD_KNOCKBACK = 0.033;
