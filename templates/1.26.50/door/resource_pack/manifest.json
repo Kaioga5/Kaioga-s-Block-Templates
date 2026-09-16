@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Door",
+    "description": "Door block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "5744cf41-c6f9-49f7-aa76-c2318463ca82",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "9a590e89-5a9a-4844-9266-68ae90131bde",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "04ce0470-06d2-4c08-a321-9aaf2210ffa8",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

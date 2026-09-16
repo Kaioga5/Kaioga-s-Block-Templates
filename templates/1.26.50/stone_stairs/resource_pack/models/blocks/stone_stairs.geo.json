@@ -1,0 +1,319 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_stone_stairs",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      // One 8x8x8 cube per quarter of the block, named for the quarter it fills while the stair faces north. The block JSON hides and shows them to build all ten stair shapes out of this one geometry, and each face samples the matching quarter of the 16x16 texture so neighbouring quarters read as one surface.
+      "bones": [
+        // The four bottom quarters. Together they are the lower slab a right way up stair always shows.
+        {
+          "name": "north_east_bottom",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 0, -8],
+              "size": [8, 8, 8],
+              "uv": {
+                "north": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "south": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "east": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "west": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "up": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "north_west_bottom",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [0, 0, -8],
+              "size": [8, 8, 8],
+              "uv": {
+                "north": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "south": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "east": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "west": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "up": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "south_east_bottom",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 0, 0],
+              "size": [8, 8, 8],
+              "uv": {
+                "north": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "south": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "east": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "west": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "up": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "south_west_bottom",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [0, 0, 0],
+              "size": [8, 8, 8],
+              "uv": {
+                "north": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "south": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "east": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "west": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "up": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        },
+        // The four top quarters. Together they are the upper slab an upside down stair always shows.
+        {
+          "name": "north_east_top",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 8, -8],
+              "size": [8, 8, 8],
+              "uv": {
+                "north": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "east": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "up": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "north_west_top",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [0, 8, -8],
+              "size": [8, 8, 8],
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "south": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "east": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "up": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "south_east_top",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 8, 0],
+              "size": [8, 8, 8],
+              "uv": {
+                "north": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "west": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "up": {
+                  "uv": [0, 8],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "south_west_top",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [0, 8, 0],
+              "size": [8, 8, 8],
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "south": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [8, 8]
+                },
+                "west": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                },
+                "up": {
+                  "uv": [8, 8],
+                  "uv_size": [8, 8]
+                },
+                "down": {
+                  "uv": [8, 0],
+                  "uv_size": [8, 8]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      // The inventory pose only. Vanilla draws a stair icon a quarter turn from the usual block angle, 135 degrees instead of 225, so the tall half sits at the back left and the steps face the front right. It reaches the icon because the block names this geometry through item_visual, and the item's own bone visibility, over in the block JSON, picks the straight stair that is drawn here. Nothing here changes the block in the world.
+      "item_display_transforms": {
+        "gui": {
+          "rotation": [30, 135, 0],
+          "translation": [0, 0, 0],
+          "scale": [0.625, 0.625, 0.625],
+          "rotation_pivot": [0, 0, 0],
+          "scale_pivot": [0, 0, 0],
+          "fit_to_frame": false
+        }
+      }
+    }
+  ]
+}

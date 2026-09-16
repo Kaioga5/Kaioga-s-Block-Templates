@@ -1,0 +1,2733 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_candle_1",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "candles",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                -1
+              ],
+              "size": [
+                2,
+                6,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "wicks",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -0.5,
+                6,
+                0
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                0,
+                6,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -0.5,
+                6,
+                0
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                0,
+                6,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            }
+          ]
+        },
+          // The flame, shown only while the block is lit: two crossed quads, two pixels wide and three tall, above each wick, reading the flame texture. Vanilla draws its candle flame with its own renderer and the lit texture has no flame pixels, so a data-driven candle has to carry one.
+        {
+          "name": "flames",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                6.5,
+                0
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                0,
+                6,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -1,
+                6.5,
+                0
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                0,
+                6,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_candle_2",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "candles",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                1,
+                0,
+                -1
+              ],
+              "size": [
+                2,
+                5,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -3,
+                0,
+                -2
+              ],
+              "size": [
+                2,
+                6,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "wicks",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                1.5,
+                5,
+                0
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                1.5,
+                5,
+                0
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -2.5,
+                6,
+                -1
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                -2,
+                6,
+                -1
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -2.5,
+                6,
+                -1
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                -2,
+                6,
+                -1
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            }
+          ]
+        },
+          // The flame, shown only while the block is lit: two crossed quads, two pixels wide and three tall, above each wick, reading the flame texture. Vanilla draws its candle flame with its own renderer and the lit texture has no flame pixels, so a data-driven candle has to carry one.
+        {
+          "name": "flames",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                1,
+                5.5,
+                0
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                1,
+                5.5,
+                0
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -3,
+                6.5,
+                -1
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                -2,
+                6,
+                -1
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -3,
+                6.5,
+                -1
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                -2,
+                6,
+                -1
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_candle_3",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "candles",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                1
+              ],
+              "size": [
+                2,
+                3,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                1,
+                0,
+                -1
+              ],
+              "size": [
+                2,
+                5,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -2,
+                0,
+                -2
+              ],
+              "size": [
+                2,
+                6,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "wicks",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -0.5,
+                3,
+                2
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                0,
+                3,
+                2
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -0.5,
+                3,
+                2
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                0,
+                3,
+                2
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                1.5,
+                5,
+                0
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                1.5,
+                5,
+                0
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -1.5,
+                6,
+                -1
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                -1,
+                6,
+                -1
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -1.5,
+                6,
+                -1
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                -1,
+                6,
+                -1
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            }
+          ]
+        },
+          // The flame, shown only while the block is lit: two crossed quads, two pixels wide and three tall, above each wick, reading the flame texture. Vanilla draws its candle flame with its own renderer and the lit texture has no flame pixels, so a data-driven candle has to carry one.
+        {
+          "name": "flames",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                3.5,
+                2
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                0,
+                3,
+                2
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -1,
+                3.5,
+                2
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                0,
+                3,
+                2
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                1,
+                5.5,
+                0
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                1,
+                5.5,
+                0
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -2,
+                6.5,
+                -1
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                -1,
+                6,
+                -1
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -2,
+                6.5,
+                -1
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                -1,
+                6,
+                -1
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_candle_4",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "candles",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                2,
+                3,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -3,
+                0,
+                0
+              ],
+              "size": [
+                2,
+                5,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                1,
+                0,
+                -3
+              ],
+              "size": [
+                2,
+                5,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    5
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -2,
+                0,
+                -3
+              ],
+              "size": [
+                2,
+                6,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "wicks",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                0.5,
+                3,
+                1
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                1,
+                3,
+                1
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                0.5,
+                3,
+                1
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                1,
+                3,
+                1
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -2.5,
+                5,
+                1
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                -2,
+                5,
+                1
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -2.5,
+                5,
+                1
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                -2,
+                5,
+                1
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                1.5,
+                5,
+                -2
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                -2
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                1.5,
+                5,
+                -2
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                -2
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -1.5,
+                6,
+                -2
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                -1,
+                6,
+                -2
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -1.5,
+                6,
+                -2
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                -1,
+                6,
+                -2
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ]
+                }
+              }
+            }
+          ]
+        },
+          // The flame, shown only while the block is lit: two crossed quads, two pixels wide and three tall, above each wick, reading the flame texture. Vanilla draws its candle flame with its own renderer and the lit texture has no flame pixels, so a data-driven candle has to carry one.
+        {
+          "name": "flames",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                0,
+                3.5,
+                1
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                1,
+                3,
+                1
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                0,
+                3.5,
+                1
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                1,
+                3,
+                1
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -3,
+                5.5,
+                1
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                -2,
+                5,
+                1
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -3,
+                5.5,
+                1
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                -2,
+                5,
+                1
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                1,
+                5.5,
+                -2
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                -2
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                1,
+                5.5,
+                -2
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                2,
+                5,
+                -2
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -2,
+                6.5,
+                -2
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                -1,
+                6,
+                -2
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -2,
+                6.5,
+                -2
+              ],
+              "size": [
+                2,
+                3,
+                0
+              ],
+              "pivot": [
+                -1,
+                6,
+                -2
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    // One cube, sixteen wide and one pixel tall. The same model draws the placed block and the inventory icon.
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_carpet",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 1,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "carpet",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                1,
+                16
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ]
+                },
+                "north": {
+                  "uv": [
+                    0,
+                    15
+                  ],
+                  "uv_size": [
+                    16,
+                    1
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    15
+                  ],
+                  "uv_size": [
+                    16,
+                    1
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    15
+                  ],
+                  "uv_size": [
+                    16,
+                    1
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    15
+                  ],
+                  "uv_size": [
+                    16,
+                    1
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      // The inventory pose, the usual vanilla block icon rotation and scale. With fit_to_frame off the model keeps its block coordinates, so the carpet already lies on the floor of the block the way the vanilla icon shows it. Since Minecraft 1.26.50 the translation moves the icon by slot pixels, so a drop here would push the carpet out of its slot. Nothing here changes the block in the world, and it only applies because the block names this geometry through item_visual.
+      "item_display_transforms": {
+        "gui": {
+          "rotation": [
+            30,
+            225,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.625,
+            0.625,
+            0.625
+          ],
+          "fit_to_frame": false
+        }
+      }
+    }
+  ]
+}

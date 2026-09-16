@@ -1,0 +1,207 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_leaf_litter",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 1,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      // Four flat quads, one per quarter of the block, in the order vanilla fills them: north-west first, then south-west, south-east and north-east. The positions come from the Java template_leaf_litter models with the X axis mirrored, because block geometry draws model -X on the east side.
+      "bones": [
+        {
+          // Each quarter reads its own quarter of the 16x16 texture, turned half a turn. Bedrock lays a texture on a horizontal face the other way round from the Java model, and a rotation stays correct when the block is turned to face east or west, which a mirrored UV does not.
+          "name": "segment_1",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                0,
+                0.25,
+                -8
+              ],
+              "size": [
+                8,
+                0,
+                8
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "uv_rotation": 180
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "uv_rotation": 180
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "segment_2",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                0,
+                0.25,
+                0
+              ],
+              "size": [
+                8,
+                0,
+                8
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "uv_rotation": 180
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "uv_rotation": 180
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "segment_3",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0.25,
+                0
+              ],
+              "size": [
+                8,
+                0,
+                8
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    8,
+                    8
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "uv_rotation": 180
+                },
+                "down": {
+                  "uv": [
+                    8,
+                    8
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "uv_rotation": 180
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "segment_4",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0.25,
+                -8
+              ],
+              "size": [
+                8,
+                0,
+                8
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    8,
+                    0
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "uv_rotation": 180
+                },
+                "down": {
+                  "uv": [
+                    8,
+                    0
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "uv_rotation": 180
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

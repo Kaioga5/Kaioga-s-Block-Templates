@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Dirt",
+    "description": "Dirt block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "01d11133-6568-4ad0-b1af-09ee04708d36",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "6a913974-fc08-4e68-9c61-f91efbf4c793",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "0796da75-47f9-4788-b658-f7af1ebb8d0a",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

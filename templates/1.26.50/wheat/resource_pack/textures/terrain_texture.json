@@ -1,0 +1,15 @@
+{
+  "resource_pack_name": "kai_templates_wheat",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block files refer to these names, not to file paths. Vanilla keeps all eight stages under one alias and picks by growth internally; a custom block cannot index that list, so each stage gets its own name here, still pointing at the vanilla files.
+  "texture_data": {
+    "kai_templates_wheat_stage_0": { "textures": "textures/blocks/wheat_stage_0" },
+    "kai_templates_wheat_stage_1": { "textures": "textures/blocks/wheat_stage_1" },
+    "kai_templates_wheat_stage_2": { "textures": "textures/blocks/wheat_stage_2" },
+    "kai_templates_wheat_stage_3": { "textures": "textures/blocks/wheat_stage_3" },
+    "kai_templates_wheat_stage_4": { "textures": "textures/blocks/wheat_stage_4" },
+    "kai_templates_wheat_stage_5": { "textures": "textures/blocks/wheat_stage_5" },
+    "kai_templates_wheat_stage_6": { "textures": "textures/blocks/wheat_stage_6" },
+    "kai_templates_wheat_stage_7": { "textures": "textures/blocks/wheat_stage_7" }
+  }
+}

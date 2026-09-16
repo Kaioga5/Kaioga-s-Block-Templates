@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's TNT",
+    "description": "TNT block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "07b3d91b-f749-564e-bcf4-087f3186d6f7",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "f8aca8c8-062a-56b1-b0c0-ca56ad348bfe",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "498f14e1-28e2-5bf8-a29a-e7365c3eaeba",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "2ce9f63f-199e-5422-9b3a-fa5e21dad8ea",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

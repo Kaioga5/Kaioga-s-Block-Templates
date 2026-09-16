@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Copper Door",
+    "description": "Copper Door block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "91f23d88-1b93-4139-ad71-2eab87cbb2dd",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "7e168468-8036-4cf1-a3f8-17f13b24d626",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "8cf36455-0435-4916-8b42-fc6f39f97102",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

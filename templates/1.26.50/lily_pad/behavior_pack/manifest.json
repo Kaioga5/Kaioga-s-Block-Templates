@@ -1,0 +1,60 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Lily Pad",
+    "description": "Lily Pad block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "1bc92724-f256-4318-8974-4149c1d03bbf",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "ee02ca68-4291-47bc-a944-b0d8121289f6",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "d1dbfc66-5d61-430e-b9d3-e8d7ee793ed3",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "1302fd94-6d9e-4e7c-ac8e-75fae6037d5d",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Kaioga"
+    ]
+  }
+}

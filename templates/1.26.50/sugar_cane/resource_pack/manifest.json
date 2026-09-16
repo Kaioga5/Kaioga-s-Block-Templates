@@ -1,0 +1,45 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Sugar Cane",
+    "description": "Sugar Cane block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "2b2488c4-0c52-554a-afbd-575461d36be2",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "1daf0fcb-cb95-58ce-824a-ff5b2406a9d2",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "116cff0d-7a3a-571e-b763-3ff307c57098",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Kaioga"
+    ]
+  }
+}

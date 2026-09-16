@@ -1,0 +1,16 @@
+tile.kai_templates.copper_door.name=Copper Door
+tile.kai_templates.waxed_copper_door.name=Waxed Copper Door
+tile.kai_templates.exposed_copper_door.name=Exposed Copper Door
+tile.kai_templates.waxed_exposed_copper_door.name=Waxed Exposed Copper Door
+tile.kai_templates.weathered_copper_door.name=Weathered Copper Door
+tile.kai_templates.waxed_weathered_copper_door.name=Waxed Weathered Copper Door
+tile.kai_templates.oxidized_copper_door.name=Oxidized Copper Door
+tile.kai_templates.waxed_oxidized_copper_door.name=Waxed Oxidized Copper Door
+item.kai_templates:copper_door=Copper Door
+item.kai_templates:exposed_copper_door=Exposed Copper Door
+item.kai_templates:oxidized_copper_door=Oxidized Copper Door
+item.kai_templates:waxed_copper_door=Waxed Copper Door
+item.kai_templates:waxed_exposed_copper_door=Waxed Exposed Copper Door
+item.kai_templates:waxed_oxidized_copper_door=Waxed Oxidized Copper Door
+item.kai_templates:waxed_weathered_copper_door=Waxed Weathered Copper Door
+item.kai_templates:weathered_copper_door=Weathered Copper Door

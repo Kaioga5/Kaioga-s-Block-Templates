@@ -1,0 +1,60 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Twisting Vines",
+    "description": "Twisting Vines block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "51a09417-1bf9-4bf5-a629-b82725da52fa",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "77f65122-27bd-4877-9fb0-faa615bd74bd",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "e41375c0-7d63-4e89-abad-308e96230767",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "b78afe8d-6b2e-4a97-a3a6-79ce0c63a5d5",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Kaioga"
+    ]
+  }
+}

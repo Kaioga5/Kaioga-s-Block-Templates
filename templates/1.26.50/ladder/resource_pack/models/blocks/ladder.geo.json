@@ -1,0 +1,31 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_ladder",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "ladder",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 0, -7.2],
+              "size": [16, 16, 0],
+              "uv": {
+                "south": { "uv": [0, 0], "uv_size": [16, 16] },
+                "north": { "uv": [16, 0], "uv_size": [-16, 16] }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

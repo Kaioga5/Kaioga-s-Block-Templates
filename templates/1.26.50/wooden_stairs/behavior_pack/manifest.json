@@ -1,0 +1,45 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Wooden Stairs",
+    "description": "Wooden Stairs block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "7d2a1e64-6c0b-4f57-9c33-1a6f4d2b8e11",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "b1c4f0a7-2d58-4e93-8a10-6f7c5b3d9e22",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "3e58c9b2-91a4-4d70-b6f5-8c2d17e4a533",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Kaioga"
+    ]
+  }
+}

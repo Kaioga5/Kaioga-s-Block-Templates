@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Wheat",
+    "description": "Wheat crop block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "79457556-0c2e-4f4c-8872-c341aed0945c",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "7d3846c1-6738-4ed7-be69-113c8e40f8cd",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "c1ad3386-aeb9-409f-b9eb-0f563f859f93",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "f8127550-c4c4-4c65-86bb-788beef6610d",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

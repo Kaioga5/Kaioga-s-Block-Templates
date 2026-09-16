@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Skull",
+    "description": "Skull block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "d81a2dd9-21cb-4b6b-98eb-616862d7b4a3",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "e23ae78a-198f-401c-bf82-31a12e7a579f",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "f0338886-1f06-4c31-af6e-2c0c0504f625",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

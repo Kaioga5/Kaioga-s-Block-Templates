@@ -1,0 +1,303 @@
+{
+  "pools": [
+    // The grain always drops. The seed pools below are one per Fortune level: vanilla rolls three tries at four in seven, one more try per level, and the weights are that binomial written out, with an empty entry for the misses.
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:wheat"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "fortune",
+              "levels": {
+                "range_min": 1
+              }
+            }
+          ],
+          "operator": "not"
+        }
+      ],
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 787
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 3149,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 4198,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 1866,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "fortune",
+              "levels": {
+                "range_min": 1,
+                "range_max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 337
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 1799,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 3599,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 3199,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 1066,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "fortune",
+              "levels": {
+                "range_min": 2,
+                "range_max": 2
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 145
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 964,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 2570,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 3427,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 2285,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 609,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "fortune",
+              "levels": {
+                "range_min": 3
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 62
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 496,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 1652,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 2938,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 2938,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 1567,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "kai_templates:wheat_seeds",
+          "weight": 348,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 6
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

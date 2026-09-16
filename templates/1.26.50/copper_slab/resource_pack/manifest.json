@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Copper Slab",
+    "description": "Copper Slab block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "9248b5df-1c33-414a-ab10-e2988269b7c7",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "76c06eed-7159-4350-9080-0122e3185956",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "04c2f0dc-a647-4fa6-8803-cb42a0d0aa83",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

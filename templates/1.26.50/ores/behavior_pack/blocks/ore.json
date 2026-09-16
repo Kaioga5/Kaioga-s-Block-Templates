@@ -1,0 +1,92 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:ore",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.ore.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "diamond_ore"
+        }
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#7F7F7F",
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 15,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 15,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 7.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 3.75
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 1.25
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.75
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.55
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.5
+          }
+        ]
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 3 x 5
+        "explosion_resistance": 15
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // The instrument a note block plays when it sits on this block.
+      "minecraft:instrument_sound": {
+        "up": "note.bd"
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "push_pull"
+      },
+      // The engine\'s own empty loot table, so the block drops nothing. No file of that name has to ship in this pack.
+      "minecraft:loot": "loot_tables/empty.json",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:ore_drops": {}
+    }
+  }
+}

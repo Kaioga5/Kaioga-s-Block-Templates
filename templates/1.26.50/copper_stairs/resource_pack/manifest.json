@@ -1,0 +1,45 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Copper Stairs",
+    "description": "Copper Stairs block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "62b98f04-7c31-4e5a-a903-1d7f86b2c400",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "f501a6d3-89b4-42e7-b16c-3a9d05e7f211",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "a37c5d90-2e18-4b64-9f27-0c8a63d1e599",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Kaioga"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Stained Glass Pane",
+    "description": "Stained Glass Pane block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "9a4f1ab2-705e-43ae-b83b-d3cfb814f1c5",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "afc68d23-3319-4b89-a39c-62927d7be41a",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "f993176a-16db-48fb-ac35-44b456a4a0a5",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

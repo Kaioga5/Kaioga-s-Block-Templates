@@ -1,0 +1,166 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:pink_petals",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:petals": [1, 2, 3, 4]
+      },
+      // Allows the block to use exposed vanilla block states.
+      "traits": {
+        // Sets the enabled state from the direction the player faces when placing.
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ]
+        }
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.pink_petals.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:petal_growth": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_pink_petals",
+        // Controls which bones are visible when the block is rendered.
+        "bone_visibility": {
+          "petals_1": "true",
+          "petals_2": "q.block_state('kai_templates:petals') >= 2",
+          "petals_3": "q.block_state('kai_templates:petals') >= 3",
+          "petals_4": "q.block_state('kai_templates:petals') >= 4"
+        }
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_pink_petals",
+          // Controls how the block is rendered using vanilla render methods. Single-sided matters here: the petals are zero-height boxes with an up face and a down face, and plain alpha_test keeps both, so every flower would draw twice at the same depth.
+          "render_method": "alpha_test_single_sided",
+          // Whether neighbouring blocks darken this block's corners.
+          "ambient_occlusion": 0,
+          // Whether each face gets the vanilla directional shading.
+          "face_dimming": false
+        },
+        // The stems are the one tinted part of the block. Vanilla ships a greyscale stem and colours it with the grass map, so a patch matches the meadow it grows in while the flowers stay pink everywhere.
+        "stem": {
+          "texture": "kai_templates_pink_petals_stem",
+          "render_method": "alpha_test_single_sided",
+          "ambient_occlusion": 0,
+          "face_dimming": false,
+          // Tints the texture with a biome color, like grass or foliage.
+          "tint_method": "grass"
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": false,
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 3, 16]
+      },
+      // Faces and blocks the block may be placed against. When the rule stops holding, the block pops off.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": ["up"],
+            "block_filter": [
+              "minecraft:grass_block",
+              "minecraft:dirt",
+              "minecraft:coarse_dirt",
+              "minecraft:dirt_with_roots",
+              "minecraft:podzol",
+              "minecraft:mycelium",
+              "minecraft:farmland",
+              "minecraft:mud",
+              "minecraft:muddy_mangrove_roots",
+              "minecraft:moss_block",
+              "minecraft:pale_moss_block",
+              {
+                "tags": "q.any_tag('kai_templates:petal_support')"
+              }
+            ]
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0
+      },
+      // What the block drops. The table pays out one petal and the break script tops the pile up to the number that was standing there.
+      "minecraft:loot": "loot_tables/blocks/pink_petals.json",
+      // How easily fire catches on and destroys the block.
+      "minecraft:flammable": {
+        "catch_chance_modifier": 60,
+        "destroy_chance_modifier": 100
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": false,
+            "on_liquid_touches": "popped"
+          }
+        ]
+      },
+      // Lets a player place another block into this block's space, like tall grass.
+      "minecraft:replaceable": {},
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Texture used for the break particles.
+      "minecraft:destruction_particles": {
+        "texture": "kai_templates_pink_petals"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#F3B2C8",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    },
+    // Component overrides that apply while their Molang condition is true. Turning the whole patch is a rotation of the model, so one bone set covers all four facings.
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          // Rotates, scales or offsets the geometry and boxes for this permutation.
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      }
+    ]
+  }
+}

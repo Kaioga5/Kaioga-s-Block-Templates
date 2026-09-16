@@ -1,0 +1,130 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_copper_trapdoor",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "panel",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                3,
+                16
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    16,
+                    3
+                  ],
+                  "uv_size": [
+                    -16,
+                    -3
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    16,
+                    3
+                  ],
+                  "uv_size": [
+                    -16,
+                    -3
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    16,
+                    3
+                  ],
+                  "uv_size": [
+                    -16,
+                    -3
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    16,
+                    3
+                  ],
+                  "uv_size": [
+                    -16,
+                    -3
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    16,
+                    16
+                  ],
+                  "uv_size": [
+                    -16,
+                    -16
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      // The inventory pose. It only reaches the icon because the block names this geometry again through item_visual, and it never moves the panel in the world.
+      "item_display_transforms": {
+        "gui": {
+          // The turn vanilla gives every block item.
+          "rotation": [
+            30,
+            225,
+            0
+          ],
+          // No offset. With fit_to_frame off the panel keeps its block coordinates, so it already lies on the floor of the block like the vanilla trapdoor icon. Since Minecraft 1.26.50 the translation moves the icon by slot pixels, so a drop here would push the panel out of its slot.
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          // The usual vanilla block icon scale.
+          "scale": [
+            0.625,
+            0.625,
+            0.625
+          ],
+          // Keeps the model out of the slot's own fitting, which would rescale and recentre it on its own.
+          "fit_to_frame": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:sea_pickle",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:cluster_count": [0, 1, 2, 3],
+        "kai_templates:dead": [true, false]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:cluster_count') == 0",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_sea_pickle_1",
+            // Controls which bones are visible when the block is rendered.
+            "bone_visibility": {
+              "bodies": "true",
+              "sprouts": "q.block_state('kai_templates:dead') == false"
+            }
+          },
+          // The block's collision box.
+          "minecraft:collision_box": {
+            "origin": [-2, 0, -2],
+            "size": [4, 6, 4]
+          },
+          // The block's selection box.
+          "minecraft:selection_box": {
+            "origin": [-2, 0, -2],
+            "size": [4, 6, 4]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cluster_count') == 0 && !q.block_state('kai_templates:dead')",
+        "components": {
+          // Light level the block gives off, 0 to 15.
+          "minecraft:light_emission": 6
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cluster_count') == 1",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_sea_pickle_2",
+            // Controls which bones are visible when the block is rendered.
+            "bone_visibility": {
+              "bodies": "true",
+              "sprouts": "q.block_state('kai_templates:dead') == false"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-4, 0, -5],
+            "size": [9, 6, 9]
+          },
+          "minecraft:selection_box": {
+            "origin": [-4, 0, -5],
+            "size": [9, 6, 9]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cluster_count') == 1 && !q.block_state('kai_templates:dead')",
+        "components": {
+          "minecraft:light_emission": 9
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cluster_count') == 2",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_sea_pickle_3",
+            // Controls which bones are visible when the block is rendered.
+            "bone_visibility": {
+              "bodies": "true",
+              "sprouts": "q.block_state('kai_templates:dead') == false"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-4, 0, -6],
+            "size": [10, 6, 11]
+          },
+          "minecraft:selection_box": {
+            "origin": [-4, 0, -6],
+            "size": [10, 6, 11]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cluster_count') == 2 && !q.block_state('kai_templates:dead')",
+        "components": {
+          "minecraft:light_emission": 12
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cluster_count') == 3",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_sea_pickle_4",
+            // Controls which bones are visible when the block is rendered.
+            "bone_visibility": {
+              "bodies": "true",
+              "sprouts": "q.block_state('kai_templates:dead') == false"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-5, 0, -6],
+            "size": [11, 7, 12]
+          },
+          "minecraft:selection_box": {
+            "origin": [-5, 0, -6],
+            "size": [11, 7, 12]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cluster_count') == 3 && !q.block_state('kai_templates:dead')",
+        "components": {
+          "minecraft:light_emission": 15
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.sea_pickle.name",
+      // Block tags. Vanilla content and Molang queries can match on them.
+      "minecraft:tags": ["kai_templates:sea_pickle"],
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_sea_pickle_1",
+        // Controls which bones are visible when the block is rendered.
+        "bone_visibility": {
+          "bodies": "true",
+          "sprouts": "q.block_state('kai_templates:dead') == false"
+        }
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "sea_pickle",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "alpha_test_single_sided"
+        },
+        "sprout": {
+          "texture": "sea_pickle",
+          "render_method": "alpha_test_single_sided",
+          // Whether neighbouring blocks darken this block's corners.
+          "ambient_occlusion": 0,
+          // Whether each face gets the vanilla directional shading.
+          "face_dimming": false
+        }
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Faces and blocks the block may be placed against. When the rule stops holding, the block pops off.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": ["up"],
+            "block_filter": [
+              {
+                "tags": "!q.any_tag('kai_templates:sea_pickle')"
+              }
+            ]
+          }
+        ]
+      },
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": true,
+            "on_liquid_touches": "no_reaction"
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0
+      },
+      // Texture used for the break particles.
+      "minecraft:destruction_particles": {
+        "texture": "sea_pickle"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#6C7050",
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/sea_pickle.json",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:sea_pickle_water": {},
+      "kai_templates:sea_pickle_drops": {},
+      "kai_templates:sea_pickle_combine": {}
+    }
+  }
+}

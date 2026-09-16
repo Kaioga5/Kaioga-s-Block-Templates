@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Note Block",
+    "description": "Note Block block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "40a69ec0-0fe9-5730-8257-99093020195c",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "d197c714-d0c1-526e-827c-27b399afd858",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "6fc99fdc-01f4-5eb9-89ff-3ee719d11e82",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

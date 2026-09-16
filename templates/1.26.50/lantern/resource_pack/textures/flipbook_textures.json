@@ -1,0 +1,9 @@
+[
+  {
+    "flipbook_texture": "textures/blocks/lantern",
+    // The texture alias the animation replaces in the atlas.
+    "atlas_tile": "lantern",
+    // Game ticks each frame stays on screen.
+    "ticks_per_frame": 8
+  }
+]

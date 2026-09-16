@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Pillar",
+    "description": "Pillar block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "9d697e2a-6176-4dad-9810-7555d0ab9558",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "1ffdca43-8feb-4b89-9d7f-a661fb4f6d9e",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "751b7c63-8216-4416-adaa-b585019fab8d",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

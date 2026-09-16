@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Melon",
+    "description": "Melon seeds, stem and fruit block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "572d64c0-bff1-4aa3-a692-d14c89a5a550",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "65d8b45c-8bb3-4ac3-ac00-eff96d8ca4d2",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "8f459b00-eab4-4b66-887c-5fcafbb3d787",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "43c39db3-d916-41c0-94e1-438480b209a4",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

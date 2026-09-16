@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Fence Gate",
+    "description": "Fence Gate block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "68734c9d-c940-4138-9ec2-cbb588f05dea",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "cd689a8d-cda8-4508-953e-b5960f9552cb",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "9fc1c72f-b2a5-4bdf-9368-c37be979d152",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block_culling_rules": {
+    "description": {
+      "identifier": "kai_templates:shelf_mushroom_culling"
+    },
+    // The mushroom grows out of the block on its south edge, so the faces pressed against that block are never visible and are skipped whenever a full block is there. The rules are written for the identity pose; the permutations' rotation turns them with the model.
+    "rules": [
+      {
+        "geometry_part": { "bone": "cap", "cube": 0, "face": "south" },
+        "direction": "south"
+      },
+      {
+        "geometry_part": { "bone": "stem", "cube": 0, "face": "south" },
+        "direction": "south"
+      }
+    ]
+  }
+}

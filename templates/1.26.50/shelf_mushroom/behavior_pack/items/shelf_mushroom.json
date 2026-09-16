@@ -1,0 +1,29 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:item": {
+    "description": {
+      // The ID for the item. Format must be namespace:item_name.
+      "identifier": "kai_templates:shelf_mushroom",
+      // Where the item appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      // Places the block when the item is used. replace_block_item makes this item stand in for the block's own item. The icon is the block model itself, drawn with the geometry's gui pose.
+      "minecraft:block_placer": {
+        "block": "kai_templates:shelf_mushroom",
+        "replace_block_item": true
+      },
+      // Chance the item adds a layer to a composter.
+      "minecraft:compostable": {
+        "composting_chance": 65
+      },
+      // Item tags. The vanilla mushroom stew recipe accepts anything with this tag.
+      "minecraft:tags": {
+        "tags": ["minecraft:mushrooms_for_stew"]
+      }
+    }
+  }
+}

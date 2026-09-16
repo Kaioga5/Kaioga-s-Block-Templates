@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Copper Lantern",
+    "description": "Copper Lantern block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "bf6497d9-2ea1-51a4-942a-d9cfff734dcc",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "0ad0d52d-a2eb-5137-8552-736fa9e67a10",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "6ed1cd5d-59e3-5fb4-a758-78f7c051b2b9",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "789edbee-6b8e-570f-b497-39dbaa7c2861",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

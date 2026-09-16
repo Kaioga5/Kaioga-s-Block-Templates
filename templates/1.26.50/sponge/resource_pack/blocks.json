@@ -1,0 +1,10 @@
+{
+  "format_version": "1.21.40",
+  "kai_templates:sponge": {
+    // Vanilla sound set used for placing, breaking and stepping on the block.
+    "sound": "sponge"
+  },
+  "kai_templates:wet_sponge": {
+    "sound": "wet_sponge"
+  }
+}

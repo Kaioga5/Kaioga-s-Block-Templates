@@ -1,0 +1,7 @@
+{
+  "format_version": "1.21.40",
+  "kai_templates:shelf_mushroom": {
+    // Vanilla sound set used for placing, breaking and stepping on the block. The shelf mushroom has its own set, with the bounce sounds for landing on it.
+    "sound": "shelf_mushroom"
+  }
+}

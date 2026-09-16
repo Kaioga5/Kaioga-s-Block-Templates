@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Glass Pane",
+    "description": "Glass Pane block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "2964db00-5cd0-47ac-baee-6d4fa6f23047",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "40cffa56-18bb-4c48-9f91-57616bb224bc",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "c2bee63f-bf20-408d-9f75-f18d193c4c9f",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

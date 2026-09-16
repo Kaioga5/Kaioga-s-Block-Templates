@@ -1,0 +1,57 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    {
+      // The vanilla crop shape: four upright planes, two along each axis, a quarter of the way in from the edges. They start one pixel below the block so the base sinks into the farmland, the way vanilla crops do.
+      "description": {
+        "identifier": "geometry.kai_templates_wheat",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "crop",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              // Each plane has a front and a back, with the back reading the texture mirrored so the same pixel sits at the same spot from either side.
+              "origin": [-4, -1, -8],
+              "size": [0, 16, 16],
+              "uv": {
+                "west": { "uv": [0, 0], "uv_size": [16, 16] },
+                "east": { "uv": [16, 0], "uv_size": [-16, 16] }
+              }
+            },
+            {
+              "origin": [4, -1, -8],
+              "size": [0, 16, 16],
+              "uv": {
+                "west": { "uv": [16, 0], "uv_size": [-16, 16] },
+                "east": { "uv": [0, 0], "uv_size": [16, 16] }
+              }
+            },
+            {
+              "origin": [-8, -1, -4],
+              "size": [16, 16, 0],
+              "uv": {
+                "north": { "uv": [0, 0], "uv_size": [16, 16] },
+                "south": { "uv": [16, 0], "uv_size": [-16, 16] }
+              }
+            },
+            {
+              "origin": [-8, -1, 4],
+              "size": [16, 16, 0],
+              "uv": {
+                "north": { "uv": [16, 0], "uv_size": [-16, 16] },
+                "south": { "uv": [0, 0], "uv_size": [16, 16] }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

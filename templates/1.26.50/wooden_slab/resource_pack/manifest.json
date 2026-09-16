@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Wooden Slab",
+    "description": "Wooden Slab block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "be67b194-48b5-4748-8738-890949f3489a",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "005b55aa-29d9-45ef-9b8f-769a8ae2a2a6",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "547df9f0-f760-475c-82a5-eaa794c5e004",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

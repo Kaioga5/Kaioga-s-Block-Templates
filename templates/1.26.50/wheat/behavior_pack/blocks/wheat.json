@@ -1,0 +1,212 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:wheat",
+      // The crop never shows in the inventory or in command autocomplete. Its seeds are the item that places it.
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": false
+      },
+      // Custom block states. Eight growth stages, the same count vanilla wheat uses. The permutations below pick the texture and the outline height for each one.
+      "states": {
+        "kai_templates:growth": [0, 1, 2, 3, 4, 5, 6, 7]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:growth') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_wheat_stage_1",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 4, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:growth') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_wheat_stage_2",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 6, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:growth') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_wheat_stage_3",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 8, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:growth') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_wheat_stage_4",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 10, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:growth') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_wheat_stage_5",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 12, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:growth') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_wheat_stage_6",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 14, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:growth') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_wheat_stage_7",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          },
+          // Ripe wheat drops the grain and a handful of seeds; every earlier stage gives one seed back.
+          "minecraft:loot": "loot_tables/blocks/wheat_mature.json"
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.wheat.name",
+      // Block tags. Vanilla content and Molang queries can match on them. Vanilla marks its crops with this tag.
+      "minecraft:tags": ["minecraft:crop", "kai_templates:wheat"],
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:wheat_growth": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "geometry.kai_templates_wheat",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_wheat_stage_0",
+          // Controls how the block is rendered using vanilla render methods. Each plane carries a front and a back face, so single-sided keeps them from fighting.
+          "render_method": "alpha_test_single_sided",
+          // Whether neighbouring blocks darken this block's corners.
+          "ambient_occlusion": 0,
+          // Whether each face gets the vanilla directional shading. Crops are lit evenly like their top face.
+          "face_dimming": false
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": false,
+      // The block's selection box. It grows with the plant, two pixels per stage, like vanilla's.
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 2, 16]
+      },
+      // Faces and blocks the block may be placed against. When the rule stops holding, the block pops off: trampled farmland turns to dirt and the crop drops on the spot.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": ["up"],
+            "block_filter": ["minecraft:farmland"]
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Color the block shows on maps.
+      "minecraft:map_color": "#007C00",
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": false,
+            "on_liquid_touches": "popped"
+          }
+        ]
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/wheat_immature.json",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    }
+  }
+}

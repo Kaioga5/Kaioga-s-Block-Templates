@@ -1,0 +1,248 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:waxed_exposed_copper_door",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:open": [false, true],
+        "kai_templates:hinge_right": [false, true]
+      },
+      // Allows the block to use exposed vanilla block states.
+      "traits": {
+        // Makes the engine place, support and break the block as one multi-block structure.
+        "minecraft:multi_block": {
+          "enabled_states": ["minecraft:multi_block_part"],
+          "direction": "up",
+          "parts": 2
+        },
+        // Sets the enabled state from the direction the player faces when placing.
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
+        }
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.waxed_exposed_copper_door.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:copper_door_support": {},
+      "kai_templates:copper_door_hinge": {},
+      "kai_templates:copper_door_interact": {},
+      "kai_templates:copper_door_redstone": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_copper_door",
+        // Controls which bones are visible when the block is rendered.
+        "bone_visibility": {
+          "door_closed": "!q.block_state('kai_templates:open') && !q.block_state('kai_templates:hinge_right')",
+          "door_open": "q.block_state('kai_templates:open') && !q.block_state('kai_templates:hinge_right')",
+          "door_closed_flipped": "!q.block_state('kai_templates:open') && q.block_state('kai_templates:hinge_right')",
+          "door_open_flipped": "q.block_state('kai_templates:open') && q.block_state('kai_templates:hinge_right')"
+        }
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "exposed_copper_door_bottom",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "alpha_test_single_sided",
+          // Whether neighbouring blocks darken this block's corners.
+          "ambient_occlusion": 0
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": {
+        "origin": [-8, 0, 5],
+        "size": [16, 16, 3]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [-8, 0, 5],
+        "size": [16, 16, 3]
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "can_contain_liquid": true,
+            "on_liquid_touches": "no_reaction"
+          }
+        ]
+      },
+      // Makes the block receive redstone power and get onRedstoneUpdate events.
+      "minecraft:redstone_consumer": {
+        "min_power": 0,
+        "propagates_power": false
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 2.25
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 1.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.75
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.55
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.4
+          }
+        ]
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 6 x 5
+        "explosion_resistance": 30
+      },
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/waxed_exposed_copper_door.json",
+      // Color the block shows on maps.
+      "minecraft:map_color": "#A87762",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:multi_block_part') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "exposed_copper_door_top",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:open') && !q.block_state('kai_templates:hinge_right')",
+        "components": {
+          "minecraft:collision_box": {
+            "origin": [5, 0, -8],
+            "size": [3, 16, 16]
+          },
+          "minecraft:selection_box": {
+            "origin": [5, 0, -8],
+            "size": [3, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:open') && q.block_state('kai_templates:hinge_right')",
+        "components": {
+          "minecraft:collision_box": {
+            "origin": [-8, 0, -8],
+            "size": [3, 16, 16]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [3, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          // Rotates, scales or offsets the geometry and boxes for this permutation.
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('kai_templates:open') && q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:connection_rule": {
+            "accepts_connections_from": "all",
+            "enabled_directions": ["south"]
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('kai_templates:open') && q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:connection_rule": {
+            "accepts_connections_from": "all",
+            "enabled_directions": ["north"]
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('kai_templates:open') && q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:connection_rule": {
+            "accepts_connections_from": "all",
+            "enabled_directions": ["west"]
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('kai_templates:open') && q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:connection_rule": {
+            "accepts_connections_from": "all",
+            "enabled_directions": ["east"]
+          }
+        }
+      }
+    ]
+  }
+}

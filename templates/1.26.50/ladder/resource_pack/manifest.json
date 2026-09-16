@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Ladder",
+    "description": "Ladder block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "eeedad3c-77c5-4ed7-9dcd-81529f8490cb",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "53f71720-fd69-4ea0-a6f8-e0ef3acfd46c",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "ea1520ac-d96a-4f20-8379-2bc81f63cccd",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

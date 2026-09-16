@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Carpet",
+    "description": "Carpet block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "1e184e3f-1cf4-440d-9957-00ca62ac4a7f",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "e6f73192-abb5-462c-b2a2-08c4290dc054",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "f89b72d3-f00a-4227-97b4-b65d97c82fb4",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "resource_pack_name": "kai_templates_coral_decoration",
+  "texture_name": "atlas.items",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates:coral": {
+      "textures": "textures/blocks/coral_plant_blue"
+    },
+    "kai_templates:dead_coral": {
+      "textures": "textures/blocks/coral_plant_blue_dead"
+    },
+    "kai_templates:coral_fan": {
+      "textures": "textures/blocks/coral_fan_blue"
+    },
+    "kai_templates:dead_coral_fan": {
+      "textures": "textures/blocks/coral_fan_blue_dead"
+    },
+    "kai_templates:coral_wall_fan": {
+      "textures": "textures/blocks/coral_fan_blue"
+    },
+    "kai_templates:dead_coral_wall_fan": {
+      "textures": "textures/blocks/coral_fan_blue_dead"
+    }
+  }
+}

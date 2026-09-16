@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Ice",
+    "description": "Ice block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "37818a66-7029-436a-90be-e98275b6405c",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "ec80bb39-433b-4d9c-b787-db6e598ea0f9",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "42e1ecb3-05a1-4eaf-b9e3-9d966819a27e",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

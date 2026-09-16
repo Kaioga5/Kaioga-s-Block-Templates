@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            // The creative group the items join. name is a translation key and icon is the item drawn on the group.
+            "group_identifier": {
+              "name": "minecraft:itemGroup.name.sapling"
+            },
+            "items": [
+              "kai_templates:sapling"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Copper Bars",
+    "description": "Copper Bars block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "4a1dc956-7c85-400b-8808-43853e549497",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "c6b37f5b-c1e4-4db0-9fb6-afb9746c83f2",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "0441f215-03d7-47b5-80e2-31ad145e4846",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

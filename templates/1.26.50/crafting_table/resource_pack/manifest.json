@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Crafting Table",
+    "description": "Crafting Table block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "eaf25aee-f391-5fda-acd2-316a1b170f92",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "79ec7243-604e-5895-9a27-fe6100cdba04",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "73a2440e-6587-550b-a132-110f77a624bf",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

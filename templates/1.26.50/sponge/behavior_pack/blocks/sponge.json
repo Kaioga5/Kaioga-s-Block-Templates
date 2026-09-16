@@ -1,0 +1,90 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:sponge",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.sponge.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:sponge_absorb": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "flattened_sponge",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "opaque",
+          // Randomly rotates the texture per block to hide tiling.
+          "isotropic": true
+        }
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 15,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.9,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 0.45
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.25
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.1
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_hoe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.1
+          }
+        ]
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 0.6 x 5
+        "explosion_resistance": 3
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#C3C04A",
+      // Block tags. Vanilla content and Molang queries can match on them.
+      "minecraft:tags": [
+        "minecraft:is_hoe_item_destructible"
+      ]
+    }
+  }
+}

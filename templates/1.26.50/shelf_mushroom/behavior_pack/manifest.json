@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Shelf Mushroom",
+    "description": "Shelf Mushroom block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "21424a57-0244-4406-81da-21f5ccd58f23",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "9cd43e4f-3c3d-4d3a-a2a2-2b569fb5332f",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "e608028a-67fe-41cf-a870-fc7b6c302afb",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "3adc5e9c-b4bc-40a7-85da-750833ea09a8",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

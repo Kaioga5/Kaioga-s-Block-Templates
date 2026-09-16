@@ -1,0 +1,310 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:oxidized_copper_trapdoor",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:open": [false, true]
+      },
+      // Allows the block to use exposed vanilla block states.
+      "traits": {
+        // Sets the enabled state from the direction the player faces when placing.
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
+        },
+        // Sets the enabled state from where the player clicked: the face hit, or the top or bottom half.
+        "minecraft:placement_position": {
+          "enabled_states": ["minecraft:vertical_half"]
+        }
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.oxidized_copper_trapdoor.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "geometry.kai_templates_copper_trapdoor",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "oxidized_copper_trapdoor",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "blend"
+        }
+      },
+      // The inventory model. A geometry's item_display_transforms only reach the icon through item_visual, so the block's own geometry is named again here to get its gui pose.
+      "minecraft:item_visual": {
+        "geometry": "geometry.kai_templates_copper_trapdoor",
+        "material_instances": {
+          "*": {
+            "texture": "oxidized_copper_trapdoor",
+            "render_method": "blend"
+          }
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 3, 16]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 3, 16]
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 2.25
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 1.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.75
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.55
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.4
+          }
+        ]
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 6 x 5
+        "explosion_resistance": 30
+      },
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": true,
+            "on_liquid_touches": "blocking"
+          }
+        ]
+      },
+      // How rain and snow interact with the block.
+      "minecraft:precipitation_interactions": {
+        "precipitation_behavior": "obstruct_rain"
+      },
+      // Makes the block receive redstone power and get onRedstoneUpdate events.
+      "minecraft:redstone_consumer": {
+        "min_power": 0,
+        "propagates_power": false
+      },
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      },
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:copper_trapdoor_interact": {},
+      "kai_templates:copper_trapdoor_redstone": {},
+      "kai_templates:copper_trapdoor_oxidize": {},
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/oxidized_copper_trapdoor.json",
+      // Color the block shows on maps.
+      "minecraft:map_color": "#4FAB90"
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'north' && !q.block_state('kai_templates:open')",
+        "components": {
+          // Rotates, scales or offsets the geometry and boxes for this permutation.
+          "minecraft:transformation": {
+            "rotation": [0, 0, 180]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'south' && !q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [180, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'east' && !q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [180, -270, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'west' && !q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [180, 270, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [-270, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [270, 0, -180]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 90]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [180, -270, -270]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'north' && !q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'south' && !q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'east' && !q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'west' && !q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -270, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [90, 0, 180]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [270, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -270, 90]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('kai_templates:open')",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [180, 270, -270]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:open') && q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:connection_rule": {
+            "accepts_connections_from": "all",
+            "enabled_directions": ["south"]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:open') && q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:connection_rule": {
+            "accepts_connections_from": "all",
+            "enabled_directions": ["north"]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:open') && q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:connection_rule": {
+            "accepts_connections_from": "all",
+            "enabled_directions": ["west"]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:open') && q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:connection_rule": {
+            "accepts_connections_from": "all",
+            "enabled_directions": ["east"]
+          }
+        }
+      }
+    ]
+  }
+}

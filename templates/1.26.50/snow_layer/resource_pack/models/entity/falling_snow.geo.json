@@ -1,0 +1,74 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    // The same eight drifts the block draws, one bone per thickness, standing on the entity's position so the falling drift fills the cell it came out of. The render controller shows the one bone the height property names, so one model covers every depth.
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_falling_snow",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "layer_0",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-8, 0, -8], "size": [16, 2, 16], "uv": { "north": { "uv": [0, 14], "uv_size": [16, 2] }, "south": { "uv": [0, 14], "uv_size": [16, 2] }, "east": { "uv": [0, 14], "uv_size": [16, 2] }, "west": { "uv": [0, 14], "uv_size": [16, 2] }, "up": { "uv": [0, 0], "uv_size": [16, 16] }, "down": { "uv": [0, 16], "uv_size": [16, -16] } } }
+          ]
+        },
+        {
+          "name": "layer_1",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-8, 0, -8], "size": [16, 4, 16], "uv": { "north": { "uv": [0, 12], "uv_size": [16, 4] }, "south": { "uv": [0, 12], "uv_size": [16, 4] }, "east": { "uv": [0, 12], "uv_size": [16, 4] }, "west": { "uv": [0, 12], "uv_size": [16, 4] }, "up": { "uv": [0, 0], "uv_size": [16, 16] }, "down": { "uv": [0, 16], "uv_size": [16, -16] } } }
+          ]
+        },
+        {
+          "name": "layer_2",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-8, 0, -8], "size": [16, 6, 16], "uv": { "north": { "uv": [0, 10], "uv_size": [16, 6] }, "south": { "uv": [0, 10], "uv_size": [16, 6] }, "east": { "uv": [0, 10], "uv_size": [16, 6] }, "west": { "uv": [0, 10], "uv_size": [16, 6] }, "up": { "uv": [0, 0], "uv_size": [16, 16] }, "down": { "uv": [0, 16], "uv_size": [16, -16] } } }
+          ]
+        },
+        {
+          "name": "layer_3",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-8, 0, -8], "size": [16, 8, 16], "uv": { "north": { "uv": [0, 8], "uv_size": [16, 8] }, "south": { "uv": [0, 8], "uv_size": [16, 8] }, "east": { "uv": [0, 8], "uv_size": [16, 8] }, "west": { "uv": [0, 8], "uv_size": [16, 8] }, "up": { "uv": [0, 0], "uv_size": [16, 16] }, "down": { "uv": [0, 16], "uv_size": [16, -16] } } }
+          ]
+        },
+        {
+          "name": "layer_4",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-8, 0, -8], "size": [16, 10, 16], "uv": { "north": { "uv": [0, 6], "uv_size": [16, 10] }, "south": { "uv": [0, 6], "uv_size": [16, 10] }, "east": { "uv": [0, 6], "uv_size": [16, 10] }, "west": { "uv": [0, 6], "uv_size": [16, 10] }, "up": { "uv": [0, 0], "uv_size": [16, 16] }, "down": { "uv": [0, 16], "uv_size": [16, -16] } } }
+          ]
+        },
+        {
+          "name": "layer_5",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-8, 0, -8], "size": [16, 12, 16], "uv": { "north": { "uv": [0, 4], "uv_size": [16, 12] }, "south": { "uv": [0, 4], "uv_size": [16, 12] }, "east": { "uv": [0, 4], "uv_size": [16, 12] }, "west": { "uv": [0, 4], "uv_size": [16, 12] }, "up": { "uv": [0, 0], "uv_size": [16, 16] }, "down": { "uv": [0, 16], "uv_size": [16, -16] } } }
+          ]
+        },
+        {
+          "name": "layer_6",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-8, 0, -8], "size": [16, 14, 16], "uv": { "north": { "uv": [0, 2], "uv_size": [16, 14] }, "south": { "uv": [0, 2], "uv_size": [16, 14] }, "east": { "uv": [0, 2], "uv_size": [16, 14] }, "west": { "uv": [0, 2], "uv_size": [16, 14] }, "up": { "uv": [0, 0], "uv_size": [16, 16] }, "down": { "uv": [0, 16], "uv_size": [16, -16] } } }
+          ]
+        },
+        {
+          "name": "layer_7",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-8, 0, -8], "size": [16, 16, 16], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 16] }, "south": { "uv": [0, 0], "uv_size": [16, 16] }, "east": { "uv": [0, 0], "uv_size": [16, 16] }, "west": { "uv": [0, 0], "uv_size": [16, 16] }, "up": { "uv": [0, 0], "uv_size": [16, 16] }, "down": { "uv": [0, 16], "uv_size": [16, -16] } } }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:item": {
+    "description": {
+      // The ID for the item. Format must be namespace:item_name.
+      "identifier": "kai_templates:wheat_seeds",
+      // Where the item appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      // Places the crop when the item is used. Seeds are their own item rather than the block's, so the crop block never shows up in the inventory and use_on keeps the seeds from doing anything on blocks that are not farmland.
+      "minecraft:block_placer": {
+        "block": "kai_templates:wheat",
+        "use_on": ["minecraft:farmland"]
+      },
+      // Sprite shown in the inventory. The vanilla seed sprite is referenced by its vanilla alias.
+      "minecraft:icon": {
+        "textures": {
+          "default": "seeds_wheat"
+        }
+      },
+      // Chance the item adds a layer to a composter.
+      "minecraft:compostable": {
+        "composting_chance": 30
+      }
+    }
+  }
+}

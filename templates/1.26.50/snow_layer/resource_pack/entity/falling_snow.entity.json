@@ -1,0 +1,19 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kai_templates:falling_snow",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      // The same texture the block wears, so a falling drift looks like the one that came loose.
+      "textures": {
+        "default": "textures/blocks/snow"
+      },
+      "geometry": {
+        "default": "geometry.kai_templates_falling_snow"
+      },
+      "render_controllers": ["controller.render.kai_templates_falling_snow"]
+    }
+  }
+}

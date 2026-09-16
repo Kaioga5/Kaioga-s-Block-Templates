@@ -1,0 +1,93 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    {
+      // Every stem shape in one file: eight bones for the growing stem and one for the bent stem beside a fruit. The block shows one of them at a time through bone_visibility.
+      "description": {
+        "identifier": "geometry.kai_templates_melon_stem",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          // Each stage is two planes crossed at 45 degrees, two pixels taller per stage, reading the top rows of the sprite the way vanilla does. Vanilla draws them from corner to corner, so each plane is a block diagonal wide, and they start a pixel down so the base sinks into the farmland. The second plane reads its texture the other way round, which is how the vanilla model is built: whichever side you look from, one plane shows the sprite as drawn and the other shows it mirrored.
+          "name": "stage_0",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 2, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 2] }, "south": { "uv": [16, 0], "uv_size": [-16, 2] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 2, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 2] }, "south": { "uv": [0, 0], "uv_size": [16, 2] } } }
+          ]
+        },
+        {
+          "name": "stage_1",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 4, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 4] }, "south": { "uv": [16, 0], "uv_size": [-16, 4] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 4, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 4] }, "south": { "uv": [0, 0], "uv_size": [16, 4] } } }
+          ]
+        },
+        {
+          "name": "stage_2",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 6, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 6] }, "south": { "uv": [16, 0], "uv_size": [-16, 6] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 6, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 6] }, "south": { "uv": [0, 0], "uv_size": [16, 6] } } }
+          ]
+        },
+        {
+          "name": "stage_3",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 8, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 8] }, "south": { "uv": [16, 0], "uv_size": [-16, 8] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 8, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 8] }, "south": { "uv": [0, 0], "uv_size": [16, 8] } } }
+          ]
+        },
+        {
+          "name": "stage_4",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 10, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 10] }, "south": { "uv": [16, 0], "uv_size": [-16, 10] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 10, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 10] }, "south": { "uv": [0, 0], "uv_size": [16, 10] } } }
+          ]
+        },
+        {
+          "name": "stage_5",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 12, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 12] }, "south": { "uv": [16, 0], "uv_size": [-16, 12] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 12, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 12] }, "south": { "uv": [0, 0], "uv_size": [16, 12] } } }
+          ]
+        },
+        {
+          "name": "stage_6",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 14, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 14] }, "south": { "uv": [16, 0], "uv_size": [-16, 14] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 14, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 14] }, "south": { "uv": [0, 0], "uv_size": [16, 14] } } }
+          ]
+        },
+        {
+          "name": "stage_7",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 16, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 16] }, "south": { "uv": [16, 0], "uv_size": [-16, 16] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 16, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 16] }, "south": { "uv": [0, 0], "uv_size": [16, 16] } } }
+          ]
+        },
+        {
+          // A stem with a fruit beside it is drawn the way the vanilla model draws it: the cross drops to half height, and one upright plane nine pixels wide carries the bent sprite from the middle of the block out to the edge the fruit is on. Drawn here it reaches west; the permutations turn it towards the other three sides.
+          "name": "attached_stem",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 8, 0], "pivot": [0, 0, 0], "rotation": [0, 45, 0], "uv": { "north": { "uv": [0, 0], "uv_size": [16, 8] }, "south": { "uv": [16, 0], "uv_size": [-16, 8] } } },
+            { "origin": [-11.3137, -1, 0], "size": [22.6274, 8, 0], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": { "north": { "uv": [16, 0], "uv_size": [-16, 8] }, "south": { "uv": [0, 0], "uv_size": [16, 8] } } },
+            { "origin": [-1, 0, 0], "size": [9, 16, 0], "uv": { "north": { "uv": [9, 0], "uv_size": [-9, 16], "material_instance": "arm" }, "south": { "uv": [0, 0], "uv_size": [9, 16], "material_instance": "arm" } } }
+          ]
+        }
+      ]
+    }
+  ]
+}

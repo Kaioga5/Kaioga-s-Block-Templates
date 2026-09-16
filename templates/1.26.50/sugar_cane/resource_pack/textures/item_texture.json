@@ -1,0 +1,10 @@
+{
+  "resource_pack_name": "kai_templates_sugar_cane",
+  "texture_name": "atlas.items",
+  // Texture aliases. Block and item files refer to these names, not to file paths. Vanilla files this sprite under the block's old name, reeds, which is also what the block id is called in Bedrock.
+  "texture_data": {
+    "kai_templates:sugar_cane": {
+      "textures": "textures/items/reeds"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Tinted Glass",
+    "description": "Tinted Glass block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "2811de39-8eba-4acf-ad4e-c8883f7d9b3e",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "96bf6476-56de-4c85-8d7b-f11c0a2b46f9",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "17a9e496-dd31-47c5-8273-2865af60956f",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

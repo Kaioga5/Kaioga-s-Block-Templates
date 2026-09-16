@@ -1,0 +1,79 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kai_templates:falling_dripstone",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      // One entity is one falling spike, the way vanilla's falling blocks
+      // are. A column that comes loose is one of these per spike, all spawned
+      // on the same tick so that they fall together. The script writes which
+      // shape the spike had as a block, and client_sync is what lets the
+      // render controllers read it back and draw that shape.
+      "properties": {
+        "kai_templates:thickness": {
+          "type": "enum",
+          "values": ["tip", "frustum", "middle", "base"],
+          "default": "tip",
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["kai_templates_falling_block", "inanimate"]
+      },
+      "minecraft:physics": {
+        "has_gravity": true,
+        "has_collision": true,
+        "push_towards_closest_space": false
+      },
+      // A small box at the bottom of the spike, the same way vanilla's falling
+      // blocks keep a small box. Nothing here is pushable, so the spikes of
+      // one column cannot shove each other off course on the way down.
+      "minecraft:collision_box": {
+        "width": 0.05,
+        "height": 0.05
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "event": "kai_templates:on_landed",
+            "target": "self",
+            "filters": {
+              "test": "on_ground",
+              "value": true
+            }
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 100.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:persistent": {},
+      "minecraft:fire_immune": {}
+    },
+    "events": {
+      "kai_templates:on_landed": {
+        "queue_command": {
+          "command": ["scriptevent kai_templates:dripstone_fall landed"]
+        }
+      }
+    }
+  }
+}

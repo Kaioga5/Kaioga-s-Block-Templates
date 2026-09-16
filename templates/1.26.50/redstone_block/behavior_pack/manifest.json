@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Redstone Block",
+    "description": "Redstone Block block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "f1fe04ab-ae7c-53ef-b35c-756b08059009",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "f4da7235-a84a-5eee-9c93-0c443e103fca",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "3cfd3378-cfaa-5d80-9b52-4ab5b59af831",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

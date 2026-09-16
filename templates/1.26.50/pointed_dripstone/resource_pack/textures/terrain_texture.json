@@ -1,0 +1,37 @@
+{
+  "resource_pack_name": "kai_templates_pointed_dripstone",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_dripstone_up_tip": {
+      "textures": "textures/blocks/pointed_dripstone_up_tip"
+    },
+    "kai_templates_dripstone_up_frustum": {
+      "textures": "textures/blocks/pointed_dripstone_up_frustum"
+    },
+    "kai_templates_dripstone_up_middle": {
+      "textures": "textures/blocks/pointed_dripstone_up_middle"
+    },
+    "kai_templates_dripstone_up_base": {
+      "textures": "textures/blocks/pointed_dripstone_up_base"
+    },
+    "kai_templates_dripstone_up_merge": {
+      "textures": "textures/blocks/pointed_dripstone_up_merge"
+    },
+    "kai_templates_dripstone_down_tip": {
+      "textures": "textures/blocks/pointed_dripstone_down_tip"
+    },
+    "kai_templates_dripstone_down_frustum": {
+      "textures": "textures/blocks/pointed_dripstone_down_frustum"
+    },
+    "kai_templates_dripstone_down_middle": {
+      "textures": "textures/blocks/pointed_dripstone_down_middle"
+    },
+    "kai_templates_dripstone_down_base": {
+      "textures": "textures/blocks/pointed_dripstone_down_base"
+    },
+    "kai_templates_dripstone_down_merge": {
+      "textures": "textures/blocks/pointed_dripstone_down_merge"
+    }
+  }
+}

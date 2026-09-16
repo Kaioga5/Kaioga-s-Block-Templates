@@ -1,0 +1,126 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:cactus",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        "kai_templates:age": {
+          "values": {
+            "min": 0,
+            "max": 15
+          }
+        }
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.cactus.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:cactus_growth": {},
+      "kai_templates:cactus_survival": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_cactus",
+        // The block culling rule used to hide faces against neighbours.
+        "culling": "kai_templates:cactus_culling"
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "cactus_side",
+          // The vanilla cactus textures carry a transparent one-pixel border with the spines poking through it. alpha_test keeps that border see-through; opaque would paint it black.
+          "render_method": "alpha_test_single_sided"
+        },
+        "up": {
+          "texture": "cactus_top",
+          "render_method": "alpha_test_single_sided"
+        },
+        "down": {
+          "texture": "cactus_bottom",
+          "render_method": "alpha_test_single_sided"
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          15,
+          14
+        ]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          16,
+          14
+        ]
+      },
+      // Faces and blocks the block may be placed against. When the rule stops holding, the block pops off.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": [
+              "up"
+            ],
+            "block_filter": [
+              "minecraft:sand",
+              "minecraft:red_sand",
+              "kai_templates:cactus",
+              {
+                "tags": "q.any_tag('kai_templates:cactus_support')"
+              }
+            ]
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.6
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 0.4 x 5
+        "explosion_resistance": 2
+      },
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": false,
+            "on_liquid_touches": "blocking"
+          }
+        ]
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#5A832F",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    }
+  }
+}

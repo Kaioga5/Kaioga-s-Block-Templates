@@ -1,0 +1,709 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_big_dripleaf",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "stem",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4.2427,
+                0,
+                3.975
+              ],
+              "size": [
+                8.4853,
+                16,
+                0.05
+              ],
+              "pivot": [
+                0,
+                8,
+                4
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    3,
+                    0
+                  ],
+                  "uv_size": [
+                    11,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "south": {
+                  "uv": [
+                    3,
+                    0
+                  ],
+                  "uv_size": [
+                    11,
+                    16
+                  ],
+                  "material_instance": "stem"
+                }
+              },
+              "rotation": [
+                0,
+                45,
+                0
+              ]
+            },
+            {
+              "origin": [
+                -4.2427,
+                0,
+                3.975
+              ],
+              "size": [
+                8.4853,
+                16,
+                0.05
+              ],
+              "pivot": [
+                0,
+                8,
+                4
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    3,
+                    0
+                  ],
+                  "uv_size": [
+                    11,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "south": {
+                  "uv": [
+                    3,
+                    0
+                  ],
+                  "uv_size": [
+                    11,
+                    16
+                  ],
+                  "material_instance": "stem"
+                }
+              },
+              "rotation": [
+                0,
+                -45,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stem_head",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4.2427,
+                0,
+                3.975
+              ],
+              "size": [
+                8.4853,
+                15,
+                0.05
+              ],
+              "pivot": [
+                0,
+                8,
+                4
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    3,
+                    0
+                  ],
+                  "uv_size": [
+                    11,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "south": {
+                  "uv": [
+                    3,
+                    0
+                  ],
+                  "uv_size": [
+                    11,
+                    16
+                  ],
+                  "material_instance": "stem"
+                }
+              },
+              "rotation": [
+                0,
+                45,
+                0
+              ]
+            },
+            {
+              "origin": [
+                -4.2427,
+                0,
+                3.975
+              ],
+              "size": [
+                8.4853,
+                15,
+                0.05
+              ],
+              "pivot": [
+                0,
+                8,
+                4
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    3,
+                    0
+                  ],
+                  "uv_size": [
+                    11,
+                    16
+                  ],
+                  "material_instance": "stem"
+                },
+                "south": {
+                  "uv": [
+                    3,
+                    0
+                  ],
+                  "uv_size": [
+                    11,
+                    16
+                  ],
+                  "material_instance": "stem"
+                }
+              },
+              "rotation": [
+                0,
+                -45,
+                0
+              ]
+            }
+          ]
+        },
+        // The blade. Its up and down faces read the top texture turned half a turn: Bedrock maps a horizontal face the other way round from the Java model this was converted from, and without the turn the notch where the stem meets the leaf lands on the far edge. A rotation is used rather than a mirrored UV because the engine keeps a rotation consistent when the block turns to face east or west; a mirrored UV came out flipped on those two facings.
+        {
+          "name": "leaf_flat",
+          "pivot": [
+            0,
+            15,
+            8
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                14.95,
+                -8
+              ],
+              "size": [
+                16,
+                0.05,
+                16
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "uv_rotation": 180,
+                  "material_instance": "top"
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "uv_rotation": 180,
+                  "material_instance": "top"
+                }
+              }
+            },
+            {
+              "origin": [
+                -8,
+                11,
+                -8
+              ],
+              "size": [
+                16,
+                4,
+                0.05
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "tip"
+                },
+                "south": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "tip"
+                }
+              }
+            },
+            {
+              "origin": [
+                -8,
+                11,
+                -8
+              ],
+              "size": [
+                0.05,
+                4,
+                16
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "side"
+                }
+              }
+            },
+            {
+              "origin": [
+                7.95,
+                11,
+                -8
+              ],
+              "size": [
+                0.05,
+                4,
+                16
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "side"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "leaf_partial",
+          "pivot": [
+            0,
+            15,
+            8
+          ],
+          "rotation": [
+            22.5,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                14.95,
+                -8
+              ],
+              "size": [
+                16,
+                0.05,
+                16
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "uv_rotation": 180,
+                  "material_instance": "top"
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "uv_rotation": 180,
+                  "material_instance": "top"
+                }
+              }
+            },
+            {
+              "origin": [
+                -8,
+                11,
+                -8
+              ],
+              "size": [
+                16,
+                4,
+                0.05
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "tip"
+                },
+                "south": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "tip"
+                }
+              }
+            },
+            {
+              "origin": [
+                -8,
+                11,
+                -8
+              ],
+              "size": [
+                0.05,
+                4,
+                16
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "side"
+                }
+              }
+            },
+            {
+              "origin": [
+                7.95,
+                11,
+                -8
+              ],
+              "size": [
+                0.05,
+                4,
+                16
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "side"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "leaf_full",
+          "pivot": [
+            0,
+            15,
+            8
+          ],
+          "rotation": [
+            45,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                14.95,
+                -8
+              ],
+              "size": [
+                16,
+                0.05,
+                16
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "uv_rotation": 180,
+                  "material_instance": "top"
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    16
+                  ],
+                  "uv_rotation": 180,
+                  "material_instance": "top"
+                }
+              }
+            },
+            {
+              "origin": [
+                -8,
+                11,
+                -8
+              ],
+              "size": [
+                16,
+                4,
+                0.05
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "tip"
+                },
+                "south": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "tip"
+                }
+              }
+            },
+            {
+              "origin": [
+                -8,
+                11,
+                -8
+              ],
+              "size": [
+                0.05,
+                4,
+                16
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "side"
+                }
+              }
+            },
+            {
+              "origin": [
+                7.95,
+                11,
+                -8
+              ],
+              "size": [
+                0.05,
+                4,
+                16
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    16,
+                    0
+                  ],
+                  "uv_size": [
+                    -16,
+                    4
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    16,
+                    4
+                  ],
+                  "material_instance": "side"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

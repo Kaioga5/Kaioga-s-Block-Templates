@@ -1,0 +1,102 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:melon",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.melon.name",
+      // Block tags. Vanilla content and Molang queries can match on them.
+      "minecraft:tags": ["kai_templates:melon"],
+      // Custom components are registered by the scripts in behavior_pack/scripts. When the fruit goes, the stem it grew from straightens up.
+      "kai_templates:melon_fruit": {},
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "melon_side"
+        },
+        "up": {
+          "texture": "melon_top"
+        },
+        "down": {
+          "texture": "melon_top"
+        }
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 15,
+      // Break time in seconds, with faster speeds for specific tools. Axes are the tool; a sword still cuts it faster than a bare hand.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 0.75
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.4
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.25
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.2
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.2
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.any_tag('minecraft:is_sword')"
+            },
+            "destroy_speed": 1.0
+          }
+        ]
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 1 x 5
+        "explosion_resistance": 5
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#7FB238",
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "push_pull"
+      },
+      // Loot table used when the block is broken. Slices, more with Fortune, or the whole melon with Silk Touch.
+      "minecraft:loot": "loot_tables/blocks/melon.json"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "items": [
+              "kai_templates:sponge",
+              "kai_templates:wet_sponge"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

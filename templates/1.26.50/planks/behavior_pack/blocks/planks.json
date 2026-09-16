@@ -1,0 +1,84 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:planks",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.planks.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "oak_planks"
+        }
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 15,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 1.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.75
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.5
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.4
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.35
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_axe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.25
+          }
+        ]
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 3 x 5
+        "explosion_resistance": 15
+      },
+      // How easily fire catches on and destroys the block.
+      "minecraft:flammable": true,
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#8F7748",
+      // Block tags. Vanilla content and Molang queries can match on them.
+      "minecraft:tags": ["wood"]
+    }
+  }
+}
