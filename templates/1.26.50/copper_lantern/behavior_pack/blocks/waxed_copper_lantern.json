@@ -154,6 +154,10 @@
       },
       // Loot table used when the block is broken. Without it the block drops itself.
       "minecraft:loot": "loot_tables/blocks/waxed_copper_lantern.json",
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "lantern"
+      },
       // Color the block shows on maps.
       "minecraft:map_color": "#C15A36"
     }

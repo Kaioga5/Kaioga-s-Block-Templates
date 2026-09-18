@@ -29,6 +29,10 @@
         "redstone_conductor": false,
         "allows_wire_to_step_down": true
       },
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       // Color the block shows on maps.
       "minecraft:map_color": "#FF0000",
       // How much light the block stops. 0 lets light through, 15 blocks it fully.

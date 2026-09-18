@@ -41,6 +41,12 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 - **Instruments come from the game.** `BlockInstrumentComponent` is stable in
   `@minecraft/server` 2.10.0, so the Note Block asks the block below what it
   sounds like instead of carrying a table of vanilla blocks.
+- **Sounds live on the block.** `minecraft:sound` left the experiment, so every
+  block names its own sound set and no template ships a `resource_pack/blocks.json`
+  any more. A blocks.json entry overrides the component, permutations included,
+  so a template that kept one would ignore what its own blocks ask for. A
+  permutation can give a block a different sound set as its state changes, which
+  blocks.json could not do.
 - **Leaves carry `minecraft:leaves`.** Every vanilla leaf block has the tag from
   this release and vanilla tree features grow through anything that carries it,
   so the Leaves template does too.

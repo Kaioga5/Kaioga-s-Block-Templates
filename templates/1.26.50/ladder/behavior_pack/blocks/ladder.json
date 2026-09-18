@@ -140,6 +140,10 @@
       "minecraft:light_dampening": 0,
       // Custom components are registered by the scripts in behavior_pack/scripts.
       "kai_templates:ladder_place_guard": {},
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "ladder"
+      },
       // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
       "minecraft:connection_rule": {
         "accepts_connections_from": "none"

@@ -83,6 +83,10 @@
       },
       // How much light the block stops. 0 lets light through, 15 blocks it fully.
       "minecraft:light_dampening": 0,
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "grass"
+      },
       // Color the block shows on maps.
       "minecraft:map_color": "#4D6A28",
       // How the block behaves when it detects liquids, such as waterlogging or being washed away.

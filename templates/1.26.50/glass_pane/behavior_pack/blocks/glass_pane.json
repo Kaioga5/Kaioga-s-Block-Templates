@@ -67,6 +67,10 @@
           }
         }
       },
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "glass"
+      },
       // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
       "minecraft:connection_rule": {
         "accepts_connections_from": "all"

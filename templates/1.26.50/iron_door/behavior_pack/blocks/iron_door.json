@@ -132,6 +132,10 @@
         // 5 x 5
         "explosion_resistance": 25
       },
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "iron"
+      },
       // Color the block shows on maps.
       "minecraft:map_color": "#DCDCDC",
       // Loot table used when the block is broken. Without it the block drops itself.

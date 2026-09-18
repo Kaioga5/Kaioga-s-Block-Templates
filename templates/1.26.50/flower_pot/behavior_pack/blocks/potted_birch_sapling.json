@@ -78,6 +78,10 @@
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 0
       },
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       // Color the block shows on maps.
       "minecraft:map_color": "#985F45",
       // Whether blocks with connection behavior, such as fences and panes, can connect to this block.

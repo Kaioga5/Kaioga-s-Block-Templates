@@ -108,6 +108,10 @@
       },
       // Loot table used when the block is broken. Without it the block drops itself.
       "minecraft:loot": "loot_tables/blocks/blue_stained_glass_pane.json",
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "glass"
+      },
       // Color the block shows on maps.
       "minecraft:map_color": "#3C44AA",
       // Block tags. Vanilla content and Molang queries can match on them.

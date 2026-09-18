@@ -41,6 +41,10 @@
       "minecraft:instrument_sound": {
         "up": "note.hat"
       },
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "glass"
+      },
       // Loot table used when the block is broken. Without it the block drops itself.
       "minecraft:loot": "loot_tables/blocks/glass.json"
     }

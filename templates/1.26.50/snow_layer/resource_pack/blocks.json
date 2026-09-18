@@ -1,7 +1,0 @@
-{
-  "format_version": "1.21.40",
-  "kai_templates:snow_layer": {
-    // Vanilla sound set used for placing, breaking and stepping on the block.
-    "sound": "snow"
-  }
-}

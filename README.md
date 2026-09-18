@@ -32,7 +32,7 @@ See the [module README](templates/1.26.50/README.md) for the full 76-template ma
 
 1. **Clone or Download:** Get the templates by cloning the repository or downloading the ZIP file.
 2. **Import:** Double-click any template's `.mcaddon` to import it into Minecraft, or copy the `behavior_pack`/`resource_pack` folders into your development pack folders.
-3. **Customization:** Swap in your own textures, then rename the `kai_templates` namespace to your own across the block definitions, `blocks.json`, the language files and any scripts.
+3. **Customization:** Swap in your own textures, then rename the `kai_templates` namespace to your own across the block definitions, the language files and any scripts.
 
 ## Why This Project?
 
