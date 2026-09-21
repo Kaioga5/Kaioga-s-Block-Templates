@@ -10,7 +10,7 @@ The repository is organized into version modules under `templates/`, each target
 
 | Module | Templates | Notes |
 |---|---|---|
-| [1.26.50](templates/1.26.50/) | 76 | **The modern module.** Building, nature, crops, redstone and interactive blocks on stable APIs, with TypeScript-sourced scripts. Start here. |
+| [1.26.50](templates/1.26.50/) | 77 | **The modern module.** Building, nature, crops, redstone and interactive blocks on stable APIs, with TypeScript-sourced scripts. Start here. |
 | [1.26.40](templates/1.26.40/) | 71 | The previous module, kept as it shipped for 1.26.40. |
 | [1.20.80](templates/1.20.80/) | 16 | Historical module (Beta-API experimental toggle). |
 | [preview-1.20.80.24](templates/preview-1.20.80.24/) | 7 | Historical preview-branch experiments. |

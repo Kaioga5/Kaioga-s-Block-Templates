@@ -1,6 +1,6 @@
 # Block Templates - 1.26.50
 
-This module contains 76 block templates for Minecraft Bedrock Edition 1.26.50,
+This module contains 77 block templates for Minecraft Bedrock Edition 1.26.50,
 covering building blocks, plants, crops, redstone, lighting and interactive
 blocks. All of them run on the current stable platform, and none require an
 experimental toggle.
@@ -112,6 +112,7 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 | [Melon](melon/) | none | Yes | Melon seeds, stem and fruit together: the stem grows through eight stages in vanilla's age colours, bends towards the melon it grows on a random tick, straightens when the fruit goes, and the fruit drops slices with Fortune or itself with Silk Touch. |
 | [Sugar Cane](sugar_cane/) | none | Yes | Sugar cane that plants beside water, grows to three blocks on random ticks, goes straight to full height under bone meal like Bedrock, holds water back, and comes apart from the bottom up when the water or the ground goes. |
 | [Cactus](cactus/) | none | Yes | A cactus that stands only on sand, refuses solid neighbours, grows up to three high on random ticks, hurts whatever presses into it, and pops when the sand under it goes. |
+| [Cake](cake/) | none | Yes | A cake eaten one slice at a time by right-clicking it: seven bite states that each shave two pixels off the west side of the model, the collision and selection boxes, feeding two hunger and 0.4 saturation a slice, refusing a full player, and vanishing with the last bite. |
 | [Candle](candle/) | none | Yes | One to four candles in a block, lit or unlit, with light rising per candle, added by clicking with another candle, lit by flint and steel, and returning every candle when broken. |
 | [Chorus](chorus/) | none | Yes | The chorus plant and flower together: the flower climbs and branches, the stem grows arms towards its neighbours, falls when unrooted, and drops fruit about half the time. |
 | [Copper Lantern](copper_lantern/) | placement_position | Yes | An eight-block copper lantern family, four oxidation stages and their waxed twins, standing or hanging like the Lantern template, weathering on random ticks, with waxing and scraping. |

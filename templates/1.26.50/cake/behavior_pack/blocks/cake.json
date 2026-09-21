@@ -1,0 +1,345 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:cake",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "items"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        // One value per slice eaten. Vanilla calls the same state minecraft:bite_counter and runs it 0 to 6; at six the next bite finishes the cake off.
+        "kai_templates:bite_counter": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:bite_counter') == 1",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_cake_1",
+            "culling": "kai_templates:cake_culling"
+          },
+          // The block's collision box. Vanilla eats the cake from its west side, so the slice that survives runs from x=1+2*bites to x=15 in world pixels. Box coordinates run the opposite way to world X, measured in game against the vanilla block: the origin stays at -7 and the width shrinks by two per bite, which puts the missing pixels on the west side rather than the east.
+          "minecraft:collision_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              12,
+              8,
+              14
+            ]
+          },
+          // The block's selection box.
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              12,
+              8,
+              14
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:bite_counter') == 2",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_cake_2",
+            "culling": "kai_templates:cake_culling"
+          },
+          // The block's collision box.
+          "minecraft:collision_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              10,
+              8,
+              14
+            ]
+          },
+          // The block's selection box.
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              10,
+              8,
+              14
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:bite_counter') == 3",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_cake_3",
+            "culling": "kai_templates:cake_culling"
+          },
+          // The block's collision box.
+          "minecraft:collision_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              8,
+              8,
+              14
+            ]
+          },
+          // The block's selection box.
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              8,
+              8,
+              14
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:bite_counter') == 4",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_cake_4",
+            "culling": "kai_templates:cake_culling"
+          },
+          // The block's collision box.
+          "minecraft:collision_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              6,
+              8,
+              14
+            ]
+          },
+          // The block's selection box.
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              6,
+              8,
+              14
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:bite_counter') == 5",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_cake_5",
+            "culling": "kai_templates:cake_culling"
+          },
+          // The block's collision box.
+          "minecraft:collision_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              4,
+              8,
+              14
+            ]
+          },
+          // The block's selection box.
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              4,
+              8,
+              14
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:bite_counter') == 6",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_cake_6",
+            "culling": "kai_templates:cake_culling"
+          },
+          // The block's collision box.
+          "minecraft:collision_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              2,
+              8,
+              14
+            ]
+          },
+          // The block's selection box.
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              2,
+              8,
+              14
+            ]
+          }
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.cake.name",
+      // The vanilla or custom geometry used by the block. This is the uneaten cake; the permutations above swap in the bitten ones.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_cake_0",
+        // The block culling rule used to hide faces against neighbours.
+        "culling": "kai_templates:cake_culling"
+      },
+      // The texture or textures used by the block. The named instances match the material_instance each face asks for in the geometry, so the cut side of a bitten cake shows the sponge texture.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_cake_side",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "opaque"
+        },
+        "top": {
+          "texture": "kai_templates_cake_top",
+          "render_method": "opaque"
+        },
+        "bottom": {
+          "texture": "kai_templates_cake_bottom",
+          "render_method": "opaque"
+        },
+        "inner": {
+          "texture": "kai_templates_cake_inner",
+          "render_method": "opaque"
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          8,
+          14
+        ]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          8,
+          14
+        ]
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away. Vanilla cake reports canContainLiquid true, so a water source placed in the same cell waterlogs it rather than washing it away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": true
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 0.5 x 5
+        "explosion_resistance": 2.5
+      },
+      // Texture used for the break particles.
+      "minecraft:destruction_particles": {
+        "texture": "kai_templates_cake_side"
+      },
+      // The engine's own empty loot table, so the block drops nothing. No file of that name has to ship in this pack.
+      "minecraft:loot": "loot_tables/empty.json",
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "cloth"
+      },
+      // Color the block shows on maps. Taken from the frosting texture: nothing in the script API or the commands reports what a vanilla block draws on a map, so this is the one value here that is not measured against vanilla.
+      "minecraft:map_color": "#F8DED6",
+      // What may stand on the block. A custom block defaults to full-cube support, which lets a torch, a rail or a snow layer sit on the cake; vanilla refuses all three while still accepting a carpet or a pressure plate. The fence shape is the only stable option that reproduces that split exactly.
+      "minecraft:support": {
+        "shape": "fence"
+      },
+      // Whether the block carries redstone power like a solid block. Vanilla cake also feeds a comparator behind it, 14 minus two per bite, without powering anything else. A custom block cannot do that half: minecraft:redstone_producer is the only way to reach a comparator, and with it the cake lights every lamp and opens every door beside it, which is a far bigger difference than the missing signal. So the signal is left out and the block stays inert to redstone, exactly as it is on every other side.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      },
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:cake_eat": {}
+    }
+  }
+}

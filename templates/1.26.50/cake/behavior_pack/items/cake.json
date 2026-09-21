@@ -1,0 +1,27 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:item": {
+    "description": {
+      // The ID for the item. Format must be namespace:item_name.
+      "identifier": "kai_templates:cake",
+      // Where the item appears in the creative inventory.
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      // Places the block when the item is used. replace_block_item makes this item stand in for the block's own item.
+      "minecraft:block_placer": {
+        "block": "kai_templates:cake",
+        "replace_block_item": true
+      },
+      // Sprite shown in the inventory, resolved through item_texture.json. Vanilla draws the carried cake as a flat sprite rather than as the block model, so the item names the vanilla alias instead of letting the block geometry stand in.
+      "minecraft:icon": {
+        "textures": {
+          "default": "cake"
+        }
+      }
+    }
+  }
+}
