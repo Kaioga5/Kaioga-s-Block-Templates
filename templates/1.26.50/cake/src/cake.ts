@@ -37,9 +37,11 @@ export function isLit(block: Block): boolean {
   return block.permutation.getAllStates()[LIT_STATE] === true;
 }
 
-// Light or snuff the candle without disturbing anything else
+// Light or snuff the candle without disturbing anything else. The block keeps
+// its own identifier: there are seventeen candle cakes, one per candle colour,
+// and resolving a fixed one here would repaint a red candle white
 export function setLit(block: Block, lit: boolean): void {
   block.setPermutation(
-    BlockPermutation.resolve(CANDLE_CAKE_ID, { [LIT_STATE]: lit }),
+    BlockPermutation.resolve(block.typeId, { [LIT_STATE]: lit }),
   );
 }

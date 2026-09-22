@@ -22,8 +22,104 @@
     "kai_templates_cake_candle_lit": {
       "textures": "textures/blocks/candles/candle_lit"
     },
+    "kai_templates_cake_white_candle": {
+      "textures": "textures/blocks/candles/white_candle"
+    },
+    "kai_templates_cake_white_candle_lit": {
+      "textures": "textures/blocks/candles/white_candle_lit"
+    },
+    "kai_templates_cake_orange_candle": {
+      "textures": "textures/blocks/candles/orange_candle"
+    },
+    "kai_templates_cake_orange_candle_lit": {
+      "textures": "textures/blocks/candles/orange_candle_lit"
+    },
+    "kai_templates_cake_magenta_candle": {
+      "textures": "textures/blocks/candles/magenta_candle"
+    },
+    "kai_templates_cake_magenta_candle_lit": {
+      "textures": "textures/blocks/candles/magenta_candle_lit"
+    },
+    "kai_templates_cake_light_blue_candle": {
+      "textures": "textures/blocks/candles/light_blue_candle"
+    },
+    "kai_templates_cake_light_blue_candle_lit": {
+      "textures": "textures/blocks/candles/light_blue_candle_lit"
+    },
+    "kai_templates_cake_yellow_candle": {
+      "textures": "textures/blocks/candles/yellow_candle"
+    },
+    "kai_templates_cake_yellow_candle_lit": {
+      "textures": "textures/blocks/candles/yellow_candle_lit"
+    },
+    "kai_templates_cake_lime_candle": {
+      "textures": "textures/blocks/candles/lime_candle"
+    },
+    "kai_templates_cake_lime_candle_lit": {
+      "textures": "textures/blocks/candles/lime_candle_lit"
+    },
+    "kai_templates_cake_pink_candle": {
+      "textures": "textures/blocks/candles/pink_candle"
+    },
+    "kai_templates_cake_pink_candle_lit": {
+      "textures": "textures/blocks/candles/pink_candle_lit"
+    },
+    "kai_templates_cake_gray_candle": {
+      "textures": "textures/blocks/candles/gray_candle"
+    },
+    "kai_templates_cake_gray_candle_lit": {
+      "textures": "textures/blocks/candles/gray_candle_lit"
+    },
+    "kai_templates_cake_light_gray_candle": {
+      "textures": "textures/blocks/candles/light_gray_candle"
+    },
+    "kai_templates_cake_light_gray_candle_lit": {
+      "textures": "textures/blocks/candles/light_gray_candle_lit"
+    },
+    "kai_templates_cake_cyan_candle": {
+      "textures": "textures/blocks/candles/cyan_candle"
+    },
+    "kai_templates_cake_cyan_candle_lit": {
+      "textures": "textures/blocks/candles/cyan_candle_lit"
+    },
+    "kai_templates_cake_purple_candle": {
+      "textures": "textures/blocks/candles/purple_candle"
+    },
+    "kai_templates_cake_purple_candle_lit": {
+      "textures": "textures/blocks/candles/purple_candle_lit"
+    },
+    "kai_templates_cake_blue_candle": {
+      "textures": "textures/blocks/candles/blue_candle"
+    },
+    "kai_templates_cake_blue_candle_lit": {
+      "textures": "textures/blocks/candles/blue_candle_lit"
+    },
+    "kai_templates_cake_brown_candle": {
+      "textures": "textures/blocks/candles/brown_candle"
+    },
+    "kai_templates_cake_brown_candle_lit": {
+      "textures": "textures/blocks/candles/brown_candle_lit"
+    },
+    "kai_templates_cake_green_candle": {
+      "textures": "textures/blocks/candles/green_candle"
+    },
+    "kai_templates_cake_green_candle_lit": {
+      "textures": "textures/blocks/candles/green_candle_lit"
+    },
+    "kai_templates_cake_red_candle": {
+      "textures": "textures/blocks/candles/red_candle"
+    },
+    "kai_templates_cake_red_candle_lit": {
+      "textures": "textures/blocks/candles/red_candle_lit"
+    },
+    "kai_templates_cake_black_candle": {
+      "textures": "textures/blocks/candles/black_candle"
+    },
+    "kai_templates_cake_black_candle_lit": {
+      "textures": "textures/blocks/candles/black_candle_lit"
+    },
     "kai_templates_cake_candle_flame": {
-      // The flame above a lit wick. A sixteen by sixteen image with a two by three flame in its top left corner: block textures are read at sixteen pixels per block, so a smaller image would be sampled wrong, and the vanilla lit candle texture carries no flame pixels of its own.
+      // The flame above a lit wick. A sixteen by sixteen image with a two by three flame in its top left corner: block textures are read at sixteen pixels per block, so a smaller image would be sampled wrong, and the vanilla lit candle textures carry no flame pixels of their own. One flame serves every colour, because vanilla's flame is the same whatever the wax.
       "textures": "textures/blocks/kai_templates_cake_candle_flame"
     }
   }

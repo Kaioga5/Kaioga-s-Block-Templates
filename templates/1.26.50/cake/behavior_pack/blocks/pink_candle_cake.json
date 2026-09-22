@@ -1,0 +1,173 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:pink_candle_cake",
+      // No menu_category, so the block stays out of the creative inventory. Vanilla does the same: a cake with a candle is only ever made by putting a candle on a cake, never placed from an item.
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        // Whether the candle is burning. There is no bite counter here, exactly as in vanilla: a candle only goes on a whole cake, and the first bite takes it off again.
+        "kai_templates:lit": [
+          false,
+          true
+        ]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:lit')",
+        "components": {
+          // Light level the block gives off, 0 to 15.
+          "minecraft:light_emission": 3,
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_cake_side",
+              "render_method": "alpha_test"
+            },
+            "top": {
+              "texture": "kai_templates_cake_top",
+              "render_method": "alpha_test"
+            },
+            "bottom": {
+              "texture": "kai_templates_cake_bottom",
+              "render_method": "alpha_test"
+            },
+            "candle": {
+              "texture": "kai_templates_cake_pink_candle_lit",
+              "render_method": "alpha_test",
+              // Opposite of the unlit state, which keeps the default directional shading. Flame-lit wax reads evenly bright from every side.
+              "face_dimming": false
+            },
+            "flame": {
+              "texture": "kai_templates_cake_candle_flame",
+              "render_method": "alpha_test",
+              // Whether neighbouring blocks darken this block's corners.
+              "ambient_occlusion": 0,
+              // Whether each face gets the vanilla directional shading.
+              "face_dimming": false
+            }
+          }
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.pink_candle_cake.name",
+      // The vanilla or custom geometry used by the block. The flames bone only shows while the candle is lit; the wick stays in both states.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_candle_cake",
+        "bone_visibility": {
+          "flames": "q.block_state('kai_templates:lit')"
+        },
+        // The block culling rule used to hide faces against neighbours. The cake bone and its cube index match the plain cake, so one rule file serves both models.
+        "culling": "kai_templates:cake_culling"
+      },
+      // The texture or textures used by the block. The named instances match the material_instance each face asks for in the geometry.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_cake_side",
+          // Controls how the block is rendered using vanilla render methods. A block gets one method for all of its instances and the flame quads need alpha_test, so the cake faces use it too; the cake textures are solid where they are drawn, so they look the same either way.
+          "render_method": "alpha_test"
+        },
+        "top": {
+          "texture": "kai_templates_cake_top",
+          "render_method": "alpha_test"
+        },
+        "bottom": {
+          "texture": "kai_templates_cake_bottom",
+          "render_method": "alpha_test"
+        },
+        "candle": {
+          "texture": "kai_templates_cake_pink_candle",
+          "render_method": "alpha_test"
+        },
+        // The flame quads. Drawn flat and unshaded like a particle; the bone is hidden while unlit, but every state has to declare the instance the geometry names. Vanilla has no flame in its model at all: it spawns an animated particle every frame, which grows and fades. The quads are sized and coloured from that particle averaged over several frames, and sit on the wick where it sits.
+        "flame": {
+          "texture": "kai_templates_cake_candle_flame",
+          "render_method": "alpha_test",
+          "ambient_occlusion": 0,
+          "face_dimming": false
+        }
+      },
+      // The block's collision box. Vanilla's shape is the cake plus a second box around the candle, which a block JSON cannot express: minecraft:collision_box is one box. The cake box is the one that matters, so the candle is passed through rather than stood on.
+      "minecraft:collision_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          8,
+          14
+        ]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          8,
+          14
+        ]
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": true
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 0.5 x 5
+        "explosion_resistance": 2.5
+      },
+      // Texture used for the break particles.
+      "minecraft:destruction_particles": {
+        "texture": "kai_templates_cake_side"
+      },
+      // Loot table used when the block is broken. Breaking a candle cake gives the candle back and nothing else, the same as vanilla.
+      "minecraft:loot": "loot_tables/blocks/pink_candle_cake.json",
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "cloth"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#F8DED6",
+      // What may stand on the block. Same reasoning as the plain cake: without this a custom block supports anything a full cube would, which vanilla's cake does not.
+      "minecraft:support": {
+        "shape": "fence"
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      },
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:candle_cake_interact": {},
+      "kai_templates:candle_cake_particles": {}
+    }
+  }
+}

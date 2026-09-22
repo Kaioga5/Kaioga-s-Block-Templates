@@ -23,7 +23,9 @@ system.beforeEvents.startup.subscribe((init) => {
     init.blockComponentRegistry.registerCustomComponent("kai_templates:cake_eat", {
         // A right-click on any face eats, whatever is in the hand and whether or
         // not the player is sneaking. Both were measured on the vanilla block: a
-        // stack of stone in hand still ate the cake instead of placing a block
+        // stack of stone in hand still ate the cake instead of placing a block.
+        // Whether the click is allowed at all is food.ts's call, because a full
+        // hunger bar refuses it in survival and does not in creative
         onPlayerInteract(event) {
             const { block, player } = event;
             if (player === undefined || block.typeId !== CAKE_ID) {

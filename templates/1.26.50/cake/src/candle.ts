@@ -31,12 +31,41 @@ import {
 } from "./cake.js";
 import { EAT_SOUND, feed, heldItemId } from "./food.js";
 
-// Which candle makes which cake. Vanilla gives every candle colour a cake
-// block of its own - seventeen identifiers, not one block with a colour state -
-// so a second candle here means a second block, a second geometry and a second
-// entry in this table rather than a new state.
+// Vanilla gives every candle colour a cake block of its own: seventeen
+// identifiers, not one block with a colour state, because a block state cannot
+// carry a texture. This template matches that, so the plain candle and all
+// sixteen dyed ones each have their own block, their own textures and their
+// own loot table. Leaving one out is not a cosmetic gap: the white candle is
+// hard to tell from the plain one in the inventory, so a missing colour reads
+// as "candles do not work".
+const CANDLE_COLOURS = [
+  "white",
+  "orange",
+  "magenta",
+  "light_blue",
+  "yellow",
+  "lime",
+  "pink",
+  "gray",
+  "light_gray",
+  "cyan",
+  "purple",
+  "blue",
+  "brown",
+  "green",
+  "red",
+  "black",
+];
+
+// The plain candle first, then one entry per colour. Both sides are derived
+// from the same name, so a new candle is one line in the list above plus its
+// block, loot table and textures
 const CANDLE_CAKES = [
   { item: "minecraft:candle", block: CANDLE_CAKE_ID },
+  ...CANDLE_COLOURS.map((colour) => ({
+    item: `minecraft:${colour}_candle`,
+    block: `kai_templates:${colour}_candle_cake`,
+  })),
 ];
 
 const CAKE_BY_CANDLE = new Map(CANDLE_CAKES.map((pair) => [pair.item, pair.block]));
@@ -158,12 +187,12 @@ world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
   }
 
   // An igniter on a candle that is not already burning
-  if (block.typeId === CANDLE_CAKE_ID && IGNITERS.includes(heldId) && !isLit(block)) {
+  if (CANDLE_BY_CAKE.has(block.typeId) && IGNITERS.includes(heldId) && !isLit(block)) {
     const equipment = player.getComponent("minecraft:equippable");
     // Before-events are read-only, cancel now, mutate next tick
     event.cancel = true;
     system.run(() => {
-      if (block.typeId !== CANDLE_CAKE_ID || isLit(block)) {
+      if (!CANDLE_BY_CAKE.has(block.typeId) || isLit(block)) {
         return;
       }
       setLit(block, true);
@@ -207,7 +236,7 @@ system.beforeEvents.startup.subscribe((init) => {
     {
       onPlayerInteract(event: BlockComponentPlayerInteractEvent): void {
         const { block, player } = event;
-        if (player === undefined || block.typeId !== CANDLE_CAKE_ID) {
+        if (player === undefined || !CANDLE_BY_CAKE.has(block.typeId)) {
           return;
         }
         // Lighting arrives through the before-event above, so leave that click
