@@ -734,6 +734,404 @@
           ]
         }
       ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_candle_cake",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "cake",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -7,
+                0,
+                -7
+              ],
+              "size": [
+                14,
+                8,
+                14
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    8
+                  ],
+                  "uv_size": [
+                    14,
+                    8
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    1,
+                    8
+                  ],
+                  "uv_size": [
+                    14,
+                    8
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    1,
+                    8
+                  ],
+                  "uv_size": [
+                    14,
+                    8
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    1,
+                    8
+                  ],
+                  "uv_size": [
+                    14,
+                    8
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    1,
+                    1
+                  ],
+                  "uv_size": [
+                    14,
+                    14
+                  ],
+                  "uv_rotation": 180,
+                  "material_instance": "top"
+                },
+                "down": {
+                  "uv": [
+                    1,
+                    1
+                  ],
+                  "uv_size": [
+                    14,
+                    14
+                  ],
+                  "uv_rotation": 180,
+                  "material_instance": "bottom"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "candle",
+          "pivot": [
+            0,
+            8,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                8,
+                -1
+              ],
+              "size": [
+                2,
+                6,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ],
+                  "material_instance": "candle"
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ],
+                  "material_instance": "candle"
+                },
+                "east": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ],
+                  "material_instance": "candle"
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    8
+                  ],
+                  "uv_size": [
+                    2,
+                    6
+                  ],
+                  "material_instance": "candle"
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    6
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ],
+                  "material_instance": "candle"
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    14
+                  ],
+                  "uv_size": [
+                    2,
+                    2
+                  ],
+                  "material_instance": "candle"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "wicks",
+          "pivot": [
+            0,
+            14,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -0.5,
+                14,
+                0
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                0,
+                14,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ],
+                  "material_instance": "candle"
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ],
+                  "material_instance": "candle"
+                }
+              }
+            },
+            {
+              "origin": [
+                -0.5,
+                14,
+                0
+              ],
+              "size": [
+                1,
+                1,
+                0
+              ],
+              "pivot": [
+                0,
+                14,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1,
+                    5
+                  ],
+                  "uv_size": [
+                    -1,
+                    1
+                  ],
+                  "material_instance": "candle"
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    5
+                  ],
+                  "uv_size": [
+                    1,
+                    1
+                  ],
+                  "material_instance": "candle"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "flames",
+          "pivot": [
+            0,
+            14,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -0.375,
+                15,
+                0
+              ],
+              "size": [
+                0.75,
+                1.125,
+                0
+              ],
+              "pivot": [
+                0,
+                15,
+                0
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            },
+            {
+              "origin": [
+                -0.375,
+                15,
+                0
+              ],
+              "size": [
+                0.75,
+                1.125,
+                0
+              ],
+              "pivot": [
+                0,
+                15,
+                0
+              ],
+              "rotation": [
+                0,
+                -45,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                },
+                "south": {
+                  "uv": [
+                    2,
+                    0
+                  ],
+                  "uv_size": [
+                    -2,
+                    3
+                  ],
+                  "material_instance": "flame"
+                }
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

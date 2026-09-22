@@ -322,7 +322,7 @@
       },
       // Color the block shows on maps. Taken from the frosting texture: nothing in the script API or the commands reports what a vanilla block draws on a map, so this is the one value here that is not measured against vanilla.
       "minecraft:map_color": "#F8DED6",
-      // What may stand on the block. A custom block defaults to full-cube support, which lets a torch, a rail or a snow layer sit on the cake; vanilla refuses all three while still accepting a carpet or a pressure plate. The fence shape is the only stable option that reproduces that split exactly.
+      // What may stand on the block. A custom block defaults to full-cube support, which lets a torch, a rail or a snow layer sit on the cake; vanilla refuses all three while still accepting a carpet or a pressure plate. minecraft:support offers only fence and stair, and fence gets the rail and the snow layer right. Neither shape refuses a torch, so a torch still stands on this cake where it would not stand on vanilla's.
       "minecraft:support": {
         "shape": "fence"
       },

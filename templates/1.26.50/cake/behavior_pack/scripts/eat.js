@@ -5,30 +5,8 @@
 // bite counter on, and take the block away when the last slice goes.
 import { system, } from "@minecraft/server";
 import { CAKE_ID, MAX_BITES, biteCount, setBites } from "./cake.js";
-// What one slice is worth. Measured against the vanilla block: a click took the
-// hunger bar from 6 to 8 and the saturation from 0 to 0.4.
-const HUNGER_PER_SLICE = 2;
-const SATURATION_PER_SLICE = 0.4;
-// Vanilla's eating sound
-const EAT_SOUND = "random.eat";
-// Put one slice into the player. Returns false when they are too full to eat,
-// which is vanilla's rule for refusing the click: a cake clicked with a full
-// hunger bar keeps its slice. Creative is not a special case, also measured:
-// a creative player whose hunger has been pushed down eats normally
-function feed(player) {
-    const hunger = player.getComponent("minecraft:player.hunger");
-    if (hunger === undefined || hunger.currentValue >= hunger.effectiveMax) {
-        return false;
-    }
-    const fed = Math.min(hunger.effectiveMax, hunger.currentValue + HUNGER_PER_SLICE);
-    hunger.setCurrentValue(fed);
-    // Saturation rides behind the hunger bar and never overtakes it
-    const saturation = player.getComponent("minecraft:player.saturation");
-    if (saturation !== undefined) {
-        saturation.setCurrentValue(Math.min(fed, saturation.currentValue + SATURATION_PER_SLICE));
-    }
-    return true;
-}
+import { EAT_SOUND, feed, heldItemId } from "./food.js";
+import { isCandle } from "./candle.js";
 // Take one slice out of this cake
 function eatSlice(block) {
     block.dimension.playSound(EAT_SOUND, block.center());
@@ -49,6 +27,11 @@ system.beforeEvents.startup.subscribe((init) => {
         onPlayerInteract(event) {
             const { block, player } = event;
             if (player === undefined || block.typeId !== CAKE_ID) {
+                return;
+            }
+            // The one exception. A candle goes on the cake instead of taking a bite
+            // out of it, and candle.ts owns that click
+            if (isCandle(heldItemId(player))) {
                 return;
             }
             if (!feed(player)) {

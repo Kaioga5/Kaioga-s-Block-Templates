@@ -15,6 +15,16 @@
     "kai_templates_cake_inner": {
       // The sponge shown on the cut face of a bitten cake. Vanilla reaches it through a two-entry cake_west alias that the engine indexes by bite counter; a custom block picks the texture per permutation instead, so the inner face needs an alias of its own.
       "textures": "textures/blocks/cake_inner"
+    },
+    "kai_templates_cake_candle": {
+      "textures": "textures/blocks/candles/candle"
+    },
+    "kai_templates_cake_candle_lit": {
+      "textures": "textures/blocks/candles/candle_lit"
+    },
+    "kai_templates_cake_candle_flame": {
+      // The flame above a lit wick. A sixteen by sixteen image with a two by three flame in its top left corner: block textures are read at sixteen pixels per block, so a smaller image would be sampled wrong, and the vanilla lit candle texture carries no flame pixels of its own.
+      "textures": "textures/blocks/kai_templates_cake_candle_flame"
     }
   }
 }
