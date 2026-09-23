@@ -1,8 +1,9 @@
 // The disc registry. This is the only file to edit to add a disc: each row is
 // the item that goes in the slot, the sound it plays, the author and title
 // shown on the "Now playing" line, how long it runs, and the comparator value.
-// The rows below are every music disc the game ships, so a disc from another
-// pack only has to fill in the same five fields.
+// The rows below are every music disc the game ships, followed by the one this
+// template adds itself, so a disc from another pack only has to fill in the
+// same five fields.
 
 export interface Disc {
   // The item that has to be used on the jukebox
@@ -202,6 +203,29 @@ export const DISCS: Disc[] = [
     signal: 8,
   },
 
+  // The disc this template adds itself, and the row to copy for another one.
+  // Everything it needs sits in four files: the item that carries
+  // minecraft:record, the sound event in
+  // resource_pack/sounds/sound_definitions.json, the .ogg that event points at,
+  // and this row. The sound is namespaced because it is not a vanilla record,
+  // seconds is the length of that .ogg to the sample, and the signal is written
+  // out because the fifteen a comparator can express are already taken by the
+  // rows above.
+  //
+  // This row is what makes the disc play. A vanilla jukebox will not take a
+  // custom record at all, measured at 1.26.50: the same click that loads a
+  // vanilla disc into a vanilla jukebox leaves this one in the player's hand,
+  // because the block's accepted items are the game's own disc ids and nothing
+  // else. So a custom track reaches a jukebox through this template's block,
+  // which reads the row below and plays the sound itself.
+  {
+    item: "kai_templates:music_disc_start",
+    sound: "kai_templates:record.start",
+    author: "Kaioga",
+    title: "Start",
+    seconds: 40,
+    signal: 15,
+  },
 ];
 
 // One lookup built once at load, so a click is a map read

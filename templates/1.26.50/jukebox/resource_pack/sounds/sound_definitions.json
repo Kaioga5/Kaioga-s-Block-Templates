@@ -1,0 +1,33 @@
+{
+  "format_version": "1.26.50",
+  // Sound events this pack adds. A disc that plays something else only needs
+  // its .ogg replaced and the two numbers that describe it updated: the
+  // duration in behavior_pack/items/music_disc_start.json and the seconds in
+  // src/discs.ts.
+  "sound_definitions": {
+    // Namespaced, so it can never collide with a vanilla record or with
+    // another pack's. Vanilla's own records are record.13, record.cat and so
+    // on; this template defines a new event and leaves every one of them alone.
+    "kai_templates:record.start": {
+      // The category jukeboxes and note blocks play under, so the Music slider
+      // in Settings moves this disc the way it moves a vanilla one.
+      "category": "record",
+      // How far the track carries, in blocks. Vanilla records use 64.
+      "max_distance": 64.0,
+      "sounds": [
+        {
+          // Path inside the resource pack, without the file extension. The
+          // folders mirror where the vanilla pack keeps its records.
+          "name": "sounds/music/game/records/start",
+          // Decoded as it plays instead of held in memory, which is what every
+          // vanilla record does. A full-length track loaded whole would sit in
+          // memory for as long as the pack is on.
+          "stream": true,
+          // Vanilla records are mixed at half volume in their own definitions,
+          // so this one sits at the same level as the rest.
+          "volume": 0.5
+        }
+      ]
+    }
+  }
+}

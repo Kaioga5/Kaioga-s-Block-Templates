@@ -1,0 +1,45 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:item": {
+    "description": {
+      // The ID for the item. Format must be namespace:item_name.
+      "identifier": "kai_templates:music_disc_start",
+      // Where the item appears in the creative inventory.
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      // Records never stack, the way every vanilla disc behaves.
+      "minecraft:max_stack_size": 1,
+      // Sprite shown in the inventory, resolved through item_texture.json.
+      "minecraft:icon": {
+        "textures": {
+          "default": "kai_templates:music_disc_start"
+        }
+      },
+      // Vanilla draws a record's name in aqua.
+      "minecraft:hover_text_color": "aqua",
+      // What marks this item as a record rather than an ordinary one.
+      "minecraft:record": {
+        // sound_event is bound to the game's own list of sound events, so it
+        // cannot name the one this pack adds: a custom identifier here is
+        // refused and the whole item then fails to load, with
+        // "This value is bound to 'LevelSoundEvent'" in the content log.
+        // record.null is the one entry on that list no vanilla disc uses, so it
+        // is what goes here and no vanilla record is touched. The track this
+        // disc really plays is kai_templates:record.start, named by
+        // src/discs.ts and played by the jukebox in this template.
+        "sound_event": "record.null",
+        // The length of the .ogg behind the sound event, in seconds. Replace
+        // the track and this number moves with it.
+        "duration": 40.0,
+        // What a comparator reads from a jukebox holding this disc. The fifteen
+        // values a comparator can express are already spoken for by the vanilla
+        // discs, so a new disc has to share one. It matches the signal
+        // src/discs.ts gives the disc, so the block and the item agree.
+        "comparator_signal": 15
+      }
+    }
+  }
+}

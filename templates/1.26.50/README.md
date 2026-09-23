@@ -121,7 +121,7 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 | [Coral Decoration](coral_decoration/) | placement_position | Yes | The coral plant, sea-floor fan and wall fan with their dead forms: water-dependent, waterloggable, breaking instantly and popping when their support goes. |
 | [Crafting Table](crafting_table/) | none | No | A working crafting table built on the native `minecraft:crafting_table` component, opening the real crafting screen with no script. |
 | [Frogspawn](frogspawn/) | none | Yes | Frogspawn that floats on water, pops when the water goes, cannot be collected, and hatches into tadpoles after a few minutes. |
-| [Jukebox](jukebox/) | none | Yes | A jukebox that plays and ejects music discs, keeps the disc in its own block entity, drops it when broken, shows notes and the track title, and reports the disc to a comparator. |
+| [Jukebox](jukebox/) | none | Yes | A jukebox that plays and ejects music discs, keeps the disc in its own block entity, drops it when broken, shows notes and the track title, and reports the disc to a comparator. Ships a custom music disc of its own: a `minecraft:record` item with its own namespaced sound event, streamed `.ogg`, icon and comparator signal, added without touching a vanilla disc. |
 | [Kelp](kelp/) | none | Yes | Kelp that roots on the sea floor and grows upward through water on random ticks with an animated texture and a distinct tip, taking bone meal and dropping everything above a cut. |
 | [Lantern](lantern/) | placement_position | No | A lantern that stands on a block or hangs under one from a single item, emits light 15, and pops off when its support is removed. No script. |
 | [Leaf Litter](leaf_litter/) | placement_direction | Yes | Leaf litter covering one to four quarters of a block, thickening as more is placed, facing the player, and returning one item per quarter. |
@@ -156,7 +156,8 @@ If you are new to custom blocks: start with **Planks** (the minimal block), then
 (multi-block), and the copper templates (**Copper Slab / Bars / Trapdoor / Door**)
 for scripted weathering. **Wheat**, **Melon** and **Sugar Cane** are the crops:
 random-tick growth, bone meal and data-driven drops. **Jukebox** shows
-`minecraft:block_entity` with dynamic properties. **Skulls, Flower Pot, Ladder,
+`minecraft:block_entity` with dynamic properties, and how a pack adds a music disc
+of its own. **Skulls, Flower Pot, Ladder,
 Grass Block and Concrete Powder** each
 solve one hard problem and document the workaround.
 

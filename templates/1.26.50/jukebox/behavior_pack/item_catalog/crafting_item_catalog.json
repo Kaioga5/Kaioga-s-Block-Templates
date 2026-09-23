@@ -6,7 +6,10 @@
         "category_name": "items",
         "groups": [
           {
-            "items": ["kai_templates:jukebox"]
+            "items": [
+              "kai_templates:jukebox",
+              "kai_templates:music_disc_start"
+            ]
           }
         ]
       }
