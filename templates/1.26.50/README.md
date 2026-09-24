@@ -1,6 +1,6 @@
 # Block Templates - 1.26.50
 
-This module contains 77 block templates for Minecraft Bedrock Edition 1.26.50,
+This module contains 78 block templates for Minecraft Bedrock Edition 1.26.50,
 covering building blocks, plants, crops, redstone, lighting and interactive
 blocks. All of them run on the current stable platform, and none require an
 experimental toggle.
@@ -59,8 +59,8 @@ Each template folder holds a complete behavior pack + resource pack pair and a
   are gone: with `fit_to_frame` off the model keeps its block coordinates and
   a thin block already sits low like the vanilla icon. The skull now lets the
   slot fit it instead, which is what draws it as large as vanilla's.
-- **Five new templates:** Shelf Mushroom, Wheat, Melon, Sugar Cane and Pink
-  Petals.
+- **Six new templates:** Shelf Mushroom, Wheat, Melon, Sugar Cane, Pink
+  Petals and Vines.
 - Everything else only moved to the 1.26.50 format versions and the 2.10.0
   script module.
 
@@ -144,6 +144,7 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 | [Torch](torch/) | placement_position | Yes | A torch that becomes a floor or wall torch from one item, emits light 14, pops off when its support goes, and adds flame and smoke on random ticks. |
 | [Twisting Vines](twisting_vines/) | none | Yes | Twisting vines that grow upward from the floor one segment at a time with a distinct tip, take bone meal, can be climbed, and regrow from a cut. |
 | [Weeping Vines](weeping_vines/) | none | Yes | Weeping vines that hang from a ceiling and grow downward one segment at a time with a distinct tip, take bone meal, can be climbed, and regrow from a cut. |
+| [Vines](vines/) | none | Yes | Vines that cling to the sides of solid blocks, take up to four walls in one block, hang in curtains past the bottom of their wall, draw a leaf under a solid block overhead, let go the moment their wall is mined, spread up, down and sideways on random ticks until crowded, can be climbed at the vanilla speeds, and drop only to shears. |
 | [Wooden Stairs](wooden_stairs/) | placement_direction, placement_position | No | Wooden stairs with vanilla corners, upside-down placement, waterlogging and walk-up collision, fastest with an axe, flammable and usable as furnace fuel. No script. |
 
 ## Suggested reading order
