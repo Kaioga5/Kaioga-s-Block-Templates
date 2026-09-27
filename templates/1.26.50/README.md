@@ -1,6 +1,6 @@
 # Block Templates - 1.26.50
 
-This module contains 78 block templates for Minecraft Bedrock Edition 1.26.50,
+This module contains 79 block templates for Minecraft Bedrock Edition 1.26.50,
 covering building blocks, plants, crops, redstone, lighting and interactive
 blocks. All of them run on the current stable platform, and none require an
 experimental toggle.
@@ -84,6 +84,7 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 | [Trapdoor](trapdoor/) | placement_direction, placement_position | Yes | A wooden trapdoor that places on the top or bottom half of a block and opens by hand or by redstone, with the vanilla trapdoor sounds and correct collision in every pose. |
 | [Pink Petals](pink_petals/) | placement_direction | Yes | A patch of petals that fills a quarter at a time as more are placed on it, faces away from the placer, sits on the soils vanilla flowers do, drops one item per petal, and grows another petal under bone meal until the patch is full. |
 | [Pillar](pillar/) | none | Yes | A quartz-pillar-style axis block with end-cap and side textures, orientable along all three axes through a custom axis state set from the clicked face, exactly like vanilla logs and pillars. |
+| [Vertical Pillar](vertical_pillar/) | none | Yes | A pillar that joins into columns: the lowest block draws a base, the highest a head and the ones between a plain body, on all three axes, with the axis as its only state. Which part each block draws is picked by block culling rules from its neighbours, with no extra state and no script beyond axis placement. |
 | [Ice](ice/) | none | Yes | A slippery translucent cube with vanilla ice friction, light dampening and glass sounds, a silk-touch-only drop, water left behind when mined in survival, and light-driven melting. |
 | [Glass](glass/) | none | No | Plain glass with data-driven face culling: touching blocks merge into one continuous sheet, and it drops nothing unless mined with Silk Touch. |
 | [Flower Pot](flower_pot/) | none | Yes | A flower pot with a twenty-three-entry plant list, vanilla flowers, saplings and this module's Flower, where each plant is its own potted block, the way vanilla does it, with the Java pot geometry. |

@@ -1,0 +1,155 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:vertical_pillar",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      },
+      // Custom block states. The axis is the only one: which part of a column the block draws (base, body or head) is worked out by the culling rules from the blocks above and below it, with no state for it.
+      "states": {
+        "kai_templates:axis": ["y", "x", "z"]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:axis') == 'x'",
+        "components": {
+          // Rotates, scales or offsets the geometry and boxes for this permutation.
+          "minecraft:transformation": {
+            "rotation": [0, 90, -90]
+          },
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_vertical_pillar",
+            "culling": "kai_templates:vertical_pillar_culling",
+            "culling_layer": "kai_templates:vertical_pillar_x"
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:axis') == 'z'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [90, 0, 0]
+          },
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_vertical_pillar",
+            "culling": "kai_templates:vertical_pillar_culling",
+            "culling_layer": "kai_templates:vertical_pillar_z"
+          }
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.vertical_pillar.name",
+      // The vanilla or custom geometry used by the block. It holds the side faces five times over, one layer for each look (base, head, body, and head and base again for a column that meets a solid block), all lying exactly on the block's faces. The culling rules hide the layers that do not apply, and where several are left the one whose bone name sorts last is drawn on top.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_vertical_pillar",
+        // The block culling rules that pick the layer from the neighbours.
+        "culling": "kai_templates:vertical_pillar_culling",
+        // Pillars only join pillars lying on the same axis, so each axis has a culling layer of its own. The permutations above swap it.
+        "culling_layer": "kai_templates:vertical_pillar_y"
+      },
+      // The texture or textures used by the block. "*" is the base, drawn on a pillar standing alone; "up" and "down" are the end caps.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_vertical_pillar_base"
+        },
+        "body": {
+          "texture": "kai_templates_vertical_pillar_body"
+        },
+        "head": {
+          "texture": "kai_templates_vertical_pillar_head"
+        },
+        "up": {
+          "texture": "kai_templates_vertical_pillar_top"
+        },
+        "down": {
+          "texture": "kai_templates_vertical_pillar_top"
+        }
+      },
+      // The model shown in the inventory and in the hand: a plain cube with the base texture, as a pillar standing alone looks.
+      "minecraft:item_visual": {
+        "geometry": "minecraft:geometry.full_block",
+        "material_instances": {
+          "*": {
+            "texture": "kai_templates_vertical_pillar_base"
+          },
+          "up": {
+            "texture": "kai_templates_vertical_pillar_top"
+          },
+          "down": {
+            "texture": "kai_templates_vertical_pillar_top"
+          }
+        }
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 15,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 4,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+            },
+            "destroy_speed": 0.6
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+            },
+            "destroy_speed": 0.3
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+            },
+            "destroy_speed": 0.2
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+            },
+            "destroy_speed": 0.15
+          },
+          {
+            "item": {
+              "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+            },
+            "destroy_speed": 0.1
+          }
+        ]
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 0.8 x 5
+        "explosion_resistance": 4
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#382B2A",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:vertical_pillar_axis": {},
+      // Loot table used when the block is broken. Without it the block drops itself.
+      "minecraft:loot": "loot_tables/blocks/vertical_pillar.json"
+    }
+  }
+}

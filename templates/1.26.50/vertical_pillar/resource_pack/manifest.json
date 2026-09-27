@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Vertical Pillar",
+    "description": "Vertical pillar block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "53b8f55c-0731-4980-9c8d-bddef71f25bd",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "e4cccde3-1044-4032-8f81-c8c94c300851",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "6956a06b-389d-4b90-99d9-46c083bff655",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

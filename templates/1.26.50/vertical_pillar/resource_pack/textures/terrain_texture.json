@@ -1,0 +1,23 @@
+{
+  "resource_pack_name": "kai_templates_vertical_pillar",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_vertical_pillar_base": {
+      // The side of the lowest block of a column, and of a pillar standing alone.
+      "textures": "textures/blocks/vertical_pillar_base"
+    },
+    "kai_templates_vertical_pillar_body": {
+      // The side of every block between the lowest and the highest.
+      "textures": "textures/blocks/vertical_pillar_body"
+    },
+    "kai_templates_vertical_pillar_head": {
+      // The side of the highest block of a column.
+      "textures": "textures/blocks/vertical_pillar_head"
+    },
+    "kai_templates_vertical_pillar_top": {
+      // Both end caps.
+      "textures": "textures/blocks/vertical_pillar_top"
+    }
+  }
+}
