@@ -1,6 +1,6 @@
 # Block Templates - 1.26.50
 
-This module contains 79 block templates for Minecraft Bedrock Edition 1.26.50,
+This module contains 80 block templates for Minecraft Bedrock Edition 1.26.50,
 covering building blocks, plants, crops, redstone, lighting and interactive
 blocks. All of them run on the current stable platform, and none require an
 experimental toggle.
@@ -59,8 +59,8 @@ Each template folder holds a complete behavior pack + resource pack pair and a
   are gone: with `fit_to_frame` off the model keeps its block coordinates and
   a thin block already sits low like the vanilla icon. The skull now lets the
   slot fit it instead, which is what draws it as large as vanilla's.
-- **Six new templates:** Shelf Mushroom, Wheat, Melon, Sugar Cane, Pink
-  Petals and Vines.
+- **Nine new templates:** Shelf Mushroom, Wheat, Melon, Sugar Cane, Pink
+  Petals, Vines, Cake, Vertical Pillar and Icicle.
 - Everything else only moved to the 1.26.50 format versions and the 2.10.0
   script module.
 
@@ -132,6 +132,7 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 | [Note Block](note_block/) | none | Yes | A note block that steps its pitch on click, plays on redstone, asks the block below for its instrument through the native component, and goes silent under a block. |
 | [Ore](ores/) | none | Yes | A general ore block styled as diamond ore, with a pickaxe tier gate, Silk Touch dropping the block, the vanilla Fortune roll, and experience orbs. |
 | [Pointed Dripstone](pointed_dripstone/) | placement_position | Yes | Pointed dripstone that hangs or stands in five thicknesses, merges columns, drips water or lava into cauldrons, grows over time, hurts whatever falls onto it, and drops an unsupported stalactite, however long it is, as falling spikes that break where they land. |
+| [Icicle](icicle/) | placement_position | Yes | The Icicle from Minecraft Preview 26.60.29, matched against the vanilla block: Mojang's model and textures in pointed dripstone's five thicknesses, a plate and side planes on a segment placed by hand against a block, growth to five segments under packed ice in the dark, melting in block light 5 or more that drops a stalactite as one falling entity per segment, merging tips, snow flakes from hanging tips, and pointed dripstone's damage both ways. Ships Mojang's textures, see [NOTICE.md](../../NOTICE.md). |
 | [Redstone Block](redstone_block/) | none | No | A redstone block that outputs a constant signal of 15 on every side through the native `minecraft:redstone_producer` component. No script. |
 | [Redstone Lamp](redstone_lamp/) | none | Yes | A redstone lamp that lights while powered and goes dark four ticks after the signal stops, with one `lit` state driving texture and light. |
 | [Redstone Torch](redstone_torch/) | placement_position | Yes | A redstone torch that is lit while unpowered, powers the block above it, outputs on every side except its attachment, and burns out when toggled too fast. |

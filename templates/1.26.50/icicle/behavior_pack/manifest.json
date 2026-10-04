@@ -1,0 +1,60 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Icicle",
+    "description": "Icicle block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "19a45647-f224-4d93-81f0-a264e7208b4c",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "e092dc3d-0f69-48a1-9946-5d81179b5432",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "d439cc3d-b72d-49d5-b9de-f9e9a423ceff",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "a3dc5b4b-bc58-4a40-83f8-8a056b1b27fb",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Kaioga"
+    ]
+  }
+}

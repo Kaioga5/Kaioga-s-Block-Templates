@@ -1,0 +1,143 @@
+{
+  "format_version": "1.26.50",
+  // The falling segment draws exactly the block's hanging model: the same
+  // cubes, faces and texture mapping, copied from models/blocks/icicle.geo.json.
+  // The entity material culls back faces like the block does, so every face
+  // shows only from its own side. The model is split into the cross, the
+  // north/south planes, the east/west planes and the plate so each can get its
+  // own light correction in render_controllers/falling_icicle.json.
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_falling_icicle",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "cross",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-10.182, 0, 0],
+              "size": [20.364, 16, 0],
+              "rotation": [0, -45, 0],
+              "pivot": [0, 8, 0],
+              "uv": {
+                "north": { "uv": [0, 0], "uv_size": [16, 16] },
+                "south": { "uv": [0, 0], "uv_size": [16, 16] }
+              }
+            },
+            {
+              "origin": [0, 0, -10.182],
+              "size": [0, 16, 20.364],
+              "rotation": [0, -45, 0],
+              "pivot": [0, 8, 0],
+              "uv": {
+                "east": { "uv": [0, 0], "uv_size": [16, 16] },
+                "west": { "uv": [0, 0], "uv_size": [16, 16] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_falling_icicle_cage_ns",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "cage_ns",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 0, -8],
+              "size": [16, 16, 0.1],
+              "uv": {
+                "north": { "uv": [0, 0], "uv_size": [16, 16] },
+                "south": { "uv": [16, 0], "uv_size": [-16, 16] }
+              }
+            },
+            {
+              "origin": [-8, 0, 7.9],
+              "size": [16, 16, 0.1],
+              "uv": {
+                "north": { "uv": [16, 0], "uv_size": [-16, 16] },
+                "south": { "uv": [0, 0], "uv_size": [16, 16] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_falling_icicle_cage_ew",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "cage_ew",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [7.9, 0, -8],
+              "size": [0.1, 16, 16],
+              "uv": {
+                "east": { "uv": [16, 0], "uv_size": [-16, 16] },
+                "west": { "uv": [0, 0], "uv_size": [16, 16] }
+              }
+            },
+            {
+              "origin": [-8, 0, -8],
+              "size": [0.1, 16, 16],
+              "uv": {
+                "east": { "uv": [0, 0], "uv_size": [16, 16] },
+                "west": { "uv": [16, 0], "uv_size": [-16, 16] }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_falling_icicle_top",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "top",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-8, 15.9, -8],
+              "size": [16, 0.1, 16],
+              "uv": {
+                "up": { "uv": [16, 16], "uv_size": [-16, -16] },
+                "down": { "uv": [16, 0], "uv_size": [-16, 16] }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

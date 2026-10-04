@@ -1,0 +1,45 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kai_templates:falling_icicle",
+      // The icicle textures are cut out rather than blended. The one-sided
+      // version culls back faces, as the block does, since the model carries
+      // both faces of every plane.
+      "materials": {
+        "default": "entity_alphatest_one_sided"
+      },
+      // The same textures the block wears, so a falling icicle looks like the
+      // segment that came loose.
+      "textures": {
+        "default": "textures/blocks/kai_templates_icicle_tip",
+        "tip": "textures/blocks/kai_templates_icicle_tip",
+        "frustum": "textures/blocks/kai_templates_icicle_frustum",
+        "middle": "textures/blocks/kai_templates_icicle_middle",
+        "base": "textures/blocks/kai_templates_icicle_base",
+        "side": "textures/blocks/kai_templates_icicle_side",
+        "top": "textures/blocks/kai_templates_icicle_top"
+      },
+      // The cross, the two pairs of side planes and the plate are separate
+      // models, because one render controller draws one model in one texture
+      // with one light correction.
+      "geometry": {
+        "default": "geometry.kai_templates_falling_icicle",
+        "cage_ns": "geometry.kai_templates_falling_icicle_cage_ns",
+        "cage_ew": "geometry.kai_templates_falling_icicle_cage_ew",
+        "top": "geometry.kai_templates_falling_icicle_top"
+      },
+      // One controller per thickness, plus three for the plate and side
+      // planes an attached segment carries with it when it comes down.
+      "render_controllers": [
+        "controller.render.kai_templates_falling_icicle_tip",
+        "controller.render.kai_templates_falling_icicle_frustum",
+        "controller.render.kai_templates_falling_icicle_middle",
+        "controller.render.kai_templates_falling_icicle_base",
+        "controller.render.kai_templates_falling_icicle_cage_ns",
+        "controller.render.kai_templates_falling_icicle_cage_ew",
+        "controller.render.kai_templates_falling_icicle_top"
+      ]
+    }
+  }
+}

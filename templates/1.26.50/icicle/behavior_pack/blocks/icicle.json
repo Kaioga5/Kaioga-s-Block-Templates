@@ -1,0 +1,1168 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:icicle",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        // Where the segment sits in its icicle, worked out the way pointed
+        // dripstone does it: the free end is the tip, the one behind it the
+        // frustum, the one against the ceiling or floor the base, anything
+        // between is middle. Two tips joined by hand placement or by growth are
+        // a merge; tips that only end up side by side stay tips.
+        "kai_templates:thickness": ["tip", "frustum", "middle", "base", "merge"],
+        // True for a segment placed by hand against a block that is not an
+        // icicle. Vanilla's attached_bit: it draws the plate and side planes
+        // and keeps the segment from melting. Nothing ever recalculates it.
+        "kai_templates:attached": [false, true]
+      },
+      // Allows the block to use exposed vanilla block states.
+      "traits": {
+        // Sets the enabled state from where the player clicked: the face hit, or the top or bottom half.
+        "minecraft:placement_position": {
+          "enabled_states": ["minecraft:block_face"]
+        }
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.icicle.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:icicle_column": {},
+      "kai_templates:icicle_melt": {},
+      "kai_templates:icicle_grow": {},
+      "kai_templates:icicle_impact": {},
+      // Mojang's icicle model: a cross of two planes, plus a plate across the
+      // top and a plane on each side that only the attached segment shows. The
+      // culling file hides the outer face of each of those against a solid
+      // block. The permutations pick the hanging or the standing model.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_icicle",
+        "culling": "kai_templates:icicle_culling",
+        "bone_visibility": {
+          "top": "q.block_state('kai_templates:attached')",
+          "north": "q.block_state('kai_templates:attached')",
+          "south": "q.block_state('kai_templates:attached')",
+          "west": "q.block_state('kai_templates:attached')",
+          "east": "q.block_state('kai_templates:attached')"
+        }
+      },
+      // The texture or textures used by the block. "cross" is the spike, "side"
+      // the side planes and "top" the plate; the permutations swap the spike
+      // texture for each thickness. The shading is matched to the vanilla icicle
+      // by comparing screenshots side by side in Preview, from four angles, at
+      // noon and at night by a light: the spike gets neither face dimming nor
+      // ambient occlusion, while the side planes and the plate get both.
+      "minecraft:material_instances": {
+        "*": {
+          "render_method": "alpha_test_single_sided",
+          "ambient_occlusion": 0,
+          "face_dimming": false,
+          "texture": "kai_templates_icicle_tip"
+        },
+        "cross": {
+          "render_method": "alpha_test_single_sided",
+          "ambient_occlusion": 0,
+          "face_dimming": false,
+          "texture": "kai_templates_icicle_tip"
+        },
+        "side": {
+          "render_method": "alpha_test_single_sided",
+          "ambient_occlusion": 1,
+          "face_dimming": true,
+          "texture": "kai_templates_icicle_side"
+        },
+        "top": {
+          "render_method": "alpha_test_single_sided",
+          "ambient_occlusion": 1,
+          "face_dimming": true,
+          "texture": "kai_templates_icicle_top"
+        }
+      },
+      // The block's collision box: the spike alone. The plate and side planes
+      // stop nothing, measured in Preview 26.60.29.
+      "minecraft:collision_box": {
+        "origin": [-3, 5, -3],
+        "size": [6, 11, 6]
+      },
+      // The block's selection box. An attached segment outlines its whole
+      // footprint instead.
+      "minecraft:selection_box": {
+        "origin": [-3, 5, -3],
+        "size": [6, 11, 6]
+      },
+      // Faces and blocks the block may be placed against. When the rule stops holding, the block pops off.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": ["up", "down"]
+          }
+        ]
+      },
+      // Sends onEntityFallOn events to the scripts when something lands on the block.
+      // Vanilla's stalagmite hurts from a fall of just over one block.
+      "minecraft:entity_fall_on": {
+        "min_fall_distance": 1
+      },
+      // Break time in seconds, with faster speeds for specific tools. Measured
+      // in Preview 26.60.29, an icicle mines exactly as fast as ice, by hand
+      // and with a pickaxe, so these are the vanilla ice numbers.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.75,
+        "item_specific_speeds": [
+          { "item": { "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')" }, "destroy_speed": 0.4 },
+          { "item": { "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')" }, "destroy_speed": 0.2 },
+          { "item": { "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')" }, "destroy_speed": 0.15 },
+          { "item": { "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')" }, "destroy_speed": 0.1 },
+          { "item": { "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')" }, "destroy_speed": 0.1 },
+          { "item": { "tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')" }, "destroy_speed": 0.05 }
+        ]
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 0.5 x 5, the same as ice
+        "explosion_resistance": 2.5
+      },
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      // Vanilla icicles hold water and are not washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": true,
+            "on_liquid_touches": "no_reaction"
+          }
+        ]
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Vanilla sound set used for placing, breaking and stepping on the block.
+      // Vanilla's icicle has its own sound set, but it only exists while the
+      // Drop 4 of 2026 experiment is on; glass is the set ice uses everywhere else.
+      "minecraft:sound": {
+        "sound": "glass"
+      },
+      // Color the block shows on maps. The same as ice.
+      "minecraft:map_color": "#A0A0FF",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    },
+    // Component overrides that apply while their Molang condition is true. One
+    // entry per facing, thickness and attached value: the model follows the
+    // facing, the spike texture and both boxes the thickness, and the plate,
+    // side planes and the wider outline the attached value.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'tip' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-3, 5, -3],
+            "size": [6, 11, 6]
+          },
+          "minecraft:selection_box": {
+            "origin": [-3, 5, -3],
+            "size": [6, 11, 6]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'tip' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-3, 5, -3],
+            "size": [6, 11, 6]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 5, -8],
+            "size": [16, 11, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'frustum' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_frustum"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_frustum"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-4, 0, -4],
+            "size": [8, 16, 8]
+          },
+          "minecraft:selection_box": {
+            "origin": [-4, 0, -4],
+            "size": [8, 16, 8]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'frustum' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_frustum"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_frustum"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-4, 0, -4],
+            "size": [8, 16, 8]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'middle' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_middle"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_middle"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-5, 0, -5],
+            "size": [10, 16, 10]
+          },
+          "minecraft:selection_box": {
+            "origin": [-5, 0, -5],
+            "size": [10, 16, 10]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'middle' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_middle"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_middle"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-5, 0, -5],
+            "size": [10, 16, 10]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'base' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_base"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_base"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-6, 0, -6],
+            "size": [12, 16, 12]
+          },
+          "minecraft:selection_box": {
+            "origin": [-6, 0, -6],
+            "size": [12, 16, 12]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'base' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_base"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_base"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-6, 0, -6],
+            "size": [12, 16, 12]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'merge' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip_merge"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip_merge"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 16, 6]
+          },
+          "minecraft:selection_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 16, 6]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'merge' && q.block_state('minecraft:block_face') == 'down' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle",
+            "culling": "kai_templates:icicle_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip_merge"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip_merge"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 16, 6]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'tip' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 11, 6]
+          },
+          "minecraft:selection_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 11, 6]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'tip' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 11, 6]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 11, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'frustum' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_frustum"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_frustum"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-4, 0, -4],
+            "size": [8, 16, 8]
+          },
+          "minecraft:selection_box": {
+            "origin": [-4, 0, -4],
+            "size": [8, 16, 8]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'frustum' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_frustum"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_frustum"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-4, 0, -4],
+            "size": [8, 16, 8]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'middle' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_middle"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_middle"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-5, 0, -5],
+            "size": [10, 16, 10]
+          },
+          "minecraft:selection_box": {
+            "origin": [-5, 0, -5],
+            "size": [10, 16, 10]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'middle' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_middle"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_middle"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-5, 0, -5],
+            "size": [10, 16, 10]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'base' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_base"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_base"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-6, 0, -6],
+            "size": [12, 16, 12]
+          },
+          "minecraft:selection_box": {
+            "origin": [-6, 0, -6],
+            "size": [12, 16, 12]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'base' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_base"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_base"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-6, 0, -6],
+            "size": [12, 16, 12]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'merge' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == false",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "false",
+              "north": "false",
+              "south": "false",
+              "west": "false",
+              "east": "false"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip_merge"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip_merge"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 16, 6]
+          },
+          "minecraft:selection_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 16, 6]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:thickness') == 'merge' && q.block_state('minecraft:block_face') == 'up' && q.block_state('kai_templates:attached') == true",
+        "components": {
+          "minecraft:geometry": {
+            "identifier": "geometry.kai_templates_icicle_up",
+            "culling": "kai_templates:icicle_up_culling",
+            "bone_visibility": {
+              "top": "true",
+              "north": "true",
+              "south": "true",
+              "west": "true",
+              "east": "true"
+            }
+          },
+          "minecraft:material_instances": {
+            "*": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip_merge"
+            },
+            "cross": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false,
+              "texture": "kai_templates_icicle_tip_merge"
+            },
+            "side": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_side"
+            },
+            "top": {
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 1,
+              "face_dimming": true,
+              "texture": "kai_templates_icicle_top"
+            }
+          },
+          "minecraft:collision_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 16, 6]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+          }
+        }
+      }
+    ]
+  }
+}

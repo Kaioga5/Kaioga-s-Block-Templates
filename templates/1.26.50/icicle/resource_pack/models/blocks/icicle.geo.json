@@ -1,0 +1,221 @@
+{
+  "format_version": "1.26.50",
+  // Two models, one per direction. geometry.kai_templates_icicle hangs from a
+  // ceiling and is Mojang's own icicle model from Minecraft Preview 26.60.29:
+  // the cross of two planes every segment draws, a plate across the top and a
+  // plane on each side, shown only on the attached segment. Each plate is
+  // 0.1 px thick so it sits just inside the cell edge.
+  // geometry.kai_templates_icicle_up is the same model standing on a floor:
+  // turned 180 degrees about the X axis, which leaves every plane where it was,
+  // turns its texture over in the plane and moves the plate to the floor.
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_icicle",
+        "texture_width": 16,
+        "texture_height": 16
+      },
+      "bones": [
+        {
+          "name": "top",
+          "cubes": [
+            {
+              "origin": [-8, 15.9, -8],
+              "size": [16, 0.1, 16],
+              "uv": {
+                "up": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "top" },
+                "down": { "uv": [16, 0], "uv_size": [-16, 16], "material_instance": "top" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "north",
+          "cubes": [
+            {
+              "origin": [-8, 0, -8],
+              "size": [16, 16, 0.1],
+              "uv": {
+                "north": { "uv": [0, 0], "uv_size": [16, 16], "material_instance": "side" },
+                "south": { "uv": [16, 0], "uv_size": [-16, 16], "material_instance": "side" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "south",
+          "cubes": [
+            {
+              "origin": [-8, 0, 7.9],
+              "size": [16, 16, 0.1],
+              "uv": {
+                "north": { "uv": [16, 0], "uv_size": [-16, 16], "material_instance": "side" },
+                "south": { "uv": [0, 0], "uv_size": [16, 16], "material_instance": "side" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "west",
+          "cubes": [
+            {
+              "origin": [7.9, 0, -8],
+              "size": [0.1, 16, 16],
+              "uv": {
+                "east": { "uv": [16, 0], "uv_size": [-16, 16], "material_instance": "side" },
+                "west": { "uv": [0, 0], "uv_size": [16, 16], "material_instance": "side" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "east",
+          "cubes": [
+            {
+              "origin": [-8, 0, -8],
+              "size": [0.1, 16, 16],
+              "uv": {
+                "east": { "uv": [0, 0], "uv_size": [16, 16], "material_instance": "side" },
+                "west": { "uv": [16, 0], "uv_size": [-16, 16], "material_instance": "side" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "cross_1",
+          "cubes": [
+            {
+              "origin": [-10.182, 0, 0],
+              "size": [20.364, 16, 0],
+              "rotation": [0, -45, 0],
+              "pivot": [0, 8, 0],
+              "uv": {
+                "north": { "uv": [0, 0], "uv_size": [16, 16], "material_instance": "cross" },
+                "south": { "uv": [0, 0], "uv_size": [16, 16], "material_instance": "cross" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "cross_2",
+          "cubes": [
+            {
+              "origin": [0, 0, -10.182],
+              "size": [0, 16, 20.364],
+              "rotation": [0, -45, 0],
+              "pivot": [0, 8, 0],
+              "uv": {
+                "east": { "uv": [0, 0], "uv_size": [16, 16], "material_instance": "cross" },
+                "west": { "uv": [0, 0], "uv_size": [16, 16], "material_instance": "cross" }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_icicle_up",
+        "texture_width": 16,
+        "texture_height": 16
+      },
+      "bones": [
+        {
+          "name": "top",
+          "cubes": [
+            {
+              "origin": [-8, 0, -8],
+              "size": [16, 0.1, 16],
+              "uv": {
+                "down": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "top" },
+                "up": { "uv": [16, 0], "uv_size": [-16, 16], "material_instance": "top" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "north",
+          "cubes": [
+            {
+              "origin": [-8, 0, -8],
+              "size": [16, 16, 0.1],
+              "uv": {
+                "north": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "side" },
+                "south": { "uv": [0, 16], "uv_size": [16, -16], "material_instance": "side" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "south",
+          "cubes": [
+            {
+              "origin": [-8, 0, 7.9],
+              "size": [16, 16, 0.1],
+              "uv": {
+                "north": { "uv": [0, 16], "uv_size": [16, -16], "material_instance": "side" },
+                "south": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "side" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "west",
+          "cubes": [
+            {
+              "origin": [7.9, 0, -8],
+              "size": [0.1, 16, 16],
+              "uv": {
+                "east": { "uv": [0, 16], "uv_size": [16, -16], "material_instance": "side" },
+                "west": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "side" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "east",
+          "cubes": [
+            {
+              "origin": [-8, 0, -8],
+              "size": [0.1, 16, 16],
+              "uv": {
+                "east": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "side" },
+                "west": { "uv": [0, 16], "uv_size": [16, -16], "material_instance": "side" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "cross_1",
+          "cubes": [
+            {
+              "origin": [-10.182, 0, 0],
+              "size": [20.364, 16, 0],
+              "rotation": [0, -45, 0],
+              "pivot": [0, 8, 0],
+              "uv": {
+                "north": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "cross" },
+                "south": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "cross" }
+              }
+            }
+          ]
+        },
+        {
+          "name": "cross_2",
+          "cubes": [
+            {
+              "origin": [0, 0, -10.182],
+              "size": [0, 16, 20.364],
+              "rotation": [0, -45, 0],
+              "pivot": [0, 8, 0],
+              "uv": {
+                "east": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "cross" },
+                "west": { "uv": [16, 16], "uv_size": [-16, -16], "material_instance": "cross" }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

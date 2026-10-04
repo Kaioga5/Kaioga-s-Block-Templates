@@ -1,0 +1,34 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block_culling_rules": {
+    "description": {
+      "identifier": "kai_templates:icicle_up_culling"
+    },
+    // Mojang's rules for the icicle, turned over with the standing model so the
+    // plate's rule watches the floor: the outer face of the plate and of
+    // each side plane is hidden while a full, solid block covers it. The
+    // inner faces always draw, so the cage still reads from inside the cell.
+    "rules": [
+      {
+        "geometry_part": { "bone": "top", "cube": 0, "face": "down" },
+        "direction": "down"
+      },
+      {
+        "geometry_part": { "bone": "north", "cube": 0, "face": "north" },
+        "direction": "north"
+      },
+      {
+        "geometry_part": { "bone": "south", "cube": 0, "face": "south" },
+        "direction": "south"
+      },
+      {
+        "geometry_part": { "bone": "west", "cube": 0, "face": "west" },
+        "direction": "west"
+      },
+      {
+        "geometry_part": { "bone": "east", "cube": 0, "face": "east" },
+        "direction": "east"
+      }
+    ]
+  }
+}
