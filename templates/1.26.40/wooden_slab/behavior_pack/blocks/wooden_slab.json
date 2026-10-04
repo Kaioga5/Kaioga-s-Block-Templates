@@ -139,8 +139,8 @@
           },
           "minecraft:geometry": {
             "identifier": "geometry.kai_templates_wooden_slab_top",
-            // The block culling rule used to hide faces against neighbours.
-            "culling": "kai_templates:wooden_slab_culling",
+            // The top slab's own culling rule, which leaves its underside out.
+            "culling": "kai_templates:wooden_slab_top_culling",
             // The voxel shape used to cull the block.
             "culling_shape": "kai_templates:wooden_slab"
           }

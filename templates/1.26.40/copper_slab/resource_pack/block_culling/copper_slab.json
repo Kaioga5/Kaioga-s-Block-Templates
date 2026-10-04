@@ -5,6 +5,7 @@
       "identifier": "kai_templates:copper_slab_culling"
     },
     // Each rule hides one face of one cube while a neighbour covers that direction.
+    // These are the bottom slab's rules. Its up face sits halfway up the block, so it has no rule.
     "rules": [
       {
         "geometry_part": {
@@ -13,14 +14,6 @@
           "face": "down"
         },
         "direction": "down"
-      },
-      {
-        "geometry_part": {
-          "bone": "slab",
-          "cube": 0,
-          "face": "up"
-        },
-        "direction": "up"
       },
       {
         "geometry_part": {

@@ -2,18 +2,18 @@
   "format_version": "1.21.80",
   "minecraft:block_culling_rules": {
     "description": {
-      "identifier": "kai_templates:stone_slab_culling"
+      "identifier": "kai_templates:wooden_slab_top_culling"
     },
     // Each rule hides one face of one cube while a neighbour covers that direction.
-    // These are the bottom slab's rules. Its up face sits halfway up the block, so it has no rule.
+    // These are the top slab's rules. Its down face sits halfway up the block, so it has no rule.
     "rules": [
       {
         "geometry_part": {
           "bone": "slab",
           "cube": 0,
-          "face": "down"
+          "face": "up"
         },
-        "direction": "down"
+        "direction": "up"
       },
       {
         "geometry_part": {
