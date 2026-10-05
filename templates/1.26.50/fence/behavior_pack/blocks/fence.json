@@ -423,9 +423,9 @@
           }
         }
       },
-      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block. Like a vanilla wooden fence, only other fences may: walls, panes, bars and the nether brick fence stay off.
       "minecraft:connection_rule": {
-        "accepts_connections_from": "all"
+        "accepts_connections_from": "only_fences"
       },
       // Block tags. Vanilla content and Molang queries can match on them.
       "minecraft:tags": ["minecraft:has_fence_connections"],
