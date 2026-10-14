@@ -8,10 +8,6 @@
     },
     "kai_templates_candle_lit": {
       "textures": "textures/blocks/candles/candle_lit"
-    },
-    "kai_templates_candle_flame": {
-      // The flame drawn above a lit wick. A sixteen by sixteen image with a two by three flame in its top left corner. Block textures are read at sixteen pixels per block, so a smaller image would be sampled wrong; the vanilla lit texture carries no flame pixels of its own.
-      "textures": "textures/blocks/kai_templates_candle_flame"
     }
   }
 }

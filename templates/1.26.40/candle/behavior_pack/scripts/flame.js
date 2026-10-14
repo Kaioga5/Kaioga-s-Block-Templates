@@ -7,6 +7,7 @@
 // cancelled, it is the precise path, not a catch-all interact handler.
 import { EquipmentSlot, GameMode, system, world, } from "@minecraft/server";
 import { CANDLE_ID, candleCount, isLit, setCandle } from "./candle.js";
+import { spawnFlames } from "./particles.js";
 // The items that light a candle, and the ones that put it out
 const IGNITERS = ["minecraft:flint_and_steel", "minecraft:fire_charge"];
 const EXTINGUISHERS = ["minecraft:water_bucket", "minecraft:potion"];
@@ -43,6 +44,10 @@ function payForIgnition(player, equipment, held) {
 function setFlame(block, lit, sound) {
     setCandle(block, candleCount(block), lit);
     block.dimension.playSound(sound, block.center());
+    // A freshly lit wick burns at once rather than waiting for the first tick
+    if (lit) {
+        spawnFlames(block);
+    }
 }
 world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
     const { block, player, itemStack: held } = event;
