@@ -3,7 +3,7 @@
 // each. Everything else, saplings, sticks, the odd apple, is rolled here,
 // because Fortune scaling cannot be written into a Bedrock block loot table and
 // rotting leaves have no tool to consult at all.
-import { EquipmentSlot, ItemStack, system, } from "@minecraft/server";
+import { EquipmentSlot, GameMode, ItemStack, system, } from "@minecraft/server";
 import { leafDrops } from "./config.js";
 // Highest Fortune level the tables above are written for; anything beyond it
 // reuses the last entry
@@ -33,6 +33,10 @@ export function dropPoint(block) {
 system.beforeEvents.startup.subscribe((init) => {
     init.blockComponentRegistry.registerCustomComponent("kai_templates:leaves_drops", {
         onPlayerBreak(event) {
+            // A creative player breaks leaves without collecting anything, as in vanilla
+            if (event.player?.getGameMode() === GameMode.Creative) {
+                return;
+            }
             const tool = event.player
                 ?.getComponent("minecraft:equippable")
                 ?.getEquipment(EquipmentSlot.Mainhand);

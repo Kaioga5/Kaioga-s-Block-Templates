@@ -8,6 +8,7 @@ import {
     BlockComponentPlayerBreakEvent,
     Dimension,
     EquipmentSlot,
+    GameMode,
     ItemStack,
     system,
     Vector3,
@@ -44,6 +45,11 @@ export function dropPoint(block: Block): Vector3 {
 system.beforeEvents.startup.subscribe((init) => {
     init.blockComponentRegistry.registerCustomComponent("kai_templates:leaves_drops", {
         onPlayerBreak(event: BlockComponentPlayerBreakEvent): void {
+            // A creative player breaks leaves without collecting anything, as in vanilla
+            if (event.player?.getGameMode() === GameMode.Creative) {
+                return;
+            }
+
             const tool = event.player
                 ?.getComponent("minecraft:equippable")
                 ?.getEquipment(EquipmentSlot.Mainhand);
