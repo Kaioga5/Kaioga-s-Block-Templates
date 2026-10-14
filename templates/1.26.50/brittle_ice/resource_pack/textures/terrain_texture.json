@@ -1,0 +1,20 @@
+{
+  "resource_pack_name": "kai_templates_brittle_ice",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block files refer to these names, not to file paths.
+  // One texture per crack stage, 0 whole to 3 about to break.
+  "texture_data": {
+    "kai_templates_brittle_ice_0": {
+      "textures": "textures/blocks/kai_templates_brittle_ice_0"
+    },
+    "kai_templates_brittle_ice_1": {
+      "textures": "textures/blocks/kai_templates_brittle_ice_1"
+    },
+    "kai_templates_brittle_ice_2": {
+      "textures": "textures/blocks/kai_templates_brittle_ice_2"
+    },
+    "kai_templates_brittle_ice_3": {
+      "textures": "textures/blocks/kai_templates_brittle_ice_3"
+    }
+  }
+}

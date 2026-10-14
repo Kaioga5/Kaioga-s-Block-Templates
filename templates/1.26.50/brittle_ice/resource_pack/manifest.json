@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Brittle Ice",
+    "description": "Brittle Ice block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "a33c4a45-a03d-49dc-b826-231f7c5f915e",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "69a510c6-9c93-4160-8899-703f776b8a01",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "6eff4b85-0aba-4f12-825d-6a0e53d875b2",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}

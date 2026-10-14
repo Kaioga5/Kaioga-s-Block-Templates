@@ -1,6 +1,6 @@
 # Block Templates - 1.26.50
 
-This module contains 80 block templates for Minecraft Bedrock Edition 1.26.50,
+This module contains 81 block templates for Minecraft Bedrock Edition 1.26.50,
 covering building blocks, plants, crops, redstone, lighting and interactive
 blocks. All of them run on the current stable platform, and none require an
 experimental toggle.
@@ -59,8 +59,8 @@ Each template folder holds a complete behavior pack + resource pack pair and a
   are gone: with `fit_to_frame` off the model keeps its block coordinates and
   a thin block already sits low like the vanilla icon. The skull now lets the
   slot fit it instead, which is what draws it as large as vanilla's.
-- **Nine new templates:** Shelf Mushroom, Wheat, Melon, Sugar Cane, Pink
-  Petals, Vines, Cake, Vertical Pillar and Icicle.
+- **Ten new templates:** Shelf Mushroom, Wheat, Melon, Sugar Cane, Pink
+  Petals, Vines, Cake, Vertical Pillar, Icicle and Brittle Ice.
 - Everything else only moved to the 1.26.50 format versions and the 2.10.0
   script module.
 
@@ -86,6 +86,7 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 | [Pillar](pillar/) | none | Yes | A quartz-pillar-style axis block with end-cap and side textures, orientable along all three axes through a custom axis state set from the clicked face, exactly like vanilla logs and pillars. |
 | [Vertical Pillar](vertical_pillar/) | none | Yes | A pillar that joins into columns: the lowest block draws a base, the highest a head and the ones between a plain body, on all three axes, with the axis as its only state. Which part each block draws is picked by block culling rules from its neighbours, with no extra state and no script beyond axis placement. |
 | [Ice](ice/) | none | Yes | A slippery translucent cube with vanilla ice friction, light dampening and glass sounds, a silk-touch-only drop, water left behind when mined in survival, and light-driven melting. |
+| [Brittle Ice](brittle_ice/) | none | Yes | The Brittle Ice from Java Edition 26.4 Snapshot 4, timed against the snapshot: anything living that stands on it cracks it one stage every 24 ticks through four textures until it shatters with no drop, a break cracks the brittle ice around it, and it drops itself only to Silk Touch. |
 | [Glass](glass/) | none | No | Plain glass with data-driven face culling: touching blocks merge into one continuous sheet, and it drops nothing unless mined with Silk Touch. |
 | [Flower Pot](flower_pot/) | none | Yes | A flower pot with a twenty-three-entry plant list, vanilla flowers, saplings and this module's Flower, where each plant is its own potted block, the way vanilla does it, with the Java pot geometry. |
 | [Glazed Terracotta](glazed_terracotta/) | placement_direction | No | A four-way rotating pattern cube in the vanilla glazed terracotta style: the pattern turns with the player's facing on every face so blocks tile into murals, pistons can push it but never pull it back. |
