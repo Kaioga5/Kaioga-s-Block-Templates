@@ -1,0 +1,165 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:sweet_berry_bush",
+      // The bush never shows in the inventory. The berries are the item that plants it.
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": false
+      },
+      // Custom block states. Four growth stages like vanilla: a sprout, a bare bush, a bush with some berries and a full one.
+      "states": {
+        "kai_templates:growth": [0, 1, 2, 3]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('kai_templates:growth') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_sweet_berry_bush_stage_1",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-6.4, 0, -6.4],
+            "size": [12.8, 16, 12.8]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:growth') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_sweet_berry_bush_stage_2",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-6.4, 0, -6.4],
+            "size": [12.8, 16, 12.8]
+          },
+          "minecraft:loot": "loot_tables/blocks/sweet_berry_bush_2.json"
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:growth') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_sweet_berry_bush_stage_3",
+              "render_method": "alpha_test_single_sided",
+              "ambient_occlusion": 0,
+              "face_dimming": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [-6.4, 0, -6.4],
+            "size": [12.8, 16, 12.8]
+          },
+          "minecraft:loot": "loot_tables/blocks/sweet_berry_bush_3.json"
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.sweet_berry_bush.name",
+      // Block tags. Vanilla content and Molang queries can match on them. The vanilla bush carries the crop tag too.
+      "minecraft:tags": ["minecraft:crop", "kai_templates:sweet_berry_bush"],
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:sweet_berry_bush": {},
+      // Vanilla's cross shape: two planes crossing on the diagonals.
+      "minecraft:geometry": "minecraft:geometry.cross",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_sweet_berry_bush_stage_0",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "alpha_test_single_sided",
+          // Whether neighbouring blocks darken this block's corners.
+          "ambient_occlusion": 0,
+          // Whether each face gets the vanilla directional shading.
+          "face_dimming": false
+        }
+      },
+      // The block's collision box. Entities walk into the bush; the script slows them down instead.
+      "minecraft:collision_box": false,
+      // The block's selection box. Measured on the vanilla bush: the sprout's is 6.4 pixels wide and half a block tall, every later stage is 12.8 wide and a full block tall.
+      "minecraft:selection_box": {
+        "origin": [-3.2, 0, -3.2],
+        "size": [6.4, 8, 6.4]
+      },
+      // Faces and blocks the block may be placed against. When the soil goes away the bush pops off.
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": ["up"],
+            "block_filter": [
+              "minecraft:grass_block",
+              "minecraft:dirt",
+              "minecraft:coarse_dirt",
+              "minecraft:dirt_with_roots",
+              "minecraft:farmland",
+              "minecraft:podzol",
+              "minecraft:mycelium",
+              "minecraft:moss_block",
+              "minecraft:mud",
+              "minecraft:muddy_mangrove_roots"
+            ]
+          }
+        ]
+      },
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0
+      },
+      // Chance of catching fire from a neighbour and of burning away once lit. Vanilla Bedrock's numbers for the bush.
+      "minecraft:flammable": {
+        "catch_chance_modifier": 30,
+        "destroy_chance_modifier": 100
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "sweet_berry_bush"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#007C00",
+      // How the block behaves when it detects liquids, such as waterlogging or being washed away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "liquid_type": "water",
+            "can_contain_liquid": false,
+            // Measured on the vanilla bush: flowing water stops at it and leaves it standing.
+            "on_liquid_touches": "blocking"
+          }
+        ]
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // Loot table used when the block is broken. The two bare stages drop nothing.
+      "minecraft:loot": "loot_tables/empty.json",
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Block Templates - 1.26.50
 
-This module contains 81 block templates for Minecraft Bedrock Edition 1.26.50,
+This module contains 82 block templates for Minecraft Bedrock Edition 1.26.50,
 covering building blocks, plants, crops, redstone, lighting and interactive
 blocks. All of them run on the current stable platform, and none require an
 experimental toggle.
@@ -59,8 +59,8 @@ Each template folder holds a complete behavior pack + resource pack pair and a
   are gone: with `fit_to_frame` off the model keeps its block coordinates and
   a thin block already sits low like the vanilla icon. The skull now lets the
   slot fit it instead, which is what draws it as large as vanilla's.
-- **Ten new templates:** Shelf Mushroom, Wheat, Melon, Sugar Cane, Pink
-  Petals, Vines, Cake, Vertical Pillar, Icicle and Brittle Ice.
+- **Eleven new templates:** Shelf Mushroom, Wheat, Melon, Sugar Cane, Pink
+  Petals, Vines, Cake, Vertical Pillar, Icicle, Brittle Ice and Sweet Berries.
 - Everything else only moved to the 1.26.50 format versions and the 2.10.0
   script module.
 
@@ -113,6 +113,7 @@ Each template folder holds a complete behavior pack + resource pack pair and a
 | [Wheat](wheat/) | none | Yes | A wheat crop with eight stages, planted from its own seeds on farmland, growing on random ticks with vanilla's farmland scoring, taking bone meal, and dropping grain and Fortune-scaled seeds from data-driven loot tables. |
 | [Melon](melon/) | none | Yes | Melon seeds, stem and fruit together: the stem grows through eight stages in vanilla's age colours, bends towards the melon it grows on a random tick, straightens when the fruit goes, and the fruit drops slices with Fortune or itself with Silk Touch. |
 | [Sugar Cane](sugar_cane/) | none | Yes | Sugar cane that plants beside water, grows to three blocks on random ticks, goes straight to full height under bone meal like Bedrock, holds water back, and comes apart from the bottom up when the water or the ground goes. |
+| [Sweet Berries](sweet_berries/) | none | Yes | A sweet berry bush planted from edible berries, growing through four stages on random ticks in any light, picked for berries with an empty hand or bone meal, and slowing and pricking whatever walks through it at vanilla's measured speed and rhythm. |
 | [Cactus](cactus/) | none | Yes | A cactus that stands only on sand, refuses solid neighbours, grows up to three high on random ticks, hurts whatever presses into it, and pops when the sand under it goes. |
 | [Cake](cake/) | none | Yes | A cake eaten one slice at a time by right-clicking it: seven bite states that each shave two pixels off the west side of the model and of the collision and selection boxes, feeding two hunger and 0.4 saturation a slice, refusing a full player, and vanishing with the last bite. Any of the seventeen candles placed on a whole cake turns it into that candle's own cake block, which lights with flint and steel, snuffs with an empty hand, and gives its candle back to the first bite. |
 | [Candle](candle/) | none | Yes | One to four candles in a block, lit or unlit, with light rising per candle, added by clicking with another candle, lit by flint and steel, and returning every candle when broken. |
@@ -158,7 +159,7 @@ If you are new to custom blocks: start with **Planks** (the minimal block), then
 **Stone Slab** (half placement and voxel culling), **Wall**, **Fence** and
 **Glass Pane** (the connection trait), **Trapdoor** (states and scripts), **Door**
 (multi-block), and the copper templates (**Copper Slab / Bars / Trapdoor / Door**)
-for scripted weathering. **Wheat**, **Melon** and **Sugar Cane** are the crops:
+for scripted weathering. **Wheat**, **Melon**, **Sugar Cane** and **Sweet Berries** are the crops:
 random-tick growth, bone meal and data-driven drops. **Jukebox** shows
 `minecraft:block_entity` with dynamic properties, and how a pack adds a music disc
 of its own. **Skulls, Flower Pot, Ladder,

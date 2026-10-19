@@ -1,0 +1,55 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:item": {
+    "description": {
+      // The ID for the item. Format must be namespace:item_name.
+      "identifier": "kai_templates:sweet_berries",
+      // Where the item appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      // Plants the bush when used on soil, on the top face only, like Bedrock. Anywhere else the item is eaten instead. Picking the bush in creative gives the bush's own hidden item, not the berries: a block's pick result can only be an item with the block's identifier.
+      "minecraft:block_placer": {
+        "block": "kai_templates:sweet_berry_bush",
+        "use_on": [
+          "minecraft:grass_block",
+          "minecraft:dirt",
+          "minecraft:coarse_dirt",
+          "minecraft:dirt_with_roots",
+          "minecraft:farmland",
+          "minecraft:podzol",
+          "minecraft:mycelium",
+          "minecraft:moss_block",
+          "minecraft:mud",
+          "minecraft:muddy_mangrove_roots"
+        ]
+      },
+      // Food values. Two hunger points; nutrition x modifier x 2 gives vanilla Bedrock's 1.2 saturation. Only a hungry player can eat them; scripts/eating.js holds the use back when the hunger bar is full.
+      "minecraft:food": {
+        "nutrition": 2,
+        "saturation_modifier": 0.3,
+        "can_always_eat": false
+      },
+      // Eating takes 32 ticks like vanilla, and slows the player while the berries are being eaten.
+      "minecraft:use_modifiers": {
+        "use_duration": 1.6,
+        "movement_modifier": 0.35
+      },
+      // The animation played while the item is being used.
+      "minecraft:use_animation": "eat",
+      // Sprite shown in the inventory. The vanilla berry sprite is referenced by its vanilla alias.
+      "minecraft:icon": {
+        "textures": {
+          "default": "sweet_berries"
+        }
+      },
+      // Chance the item adds a layer to a composter.
+      "minecraft:compostable": {
+        "composting_chance": 30
+      }
+    }
+  }
+}
