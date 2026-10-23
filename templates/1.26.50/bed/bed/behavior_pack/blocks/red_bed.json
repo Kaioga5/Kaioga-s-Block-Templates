@@ -1,0 +1,134 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:red_bed",
+      // Where the block appears in the creative inventory. The item stands in for the block there, see items/red_bed.json.
+      "menu_category": {
+        "category": "none"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      "states": {
+        // True while someone sleeps in the bed. Vanilla calls the same state occupied_bit.
+        "kai_templates:occupied": [false, true]
+      },
+      // Allows the block to use exposed vanilla block states.
+      "traits": {
+        // Makes the engine place and break the bed as one two-block structure. Part 0 is the foot, where the player clicked; part 1 is the head. A horizontal direction is replaced by the player's facing because the block also enables cardinal_direction below, so the head always lands one block further along the way the player looks, like vanilla.
+        "minecraft:multi_block": {
+          "enabled_states": ["minecraft:multi_block_part"],
+          "direction": "north",
+          "parts": 2
+        },
+        // Sets the enabled state from the direction the player faces when placing.
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
+        }
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.red_bed.name",
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:bed": {},
+      "minecraft:entity_fall_on": {
+        "min_fall_distance": 0
+      },
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "geometry.kai_templates_red_bed_foot",
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_red_bed",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "opaque",
+          // The vanilla bed is drawn like an entity, with no corner darkening, so the block turns ambient occlusion off to match.
+          "ambient_occlusion": 0
+        }
+      },
+      // The block's collision box: the mattress top is nine pixels up, as vanilla.
+      "minecraft:collision_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 9, 16]
+      },
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 9, 16]
+      },
+      // How pistons can move the block. The multi_block trait only allows popped or immovable.
+      "minecraft:movable": {
+        "movement_type": "popped"
+      },
+      // How the block behaves when it detects liquids. Vanilla beds can be waterlogged, and water does not wash them away.
+      "minecraft:liquid_detection": {
+        "detection_rules": [
+          {
+            "can_contain_liquid": true,
+            "on_liquid_touches": "no_reaction"
+          }
+        ]
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Break time. This number behaves like a vanilla hardness: the bed's is 0.2.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.2
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 0.2 x 5
+        "explosion_resistance": 1
+      },
+      // What the block drops when broken: the bed item, once. The multi_block trait runs the loot of the half that was broken and removes the other half without any, so both halves carry the same table.
+      "minecraft:loot": "loot_tables/blocks/red_bed.json",
+      // The particles thrown out when the bed is hit or broken. Vanilla's come from oak planks, the bed's frame, not from the bed texture; bed_bottom is the vanilla texture name for them.
+      "minecraft:destruction_particles": {
+        "texture": "bed_bottom",
+        // Vanilla throws out about half the default hundred: measured on screen against a broken vanilla bed, 44 and 52 came out either side of it.
+        "particle_count": 48
+      },
+      // Vanilla sound set used for placing, breaking and stepping on the block.
+      "minecraft:sound": {
+        "sound": "wood"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#993333"
+    },
+    // Component overrides that apply while their Molang condition is true.
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:multi_block_part') == 1",
+        "components": {
+          "minecraft:geometry": "geometry.kai_templates_red_bed_head"
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          // Rotates, scales or offsets the geometry and boxes for this permutation.
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 0]
+          }
+        }
+      }
+    ]
+  }
+}

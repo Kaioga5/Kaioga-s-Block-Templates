@@ -1,0 +1,12 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:camera_preset": {
+    // The view from the pillow while asleep. The script places it; this file only changes how it renders.
+    "identifier": "kai_templates:red_bed_sleep",
+    "inherit_from": "minecraft:free",
+    // A sleeper sees through their own eyes in vanilla, so effects such as night vision and blindness still apply.
+    "player_effects": true,
+    // Sounds are heard from the player, as they are for a vanilla sleeper.
+    "listener": "player"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Bed",
+    "description": "Bed block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "62dd080e-42b1-462e-938a-05db0c48a407",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "e85a9a9e-43a5-4d68-931b-a23936219dd9",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "e1d0b1a9-726c-44b8-baf7-097444a0a96e",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}
