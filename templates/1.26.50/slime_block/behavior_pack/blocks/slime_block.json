@@ -51,11 +51,15 @@
       },
       // Color the block shows on maps.
       "minecraft:map_color": "#7FB238",
+      // How slippery the top is: 1 minus the slipperiness, which is 0.8 for slime against 0.6 for most blocks and 0.98 for ice. Measured to match vanilla slime.
+      "minecraft:friction": 0.2,
+      // Runs the bounce hook on every landing, however short the fall, so a bounce keeps going until it dies out as in vanilla.
+      "minecraft:entity_fall_on": {
+        "min_fall_distance": 0
+      },
       // Custom components are registered by the scripts in behavior_pack/scripts.
-      "kai_templates:slime_bounce": {
-        "bounce_power": 0.33,
-        "max_launch": 1.1
-      }
+      "kai_templates:slime_bounce": {},
+      "kai_templates:slime_slowdown": {}
     }
   }
 }

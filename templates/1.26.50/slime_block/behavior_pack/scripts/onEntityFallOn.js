@@ -1,71 +1,195 @@
 // Registers the component that bounces entities landing on the slime block.
 // Bedrock has no data-driven "bouncy block" component (vanilla slime bounce
 // is hardcoded), so the custom component's onEntityFallOn hook launches the
-// entity back up. The hook fires from the custom component alone, no
-// minecraft:entity_fall_on JSON component is needed, and the fall-distance
-// threshold lives here in the script instead.
-import { system, Player, } from "@minecraft/server";
-// Vanilla slime returns the entity to roughly the height it fell from, so
-// the launch speed has to match the impact speed. Falling h blocks under
-// Minecraft's gravity of 0.08 blocks per tick squared arrives at
-// sqrt(2 * 0.08 * h) = 0.4 * sqrt(h), which is where this coefficient comes
-// from rather than from tuning by feel.
-const DEFAULT_BOUNCE_POWER = 0.4;
-// Drag flattens the curve past a long drop; this caps the launch at about
-// what a sixteen-block fall arrives with.
-const DEFAULT_MAX_LAUNCH = 1.6;
-// Falls shorter than this land without a bounce
-const MIN_FALL_DISTANCE = 0.5;
+// entity back up. The block JSON sets minecraft:entity_fall_on to a minimum
+// fall of zero, so the hook fires on every landing, down to the last small
+// hop of a bounce dying out.
+//
+// Vanilla's bounce, measured tick by tick against the vanilla slime block
+// from drops of 0.1 to 40 blocks:
+//   - Mobs, players and armor stands come back up at almost the speed they
+//     landed with, over and over, each bounce a little lower.
+//   - Items, boats and minecarts bounce too, keeping a fixed share of their
+//     speed; a minecart, which falls without air drag, keeps the most.
+//   - Chickens and the other flapping or flying mobs do not bounce.
+//   - A sneaking player does not bounce.
+import { system, world, Player, } from "@minecraft/server";
+const CREATURE = { gravity: 0.08, drag: 0.98 };
+// An item's push comes out a little long, so its share is set to what gives
+// vanilla's first step in game rather than the 0.9796 vanilla keeps
+const ITEM = { gravity: 0.04, drag: 0.98, kept: 0.959, pushIsSpeed: true };
+const BOAT = { gravity: 0.04, drag: 0.98, kept: 0.958 };
+const MINECART = { gravity: 0.04, drag: 1, kept: 0.945, pushIsSpeed: true };
+const OBJECTS = {
+    "minecraft:item": ITEM,
+    "minecraft:boat": BOAT,
+    "minecraft:chest_boat": BOAT,
+    "minecraft:minecart": MINECART,
+    "minecraft:chest_minecart": MINECART,
+    "minecraft:hopper_minecart": MINECART,
+    "minecraft:tnt_minecart": MINECART,
+    "minecraft:command_block_minecart": MINECART,
+};
+// Mobs that land on vanilla slime without bouncing: they flap, fly or float
+// down rather than fall
+const NO_BOUNCE = new Set([
+    "minecraft:chicken",
+    "minecraft:bat",
+    "minecraft:bee",
+    "minecraft:parrot",
+    "minecraft:phantom",
+    "minecraft:ghast",
+    "minecraft:vex",
+]);
+const launches = new Map();
+const LAUNCH_KEPT_TICKS = 600;
+// The speed an entity had in the tick before it landed, replayed tick by
+// tick over the distance it fell, with how many ticks the flight took. A
+// first fall starts at rest; a fall after a bounce starts from the launch,
+// which tops out still moving a little, so the replay follows the whole
+// flight from the launch instead
+function replayFall(faller, fallDistance, launch) {
+    let speed = launch ? launch.step : 0;
+    let covered = 0;
+    for (let tick = 1; tick < 1200; tick++) {
+        const next = (speed - faller.gravity) * faller.drag;
+        if (next < 0) {
+            if (covered - next > fallDistance + 0.01)
+                return { speed: Math.max(0, -speed), ticks: tick };
+            covered -= next;
+        }
+        speed = next;
+    }
+    return { speed: Math.max(0, -speed), ticks: 1200 };
+}
+// The launch, if this landing ends the flight it started: the replay from it
+// must take as long as the entity has really been in the air
+const FLIGHT_TOLERANCE_TICKS = 3;
+function speedBeforeLanding(faller, fallDistance, launch) {
+    if (launch) {
+        const flight = replayFall(faller, fallDistance, launch);
+        if (Math.abs(flight.ticks - (system.currentTick - launch.tick)) <= FLIGHT_TOLERANCE_TICKS)
+            return flight.speed;
+    }
+    return replayFall(faller, fallDistance).speed;
+}
+// Vanilla's creature bounces come out this much under the fit, on average
+// over every landing measured, first and later ones alike
+const CREATURE_LOSS = 0.0015;
+// The first step back up, in blocks, for a landing after this fall.
+// A creature's comes from the step the landing tick tried to take and the
+// part of it that was cut short by the block: a fit to every vanilla landing
+// measured, first bounces and later ones, within about 0.003 of each.
+// An object keeps a fixed share of its speed
+function reboundStep(faller, before, landingStep) {
+    if (faller.kept !== undefined)
+        return faller.kept * before;
+    const attempted = (before + faller.gravity) * faller.drag;
+    if (attempted <= 0)
+        return 0;
+    const cutShort = Math.min(1, Math.max(0, landingStep / attempted));
+    return faller.drag * (attempted - faller.gravity * (1 - cutShort)) - CREATURE_LOSS;
+}
+function fallerOf(entity) {
+    const object = OBJECTS[entity.typeId];
+    if (object)
+        return object;
+    if (NO_BOUNCE.has(entity.typeId))
+        return undefined;
+    // Anything with health falls like a creature; projectiles, orbs, TNT and
+    // falling blocks have none and land as usual
+    if (!entity.getComponent("minecraft:health"))
+        return undefined;
+    return CREATURE;
+}
+const playerReadings = new Map();
+system.runInterval(() => {
+    for (const player of world.getAllPlayers()) {
+        const readings = playerReadings.get(player.id) ?? [];
+        playerReadings.set(player.id, [readings[1], { tick: system.currentTick, speed: -player.getVelocity().y }]);
+    }
+});
+world.afterEvents.playerLeave.subscribe((event) => playerReadings.delete(event.playerId));
+// The speed the player fell with in the tick before this landing, and the
+// landing's own short step. A player's landing can reach the hook a tick
+// late, standing still already; the readings then end with the short step,
+// which fell less than free fall from the reading before it would have
+function playerLanding(player, landingStep, faller) {
+    const readings = (playerReadings.get(player.id) ?? []).filter((r) => r !== undefined && r.tick < system.currentTick);
+    const [older, newer] = readings.length === 2 ? readings : [undefined, readings[0]];
+    if (!newer)
+        return undefined;
+    if (landingStep < 1e-3 && older && older.speed > 0) {
+        const freeFall = (older.speed + faller.gravity) * faller.drag;
+        if (newer.speed > 1e-3 && newer.speed < freeFall - 0.01)
+            return { before: older.speed, landingStep: newer.speed };
+    }
+    for (const reading of [newer, older]) {
+        if (!reading || Math.abs(reading.speed - landingStep) < 1e-3)
+            continue;
+        if (reading.speed > 0)
+            return { before: reading.speed, landingStep };
+    }
+    return undefined;
+}
+// A knockback of k below 0.19 given to a player on the landing tick moves
+// them up 1.21k - 0.04 on the next, so a small one is sent a little larger
+const PLAYER_SHORT_BELOW = 0.19;
+const PLAYER_SHORT_GAIN = 1.21;
+const PLAYER_SHORT_LOSS = 0.04;
+function bounce(event) {
+    // The entity is optional in the event payload, and it can have died or
+    // despawned from the very landing that fired this hook
+    const entity = event.entity;
+    if (entity === undefined || !entity.isValid)
+        return;
+    // A sneaking player lands without bouncing, as on vanilla slime.
+    // (fallCushion.ts still takes away the fall damage.)
+    if (entity instanceof Player && entity.isSneaking)
+        return;
+    const faller = fallerOf(entity);
+    if (!faller)
+        return;
+    // The event's fall distance leaves out the landing tick's own short step
+    // onto the block, which is the entity's velocity now
+    const velocity = entity.getVelocity();
+    const shortStep = Math.max(0, -velocity.y);
+    const landing = (entity instanceof Player ? playerLanding(entity, shortStep, faller) : undefined) ?? {
+        before: speedBeforeLanding(faller, event.fallDistance, launches.get(entity.id)),
+        landingStep: shortStep,
+    };
+    const step = reboundStep(faller, landing.before, landing.landingStep);
+    if (step <= 0.001) {
+        launches.delete(entity.id);
+        return;
+    }
+    launches.set(entity.id, { step, tick: system.currentTick });
+    if (entity instanceof Player) {
+        // Players reject applyImpulse, so the player path uses knockback. The
+        // sideways speed goes in as the horizontal force, so it carries through
+        // the bounce as it does in vanilla
+        const send = step < PLAYER_SHORT_BELOW ? (step + PLAYER_SHORT_LOSS) / PLAYER_SHORT_GAIN : step;
+        entity.applyKnockback({ x: velocity.x, z: velocity.z }, send);
+    }
+    else {
+        // Keep the sideways speed, replace the fall with the rebound
+        const push = faller.pushIsSpeed ? step / faller.drag + faller.gravity : step;
+        entity.clearVelocity();
+        entity.applyImpulse({ x: velocity.x, y: push, z: velocity.z });
+    }
+}
+// Forget the launches of entities that have long since stopped bouncing
+system.runInterval(() => {
+    for (const [id, launch] of launches) {
+        if (system.currentTick - launch.tick > LAUNCH_KEPT_TICKS)
+            launches.delete(id);
+    }
+}, LAUNCH_KEPT_TICKS);
 // Custom components register during the startup before-event, which runs in
-// early execution, before any world or entity exists. Only registration-type
-// work is legal here; the hooks themselves run later, in normal execution,
-// where touching entities is allowed.
+// early execution, before any world or entity exists. The hook itself runs
+// later, in normal execution, where touching entities is allowed.
 system.beforeEvents.startup.subscribe((init) => {
     init.blockComponentRegistry.registerCustomComponent("kai_templates:slime_bounce", {
-        onEntityFallOn(e, p) {
-            // The entity is optional in the event payload, and it can have died or
-            // despawned from the very landing that fired this hook. Bail out
-            // rather than throw.
-            const entity = e.entity;
-            if (entity === undefined || !entity.isValid) {
-                return;
-            }
-            // Short hops land normally, like vanilla
-            if (e.fallDistance < MIN_FALL_DISTANCE) {
-                return;
-            }
-            // A sneaking player absorbs the landing instead of bouncing,
-            // vanilla's slime block works the same way. (fallCushion.ts applies
-            // the matching damage rule.)
-            if (entity instanceof Player && entity.isSneaking) {
-                return;
-            }
-            const params = p.params;
-            const bouncePower = params.bounce_power ?? DEFAULT_BOUNCE_POWER;
-            const maxLaunch = params.max_launch ?? DEFAULT_MAX_LAUNCH;
-            // Compute the launch strength. The event reports fall distance, not
-            // impact speed; free-fall speed grows with the square root of the
-            // drop height, so scaling by sqrt(fallDistance) makes tall drops
-            // bounce proportionally higher. The cap stops extreme falls from
-            // launching entities absurdly high
-            const strength = Math.min(bouncePower * Math.sqrt(e.fallDistance), maxLaunch);
-            if (strength <= 0) {
-                return;
-            }
-            if (entity instanceof Player) {
-                // Players reject applyImpulse (it throws UnsupportedFunctionalityError
-                // on them), so the player path uses knockback: a horizontal force of
-                // zero plus a vertical strength gives a straight-up launch.
-                entity.applyKnockback({ x: 0, z: 0 }, strength);
-            }
-            else {
-                // Everything else takes a plain impulse. Zero the velocity first:
-                // whatever downward speed the engine still has stored for the entity
-                // would otherwise eat part of the launch and make bounce heights
-                // land-dependent and twitchy.
-                entity.clearVelocity();
-                entity.applyImpulse({ x: 0, y: strength, z: 0 });
-            }
-        },
+        onEntityFallOn: bounce,
     });
 });

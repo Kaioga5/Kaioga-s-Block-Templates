@@ -4,7 +4,7 @@
 // world.beforeEvents.entityHurt: it fires before the damage lands and can
 // cancel it outright. One world-level subscription covers every slime
 // block, so there is nothing to wire up in the block JSON for this concern.
-import { world, EntityDamageCause, Player } from "@minecraft/server";
+import { world, EntityDamageCause } from "@minecraft/server";
 // The block that cushions. If you rename the block, rename this string too
 const SLIME_ID = "kai_templates:slime_block";
 // Subscribe at module load, world.beforeEvents subscriptions are allowed
@@ -24,11 +24,12 @@ world.beforeEvents.entityHurt.subscribe((event) => {
     if (landedOn === undefined || landedOn.typeId !== SLIME_ID) {
         return;
     }
-    // A sneaking player lands "carefully" and takes the fall damage,
-    // vanilla's slime block trades the bounce for the damage the same way
-    if (entity instanceof Player && entity.isSneaking) {
+    // A landing arrives still moving down. An ender pearl's damage, which the
+    // game also counts as a fall, arrives standing still and is not a landing
+    if (entity.getVelocity().y >= 0) {
         return;
     }
-    // Slime absorbs the whole fall
+    // Slime absorbs the whole fall, for a sneaking player too: vanilla's slime
+    // block has cancelled sneaking falls as well since 1.21.50
     event.cancel = true;
 });
