@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "items": [
+              "kai_templates:amethyst_block"
+            ]
+          },
+          {
+            // The creative group the items join. name is a translation key and icon is the item drawn on the group.
+            "group_identifier": {
+              "name": "kai_templates:itemGroup.name.amethyst",
+              "icon": "kai_templates:amethyst_cluster"
+            },
+            "items": [
+              "kai_templates:budding_amethyst",
+              "kai_templates:small_amethyst_bud",
+              "kai_templates:medium_amethyst_bud",
+              "kai_templates:large_amethyst_bud",
+              "kai_templates:amethyst_cluster"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

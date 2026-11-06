@@ -1,0 +1,142 @@
+{
+  "plants": [
+    {
+      "name": "dandelion",
+      "item": "minecraft:dandelion",
+      "texture": "dandelion",
+      "display": "Potted Dandelion"
+    },
+    {
+      "name": "poppy",
+      "item": "minecraft:poppy",
+      "texture": "poppy",
+      "display": "Potted Poppy"
+    },
+    {
+      "name": "blue_orchid",
+      "item": "minecraft:blue_orchid",
+      "texture": "blue_orchid",
+      "display": "Potted Blue Orchid"
+    },
+    {
+      "name": "allium",
+      "item": "minecraft:allium",
+      "texture": "allium",
+      "display": "Potted Allium"
+    },
+    {
+      "name": "azure_bluet",
+      "item": "minecraft:azure_bluet",
+      "texture": "azure_bluet",
+      "display": "Potted Azure Bluet"
+    },
+    {
+      "name": "red_tulip",
+      "item": "minecraft:red_tulip",
+      "texture": "red_tulip",
+      "display": "Potted Red Tulip"
+    },
+    {
+      "name": "orange_tulip",
+      "item": "minecraft:orange_tulip",
+      "texture": "orange_tulip",
+      "display": "Potted Orange Tulip"
+    },
+    {
+      "name": "white_tulip",
+      "item": "minecraft:white_tulip",
+      "texture": "white_tulip",
+      "display": "Potted White Tulip"
+    },
+    {
+      "name": "pink_tulip",
+      "item": "minecraft:pink_tulip",
+      "texture": "pink_tulip",
+      "display": "Potted Pink Tulip"
+    },
+    {
+      "name": "oxeye_daisy",
+      "item": "minecraft:oxeye_daisy",
+      "texture": "oxeye_daisy",
+      "display": "Potted Oxeye Daisy"
+    },
+    {
+      "name": "cornflower",
+      "item": "minecraft:cornflower",
+      "texture": "cornflower",
+      "display": "Potted Cornflower"
+    },
+    {
+      "name": "lily_of_the_valley",
+      "item": "minecraft:lily_of_the_valley",
+      "texture": "lily_of_the_valley",
+      "display": "Potted Lily of the Valley"
+    },
+    {
+      "name": "wither_rose",
+      "item": "minecraft:wither_rose",
+      "texture": "wither_rose",
+      "display": "Potted Wither Rose"
+    },
+    {
+      "name": "torchflower",
+      "item": "minecraft:torchflower",
+      "texture": "torchflower",
+      "display": "Potted Torchflower"
+    },
+    {
+      "name": "oak_sapling",
+      "item": "minecraft:oak_sapling",
+      "texture": "oak_sapling",
+      "display": "Potted Oak Sapling"
+    },
+    {
+      "name": "spruce_sapling",
+      "item": "minecraft:spruce_sapling",
+      "texture": "spruce_sapling",
+      "display": "Potted Spruce Sapling"
+    },
+    {
+      "name": "birch_sapling",
+      "item": "minecraft:birch_sapling",
+      "texture": "birch_sapling",
+      "display": "Potted Birch Sapling"
+    },
+    {
+      "name": "jungle_sapling",
+      "item": "minecraft:jungle_sapling",
+      "texture": "jungle_sapling",
+      "display": "Potted Jungle Sapling"
+    },
+    {
+      "name": "acacia_sapling",
+      "item": "minecraft:acacia_sapling",
+      "texture": "acacia_sapling",
+      "display": "Potted Acacia Sapling"
+    },
+    {
+      "name": "dark_oak_sapling",
+      "item": "minecraft:dark_oak_sapling",
+      "texture": "dark_oak_sapling",
+      "display": "Potted Dark Oak Sapling"
+    },
+    {
+      "name": "cherry_sapling",
+      "item": "minecraft:cherry_sapling",
+      "texture": "cherry_sapling",
+      "display": "Potted Cherry Sapling"
+    },
+    {
+      "name": "pale_oak_sapling",
+      "item": "minecraft:pale_oak_sapling",
+      "texture": "pale_oak_sapling",
+      "display": "Potted Pale Oak Sapling"
+    },
+    {
+      "name": "flower",
+      "item": "kai_templates:flower",
+      "texture": "poppy",
+      "display": "Potted Flower"
+    }
+  ]
+}

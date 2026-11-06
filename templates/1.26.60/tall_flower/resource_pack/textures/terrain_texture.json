@@ -1,0 +1,15 @@
+{
+  "resource_pack_name": "kai_templates_tall_flower",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_tall_flower_bottom": {
+      "textures": "textures/blocks/double_plant_syringa_bottom"
+    },
+    "kai_templates_tall_flower_top": {
+      "textures": "textures/blocks/double_plant_syringa_top"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "resource_pack_name": "kai_templates_sapling",
+  "texture_name": "atlas.items",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates:sapling": {
+      "textures": "textures/blocks/sapling_oak"
+    }
+  }
+}

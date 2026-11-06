@@ -1,0 +1,128 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.kai_templates.red_bed.sleep_north": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "30.0 - this",
+            "-this",
+            "-this"
+          ]
+        },
+        "cape": {
+          "scale": 0
+        },
+        "root": {
+          "position": [
+            "24.0 * math.cos(query.body_y_rotation + 270)",
+            2.5,
+            "24.0 * math.sin(query.body_y_rotation + 270)"
+          ],
+          "rotation": [
+            -90.0,
+            "0 - query.body_y_rotation",
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.kai_templates.red_bed.sleep_south": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "30.0 - this",
+            "-this",
+            "-this"
+          ]
+        },
+        "cape": {
+          "scale": 0
+        },
+        "root": {
+          "position": [
+            "24.0 * math.cos(query.body_y_rotation + 90)",
+            2.5,
+            "24.0 * math.sin(query.body_y_rotation + 90)"
+          ],
+          "rotation": [
+            -90.0,
+            "180 - query.body_y_rotation",
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.kai_templates.red_bed.sleep_west": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "30.0 - this",
+            "-this",
+            "-this"
+          ]
+        },
+        "cape": {
+          "scale": 0
+        },
+        "root": {
+          "position": [
+            "24.0 * math.cos(query.body_y_rotation + 0)",
+            2.5,
+            "24.0 * math.sin(query.body_y_rotation + 0)"
+          ],
+          "rotation": [
+            -90.0,
+            "270 - query.body_y_rotation",
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.kai_templates.red_bed.sleep_east": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "30.0 - this",
+            "-this",
+            "-this"
+          ]
+        },
+        "cape": {
+          "scale": 0
+        },
+        "root": {
+          "position": [
+            "24.0 * math.cos(query.body_y_rotation + 180)",
+            2.5,
+            "24.0 * math.sin(query.body_y_rotation + 180)"
+          ],
+          "rotation": [
+            -90.0,
+            "90 - query.body_y_rotation",
+            0.0
+          ]
+        }
+      }
+    },
+    "animation.kai_templates.red_bed.hide_self": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "scale": 0.001
+        },
+        "head": {
+          "scale": 0.001
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kai_templates:falling_dripstone",
+      // The dripstone textures are cut out rather than blended, and
+      // entity_alphatest leaves backface culling off, so each of the model's
+      // single planes is drawn from either side.
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      // The same four vanilla textures the block wears, so a falling column
+      // looks like the one that came loose.
+      "textures": {
+        "default": "textures/blocks/pointed_dripstone_down_tip",
+        "tip": "textures/blocks/pointed_dripstone_down_tip",
+        "frustum": "textures/blocks/pointed_dripstone_down_frustum",
+        "middle": "textures/blocks/pointed_dripstone_down_middle",
+        "base": "textures/blocks/pointed_dripstone_down_base"
+      },
+      "geometry": {
+        "default": "geometry.kai_templates_falling_dripstone"
+      },
+      // One controller per thickness. Each draws the spike in its own texture
+      // while the thickness property the script wrote names that shape.
+      "render_controllers": [
+        "controller.render.kai_templates_falling_dripstone_tip",
+        "controller.render.kai_templates_falling_dripstone_frustum",
+        "controller.render.kai_templates_falling_dripstone_middle",
+        "controller.render.kai_templates_falling_dripstone_base"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+tile.kai_templates.copper_bars.name=Copper Bars
+tile.kai_templates.exposed_copper_bars.name=Exposed Copper Bars
+tile.kai_templates.weathered_copper_bars.name=Weathered Copper Bars
+tile.kai_templates.oxidized_copper_bars.name=Oxidized Copper Bars
+tile.kai_templates.waxed_copper_bars.name=Waxed Copper Bars
+tile.kai_templates.waxed_exposed_copper_bars.name=Waxed Exposed Copper Bars
+tile.kai_templates.waxed_weathered_copper_bars.name=Waxed Weathered Copper Bars
+tile.kai_templates.waxed_oxidized_copper_bars.name=Waxed Oxidized Copper Bars
+item.kai_templates:copper_bars=Copper Bars
+item.kai_templates:exposed_copper_bars=Exposed Copper Bars
+item.kai_templates:oxidized_copper_bars=Oxidized Copper Bars
+item.kai_templates:waxed_copper_bars=Waxed Copper Bars
+item.kai_templates:waxed_exposed_copper_bars=Waxed Exposed Copper Bars
+item.kai_templates:waxed_oxidized_copper_bars=Waxed Oxidized Copper Bars
+item.kai_templates:waxed_weathered_copper_bars=Waxed Weathered Copper Bars
+item.kai_templates:weathered_copper_bars=Weathered Copper Bars

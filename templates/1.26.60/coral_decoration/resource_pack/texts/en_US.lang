@@ -1,0 +1,12 @@
+tile.kai_templates.coral.name=Coral
+tile.kai_templates.dead_coral.name=Dead Coral
+tile.kai_templates.coral_fan.name=Coral Fan
+tile.kai_templates.dead_coral_fan.name=Dead Coral Fan
+tile.kai_templates.coral_wall_fan.name=Coral Wall Fan
+tile.kai_templates.dead_coral_wall_fan.name=Dead Coral Wall Fan
+item.kai_templates:coral=Coral
+item.kai_templates:dead_coral=Dead Coral
+item.kai_templates:coral_fan=Coral Fan
+item.kai_templates:dead_coral_fan=Dead Coral Fan
+item.kai_templates:coral_wall_fan=Coral Wall Fan
+item.kai_templates:dead_coral_wall_fan=Dead Coral Wall Fan

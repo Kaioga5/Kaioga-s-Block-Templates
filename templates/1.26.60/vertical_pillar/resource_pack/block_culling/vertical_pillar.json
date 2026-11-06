@@ -1,0 +1,43 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block_culling_rules": {
+    "description": {
+      "identifier": "kai_templates:vertical_pillar_culling"
+    },
+    // Directions are the model's: up and down run along the pillar's axis, and the block's rotation turns them with it.
+    //
+    // The side faces come in five layers, all lying exactly on the block's own faces. Where more than one layer is left on the same face, the game draws the bone whose name sorts last on top, so the layer_1 to layer_5 prefixes in the geometry are the priority: layer_5_base beats every other layer, layer_1_base_on_solid loses to all of them. Two kinds of rule pick the layers:
+    // - a rule with condition same_culling_layer hides its part when the neighbour is a pillar on the same axis (each axis has its own culling layer). The game also hides it against any full opaque block (stone, dirt, a slab's full face), whatever cull_against_full_and_opaque says;
+    // - a rule with no condition hides its part only against a full opaque block. The pillar has no culling shape, so another pillar never counts as one.
+    // Together they draw base at the low end of a column and on a pillar standing alone, body in the middle, and head at the high end, whether the column ends in air or against a solid block.
+    //
+    // The side faces have no rules for what is beside them: a layer's sides hide all together or not at all, so every side of a block always shows the same layer.
+    "rules": [
+      // The end caps hide against any other pillar and against full opaque blocks, like the faces of a plain cube.
+      {"geometry_part": {"bone": "ends", "cube": 0, "face": "up"}, "direction": "up", "condition": "same_block"},
+      {"geometry_part": {"bone": "ends", "cube": 0, "face": "down"}, "direction": "down", "condition": "same_block"},
+
+      // layer_5_base: the low end of a column in the air, and a pillar standing alone. Hidden when a pillar on the same axis is below; against a solid block below the game hides it too, and layer_1_base_on_solid takes over.
+      {"geometry_part": {"bone": "layer_5_base"}, "direction": "down", "condition": "same_culling_layer", "cull_against_full_and_opaque": false},
+
+      // layer_4_head: the high end of a column that ends in air. Hidden when a pillar on the same axis is above, or a solid block is below.
+      {"geometry_part": {"bone": "layer_4_head"}, "direction": "up", "condition": "same_culling_layer", "cull_against_full_and_opaque": false},
+      {"geometry_part": {"bone": "layer_4_head", "cube": 0, "face": "north"}, "direction": "down"},
+      {"geometry_part": {"bone": "layer_4_head", "cube": 0, "face": "east"}, "direction": "down"},
+      {"geometry_part": {"bone": "layer_4_head", "cube": 0, "face": "south"}, "direction": "down"},
+      {"geometry_part": {"bone": "layer_4_head", "cube": 0, "face": "west"}, "direction": "down"},
+
+      // layer_3_body: every block between two pillars. Hidden when a solid block is below or above.
+      {"geometry_part": {"bone": "layer_3_body"}, "direction": "down"},
+      {"geometry_part": {"bone": "layer_3_body", "cube": 0, "face": "north"}, "direction": "up"},
+      {"geometry_part": {"bone": "layer_3_body", "cube": 0, "face": "east"}, "direction": "up"},
+      {"geometry_part": {"bone": "layer_3_body", "cube": 0, "face": "south"}, "direction": "up"},
+      {"geometry_part": {"bone": "layer_3_body", "cube": 0, "face": "west"}, "direction": "up"},
+
+      // layer_2_head_under_solid: the high end of a column capped by a solid block. Hidden when a solid block is below.
+      {"geometry_part": {"bone": "layer_2_head_under_solid"}, "direction": "down"}
+
+      // layer_1_base_on_solid, a pillar standing on a solid block, has no rules: it is always there, and every other layer is drawn over it.
+    ]
+  }
+}

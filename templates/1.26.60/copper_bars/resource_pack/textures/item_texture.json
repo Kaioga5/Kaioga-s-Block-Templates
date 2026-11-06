@@ -1,0 +1,19 @@
+{
+  "resource_pack_name": "kai_templates_copper_bars",
+  "texture_name": "atlas.items",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_copper_bars": {
+      "textures": "textures/blocks/copper_bars"
+    },
+    "kai_templates_exposed_copper_bars": {
+      "textures": "textures/blocks/exposed_copper_bars"
+    },
+    "kai_templates_weathered_copper_bars": {
+      "textures": "textures/blocks/weathered_copper_bars"
+    },
+    "kai_templates_oxidized_copper_bars": {
+      "textures": "textures/blocks/oxidized_copper_bars"
+    }
+  }
+}

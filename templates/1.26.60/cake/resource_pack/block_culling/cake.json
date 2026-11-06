@@ -1,0 +1,15 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block_culling_rules": {
+    "description": {
+      "identifier": "kai_templates:cake_culling"
+    },
+    // The cake sits flat on whatever holds it, so its underside is coplanar with that block's top face and the two would z-fight. cull_against_full_and_opaque defaults to true, so naming the face and the direction is enough; every bite geometry uses the same bone and cube index, so one rule covers all seven.
+    "rules": [
+      {
+        "geometry_part": { "bone": "cake", "cube": 0, "face": "down" },
+        "direction": "down"
+      }
+    ]
+  }
+}

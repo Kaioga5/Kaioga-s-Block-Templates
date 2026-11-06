@@ -1,0 +1,10 @@
+{
+  "resource_pack_name": "kai_templates_bed",
+  "texture_name": "atlas.items",
+  // Texture aliases. Item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_red_bed": {
+      "textures": "textures/items/kai_templates_red_bed"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kai_templates:primed_tnt",
+      "materials": {
+        // entity_alphatest supports the render controller's overlay colour, which is what draws the white flash. entity_static ignores the overlay and the charge never flashes.
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/blocks/tnt_side",
+        "side": "textures/blocks/tnt_side",
+        "top": "textures/blocks/tnt_top",
+        "bottom": "textures/blocks/tnt_bottom"
+      },
+      "geometry": {
+        "default": "geometry.kai_templates_primed_tnt_sides",
+        "sides": "geometry.kai_templates_primed_tnt_sides",
+        "top": "geometry.kai_templates_primed_tnt_top",
+        "bottom": "geometry.kai_templates_primed_tnt_bottom"
+      },
+      "particle_effects": {
+        "fuse_smoke": "minecraft:basic_smoke_particle"
+      },
+      "scripts": {
+        // Seconds of fuse left, for the flash and the swell. q.property reads the value the script set when it primed the charge.
+        "pre_animation": [
+          "v.fuse_left = math.max(q.property('kai_templates:fuse') - q.life_time, 0.0);",
+          "v.fuse_ticks = v.fuse_left * 20.0;"
+        ],
+        "animate": ["fuse"]
+      },
+      "animations": {
+        "fuse": "animation.kai_templates.primed_tnt_fuse"
+      },
+      "render_controllers": [
+        "controller.render.kai_templates_primed_tnt_sides",
+        "controller.render.kai_templates_primed_tnt_top",
+        "controller.render.kai_templates_primed_tnt_bottom"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+tile.kai_templates.copper_slab.name=Copper Slab
+tile.kai_templates.waxed_copper_slab.name=Waxed Copper Slab
+tile.kai_templates.exposed_copper_slab.name=Exposed Copper Slab
+tile.kai_templates.waxed_exposed_copper_slab.name=Waxed Exposed Copper Slab
+tile.kai_templates.weathered_copper_slab.name=Weathered Copper Slab
+tile.kai_templates.waxed_weathered_copper_slab.name=Waxed Weathered Copper Slab
+tile.kai_templates.oxidized_copper_slab.name=Oxidized Copper Slab
+tile.kai_templates.waxed_oxidized_copper_slab.name=Waxed Oxidized Copper Slab
+item.kai_templates:copper_slab=Copper Slab
+item.kai_templates:exposed_copper_slab=Exposed Copper Slab
+item.kai_templates:oxidized_copper_slab=Oxidized Copper Slab
+item.kai_templates:waxed_copper_slab=Waxed Copper Slab
+item.kai_templates:waxed_exposed_copper_slab=Waxed Exposed Copper Slab
+item.kai_templates:waxed_oxidized_copper_slab=Waxed Oxidized Copper Slab
+item.kai_templates:waxed_weathered_copper_slab=Waxed Weathered Copper Slab
+item.kai_templates:weathered_copper_slab=Weathered Copper Slab

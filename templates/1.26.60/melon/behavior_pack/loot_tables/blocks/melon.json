@@ -1,0 +1,425 @@
+{
+  "pools": [
+    // Silk Touch takes the whole melon. Anything else gets three to seven slices, and each Fortune level adds one more to the top of the range, never past nine, which is why nine carries double weight on the last pool.
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "silk_touch",
+              "levels": {
+                "range_min": 1
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "kai_templates:melon"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "silk_touch",
+              "levels": {
+                "range_min": 1
+              }
+            }
+          ],
+          "operator": "not"
+        },
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "fortune",
+              "levels": {
+                "range_min": 1
+              }
+            }
+          ],
+          "operator": "not"
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "silk_touch",
+              "levels": {
+                "range_min": 1
+              }
+            }
+          ],
+          "operator": "not"
+        },
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "fortune",
+              "levels": {
+                "range_min": 1,
+                "range_max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "silk_touch",
+              "levels": {
+                "range_min": 1
+              }
+            }
+          ],
+          "operator": "not"
+        },
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "fortune",
+              "levels": {
+                "range_min": 2,
+                "range_max": 2
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 8
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "silk_touch",
+              "levels": {
+                "range_min": 1
+              }
+            }
+          ],
+          "operator": "not"
+        },
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "fortune",
+              "levels": {
+                "range_min": 3
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 7
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 8
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 9
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "format_version": "1.10.0",
+  // Which texture the falling icicle wears, and how bright it is drawn. A
+  // segment keeps the shape it had as a block, which the script writes onto
+  // the entity; each controller draws its model while the property names its
+  // shape and hides it otherwise.
+  //
+  // light_color_multiplier matches the falling segment's brightness to the
+  // block's. Every entity gets mob lighting, which darkens a face by the way
+  // it points, while the block shades its cross not at all and its side planes
+  // and plate by face direction. Each value was set by hovering a falling
+  // segment beside the block under the same light in game and comparing them
+  // from the south, the east and below: the cross needs 1.48, the north/south
+  // planes 1.04, the east/west planes 0.76 and the plate 1. All three views then
+  // came out within 4% of the block.
+  "render_controllers": {
+    "controller.render.kai_templates_falling_icicle_tip": {
+      "geometry": "Geometry.default",
+      "materials": [{ "*": "Material.default" }],
+      "textures": ["Texture.tip"],
+      "light_color_multiplier": 1.48,
+      "part_visibility": [{ "*": "q.property('kai_templates:thickness') == 'tip'" }]
+    },
+    "controller.render.kai_templates_falling_icicle_frustum": {
+      "geometry": "Geometry.default",
+      "materials": [{ "*": "Material.default" }],
+      "textures": ["Texture.frustum"],
+      "light_color_multiplier": 1.48,
+      "part_visibility": [{ "*": "q.property('kai_templates:thickness') == 'frustum'" }]
+    },
+    "controller.render.kai_templates_falling_icicle_middle": {
+      "geometry": "Geometry.default",
+      "materials": [{ "*": "Material.default" }],
+      "textures": ["Texture.middle"],
+      "light_color_multiplier": 1.48,
+      "part_visibility": [{ "*": "q.property('kai_templates:thickness') == 'middle'" }]
+    },
+    "controller.render.kai_templates_falling_icicle_base": {
+      "geometry": "Geometry.default",
+      "materials": [{ "*": "Material.default" }],
+      "textures": ["Texture.base"],
+      "light_color_multiplier": 1.48,
+      "part_visibility": [{ "*": "q.property('kai_templates:thickness') == 'base'" }]
+    },
+    "controller.render.kai_templates_falling_icicle_cage_ns": {
+      "geometry": "Geometry.cage_ns",
+      "materials": [{ "*": "Material.default" }],
+      "textures": ["Texture.side"],
+      "light_color_multiplier": 1.04,
+      "part_visibility": [{ "*": "q.property('kai_templates:attached')" }]
+    },
+    "controller.render.kai_templates_falling_icicle_cage_ew": {
+      "geometry": "Geometry.cage_ew",
+      "materials": [{ "*": "Material.default" }],
+      "textures": ["Texture.side"],
+      "light_color_multiplier": 0.76,
+      "part_visibility": [{ "*": "q.property('kai_templates:attached')" }]
+    },
+    "controller.render.kai_templates_falling_icicle_top": {
+      "geometry": "Geometry.top",
+      "materials": [{ "*": "Material.default" }],
+      "textures": ["Texture.top"],
+      "light_color_multiplier": 1.0,
+      "part_visibility": [{ "*": "q.property('kai_templates:attached')" }]
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block_culling_rules": {
+    "description": {
+      "identifier": "kai_templates:wall_culling"
+    },
+    // Each rule hides one face of one cube while a neighbour covers that direction.
+    "rules": [
+      {
+        "geometry_part": {
+          "bone": "arm_north",
+          "cube": 0,
+          "face": "north"
+        },
+        "direction": "north",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_south",
+          "cube": 0,
+          "face": "south"
+        },
+        "direction": "south",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_east",
+          "cube": 0,
+          "face": "east"
+        },
+        "direction": "east",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_west",
+          "cube": 0,
+          "face": "west"
+        },
+        "direction": "west",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": {
+          "bone": "post",
+          "cube": 0,
+          "face": "up"
+        },
+        "direction": "up"
+      },
+      {
+        "geometry_part": {
+          "bone": "post",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_north",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_south",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_east",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_west",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_north_tall",
+          "cube": 0,
+          "face": "north"
+        },
+        "direction": "north",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_north_tall",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_south_tall",
+          "cube": 0,
+          "face": "south"
+        },
+        "direction": "south",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_south_tall",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_east_tall",
+          "cube": 0,
+          "face": "east"
+        },
+        "direction": "east",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_east_tall",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_west_tall",
+          "cube": 0,
+          "face": "west"
+        },
+        "direction": "west",
+        "condition": "same_block"
+      },
+      {
+        "geometry_part": {
+          "bone": "arm_west_tall",
+          "cube": 0,
+          "face": "down"
+        },
+        "direction": "down"
+      }
+    ]
+  }
+}

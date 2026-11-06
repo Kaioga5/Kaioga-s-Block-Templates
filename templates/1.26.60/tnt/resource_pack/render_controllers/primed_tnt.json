@@ -1,0 +1,57 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.kai_templates_primed_tnt_sides": {
+      "geometry": "Geometry.sides",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.side"
+      ],
+      // The white flash. On for five ticks, off for five, keyed to the ticks of fuse left so the last flash lands on the blast, and brighter the closer the fuse is to the end: 16 percent white at the start of a four second fuse, 80 percent at the end.
+      "overlay_color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": "math.mod(math.floor(v.fuse_ticks / 5.0), 2) == 0 ? (1.0 - v.fuse_ticks / 100.0) * 0.8 : 0.0"
+      }
+    },
+    "controller.render.kai_templates_primed_tnt_top": {
+      "geometry": "Geometry.top",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.top"
+      ],
+      "overlay_color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": "math.mod(math.floor(v.fuse_ticks / 5.0), 2) == 0 ? (1.0 - v.fuse_ticks / 100.0) * 0.8 : 0.0"
+      }
+    },
+    "controller.render.kai_templates_primed_tnt_bottom": {
+      "geometry": "Geometry.bottom",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.bottom"
+      ],
+      "overlay_color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": "math.mod(math.floor(v.fuse_ticks / 5.0), 2) == 0 ? (1.0 - v.fuse_ticks / 100.0) * 0.8 : 0.0"
+      }
+    }
+  }
+}

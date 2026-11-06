@@ -1,0 +1,22 @@
+{
+  "resource_pack_name": "kaiogas_grass_block",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_grass_top": {
+      "textures": "textures/blocks/grass_top"
+    },
+    "kai_templates_grass_side": {
+      "textures": {
+        "overlay_color": "#79c05a",
+        "path": "textures/blocks/grass_side"
+      }
+    },
+    "kai_templates_grass_side_snowed": {
+      "textures": "textures/blocks/grass_side_snowed"
+    },
+    "kai_templates_grass_bottom": {
+      "textures": "textures/blocks/dirt"
+    }
+  }
+}

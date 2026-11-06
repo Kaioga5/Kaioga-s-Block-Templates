@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block_culling_rules": {
+    "description": {
+      "identifier": "kai_templates:leaves_culling"
+    },
+    // Each rule hides one face of the cube while a full opaque block covers that direction; a rule with no condition fires only against such a block. The east, south and up faces also hide against another leaf (same_culling_layer), so the plane two leaves share is drawn once, by the neighbour's west, north or down face, instead of twice and z-fighting.
+    "rules": [
+      {
+        "geometry_part": { "bone": "leaves_cube", "cube": 0, "face": "north" },
+        "direction": "north"
+      },
+      {
+        "geometry_part": { "bone": "leaves_cube", "cube": 0, "face": "south" },
+        "direction": "south",
+        "condition": "same_culling_layer"
+      },
+      {
+        "geometry_part": { "bone": "leaves_cube", "cube": 0, "face": "east" },
+        "direction": "east",
+        "condition": "same_culling_layer"
+      },
+      {
+        "geometry_part": { "bone": "leaves_cube", "cube": 0, "face": "west" },
+        "direction": "west"
+      },
+      {
+        "geometry_part": { "bone": "leaves_cube", "cube": 0, "face": "up" },
+        "direction": "up",
+        "condition": "same_culling_layer"
+      },
+      {
+        "geometry_part": { "bone": "leaves_cube", "cube": 0, "face": "down" },
+        "direction": "down"
+      }
+    ]
+  }
+}

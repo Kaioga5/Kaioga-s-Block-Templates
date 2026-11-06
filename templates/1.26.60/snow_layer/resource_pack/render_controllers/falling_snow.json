@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  // Which drift the falling snow draws. The block keeps its depth in a height state; the entity carries the same number as a property, and the one bone that matches it is shown.
+  "render_controllers": {
+    "controller.render.kai_templates_falling_snow": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": ["Texture.default"],
+      "part_visibility": [
+        { "*": "false" },
+        { "layer_0": "q.property('kai_templates:height') == 0" },
+        { "layer_1": "q.property('kai_templates:height') == 1" },
+        { "layer_2": "q.property('kai_templates:height') == 2" },
+        { "layer_3": "q.property('kai_templates:height') == 3" },
+        { "layer_4": "q.property('kai_templates:height') == 4" },
+        { "layer_5": "q.property('kai_templates:height') == 5" },
+        { "layer_6": "q.property('kai_templates:height') == 6" },
+        { "layer_7": "q.property('kai_templates:height') == 7" }
+      ]
+    }
+  }
+}

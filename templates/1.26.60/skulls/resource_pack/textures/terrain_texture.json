@@ -1,0 +1,10 @@
+{
+  "resource_pack_name": "kaiogas_skull",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_skull": {
+      "textures": "textures/entity/skeleton/skeleton"
+    }
+  }
+}

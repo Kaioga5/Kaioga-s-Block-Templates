@@ -1,0 +1,3 @@
+tile.kai_templates.lantern.name=Lantern
+item.kai_templates:lantern=Lantern
+kai_templates:itemGroup.name.lanterns=Lanterns

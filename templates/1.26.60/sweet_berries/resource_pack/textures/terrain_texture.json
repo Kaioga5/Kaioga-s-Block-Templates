@@ -1,0 +1,11 @@
+{
+  "resource_pack_name": "kai_templates_sweet_berries",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block files refer to these names, not to file paths. Each growth stage gets its own name, pointing at the vanilla bush images.
+  "texture_data": {
+    "kai_templates_sweet_berry_bush_stage_0": { "textures": "textures/blocks/sweet_berry_bush_stage0" },
+    "kai_templates_sweet_berry_bush_stage_1": { "textures": "textures/blocks/sweet_berry_bush_stage1" },
+    "kai_templates_sweet_berry_bush_stage_2": { "textures": "textures/blocks/sweet_berry_bush_stage2" },
+    "kai_templates_sweet_berry_bush_stage_3": { "textures": "textures/blocks/sweet_berry_bush_stage3" }
+  }
+}

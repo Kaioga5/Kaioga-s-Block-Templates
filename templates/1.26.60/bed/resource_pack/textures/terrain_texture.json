@@ -1,0 +1,11 @@
+{
+  "resource_pack_name": "kai_templates_bed",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  "texture_data": {
+    "kai_templates_red_bed": {
+      // The vanilla red bed's own 64 by 64 entity texture. The geometry reads its regions directly, so a bed of another colour only needs another image in the same layout.
+      "textures": "textures/blocks/kai_templates_red_bed"
+    }
+  }
+}

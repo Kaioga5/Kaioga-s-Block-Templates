@@ -1,0 +1,17 @@
+tile.kai_templates.copper_lantern.name=Copper Lantern
+item.kai_templates:copper_lantern=Copper Lantern
+tile.kai_templates.exposed_copper_lantern.name=Exposed Copper Lantern
+item.kai_templates:exposed_copper_lantern=Exposed Copper Lantern
+tile.kai_templates.weathered_copper_lantern.name=Weathered Copper Lantern
+item.kai_templates:weathered_copper_lantern=Weathered Copper Lantern
+tile.kai_templates.oxidized_copper_lantern.name=Oxidized Copper Lantern
+item.kai_templates:oxidized_copper_lantern=Oxidized Copper Lantern
+tile.kai_templates.waxed_copper_lantern.name=Waxed Copper Lantern
+item.kai_templates:waxed_copper_lantern=Waxed Copper Lantern
+tile.kai_templates.waxed_exposed_copper_lantern.name=Waxed Exposed Copper Lantern
+item.kai_templates:waxed_exposed_copper_lantern=Waxed Exposed Copper Lantern
+tile.kai_templates.waxed_weathered_copper_lantern.name=Waxed Weathered Copper Lantern
+item.kai_templates:waxed_weathered_copper_lantern=Waxed Weathered Copper Lantern
+tile.kai_templates.waxed_oxidized_copper_lantern.name=Waxed Oxidized Copper Lantern
+item.kai_templates:waxed_oxidized_copper_lantern=Waxed Oxidized Copper Lantern
+kai_templates:itemGroup.name.lanterns=Lanterns

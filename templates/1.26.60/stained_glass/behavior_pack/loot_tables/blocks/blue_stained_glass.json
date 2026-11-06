@@ -1,0 +1,27 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kai_templates:blue_stained_glass",
+          "weight": 1,
+          "conditions": [
+            {
+              "condition": "match_tool",
+              "enchantments": [
+                {
+                  "enchantment": "silk_touch",
+                  "levels": {
+                    "range_min": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

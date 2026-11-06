@@ -1,0 +1,16 @@
+{
+  "resource_pack_name": "kai_templates_melon",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block files refer to these names, not to file paths. Vanilla colours its stem in code, from bright green at stage 0 to yellow at stage 7, and keeps both sprites under one alias; a custom block can neither tint by age nor index that list. So each stage has its own copy of the vanilla sprite with that stage's colour baked in (the vanilla greyscale multiplied by red 32 per stage, green 255 less 8 per stage, blue 4 per stage), plus the bent sprite in the ripe colour.
+  "texture_data": {
+    "kai_templates_melon_stem_0": { "textures": "textures/blocks/kai_templates_melon_stem_0" },
+    "kai_templates_melon_stem_1": { "textures": "textures/blocks/kai_templates_melon_stem_1" },
+    "kai_templates_melon_stem_2": { "textures": "textures/blocks/kai_templates_melon_stem_2" },
+    "kai_templates_melon_stem_3": { "textures": "textures/blocks/kai_templates_melon_stem_3" },
+    "kai_templates_melon_stem_4": { "textures": "textures/blocks/kai_templates_melon_stem_4" },
+    "kai_templates_melon_stem_5": { "textures": "textures/blocks/kai_templates_melon_stem_5" },
+    "kai_templates_melon_stem_6": { "textures": "textures/blocks/kai_templates_melon_stem_6" },
+    "kai_templates_melon_stem_7": { "textures": "textures/blocks/kai_templates_melon_stem_7" },
+    "kai_templates_melon_stem_attached": { "textures": "textures/blocks/kai_templates_melon_stem_attached" }
+  }
+}

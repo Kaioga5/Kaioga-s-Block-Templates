@@ -1,0 +1,22 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "minecraft:match_tool_filter_all": [
+            "minecraft:is_shears"
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "kai_templates:vines",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "resource_pack_name": "kai_templates_icicle",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  // These are Mojang's icicle textures from Minecraft Preview 26.60.29 (see
+  // NOTICE.md). They are drawn hanging, point down; the standing model turns
+  // them over instead of using separate files.
+  "texture_data": {
+    "kai_templates_icicle_top": {
+      "textures": "textures/blocks/kai_templates_icicle_top"
+    },
+    "kai_templates_icicle_side": {
+      "textures": "textures/blocks/kai_templates_icicle_side"
+    },
+    "kai_templates_icicle_base": {
+      "textures": "textures/blocks/kai_templates_icicle_base"
+    },
+    "kai_templates_icicle_frustum": {
+      "textures": "textures/blocks/kai_templates_icicle_frustum"
+    },
+    "kai_templates_icicle_middle": {
+      "textures": "textures/blocks/kai_templates_icicle_middle"
+    },
+    "kai_templates_icicle_tip": {
+      "textures": "textures/blocks/kai_templates_icicle_tip"
+    },
+    "kai_templates_icicle_tip_merge": {
+      "textures": "textures/blocks/kai_templates_icicle_tip_merge"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:slime_block",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.slime_block.name",
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": {
+        "identifier": "geometry.kai_templates_slime_block",
+        // The block culling rule used to hide faces against neighbours.
+        "culling": "kai_templates:slime_block_culling"
+      },
+      // The texture or textures used by the block.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "slime_block",
+          // Controls how the block is rendered using vanilla render methods.
+          "render_method": "blend"
+        }
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully.
+      "minecraft:light_dampening": 0,
+      // Break time in seconds, with faster speeds for specific tools.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "push_pull",
+        "sticky": "same"
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "slime"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#7FB238",
+      // How slippery the top is: 1 minus the slipperiness, which is 0.8 for slime against 0.6 for most blocks and 0.98 for ice. Measured to match vanilla slime.
+      "minecraft:friction": 0.2,
+      // Runs the bounce hook on every landing, however short the fall, so a bounce keeps going until it dies out as in vanilla.
+      "minecraft:entity_fall_on": {
+        "min_fall_distance": 0
+      },
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:slime_bounce": {},
+      "kai_templates:slime_slowdown": {}
+    }
+  }
+}

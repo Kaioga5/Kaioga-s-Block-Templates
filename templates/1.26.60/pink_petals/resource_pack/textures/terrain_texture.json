@@ -1,0 +1,13 @@
+{
+  "resource_pack_name": "kai_templates_pink_petals",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths. Vanilla keeps both of these in one alias as a variant array, which a material instance cannot index, so each file gets an alias of its own here.
+  "texture_data": {
+    "kai_templates_pink_petals": {
+      "textures": "textures/blocks/pink_petals"
+    },
+    "kai_templates_pink_petals_stem": {
+      "textures": "textures/blocks/pink_petals_stem"
+    }
+  }
+}
