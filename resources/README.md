@@ -4,20 +4,7 @@ Welcome to the Resources folder for custom block development in Minecraft Bedroc
 
 ## Introduction
 
-This folder contains a curated collection of resources, tools, and guides to assist you in developing custom blocks using the templates provided in this repository. Whether you're a seasoned developer or just starting, these resources aim to support you in creating unique and immersive experiences in Minecraft Bedrock Edition.
-
-## Contents
-
-### 1. Guides and Tutorials
-Explore comprehensive guides and tutorials covering various aspects of block development, including:
-- Block creation techniques
-- Frequently asked questions
-- Scripting and behavior modification
-- Compatibility and optimization tips
-
-### 2. Tools and Software
-Discover a range of tools and software applications tailored for block development, including:
-- Debugging tools for troubleshooting and testing custom blocks
+This folder contains tools that help you develop custom blocks with the templates in this repository, or with blocks of your own. They are standalone: add them to any world you develop in, next to your own add-on.
 
 ## How to Contribute
 

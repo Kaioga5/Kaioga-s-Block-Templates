@@ -60,13 +60,12 @@ license, replace them with your own art.
 The 1.26.40 module ships no vanilla artwork. Its only bundled textures are the
 pack icon and `kai_templates_candle_flame.png`, both original.
 
-## Co-authored content
+## Authorship
 
-The Block Data Viewer pack in `resources/block_data/` lists two authors in its
-manifest: Kaioga and xkingdark. The license here is granted over Kaioga's own
-contribution to that pack only; xkingdark's rights in it are unaffected. Anyone
-asking for a commercial license that includes this pack should expect it to need
-both authors' agreement. Every other pack in this repository is Kaioga's alone.
+Every pack in this repository is Kaioga's alone. The co-authored Block Data
+Viewer pack that earlier releases carried in `resources/block_data/` has been
+removed; copies distributed with those releases keep the terms they were given
+with.
 
 ## Previously released versions
 

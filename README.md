@@ -29,6 +29,10 @@ The newest module rebuilds building, nature, redstone and interactive blocks on 
 
 See the [module README](templates/1.26.60/README.md) for the full 83-template matrix, what changed in 1.26.60, and a suggested reading order.
 
+## Resources
+
+The [resources](resources/) folder holds development tools that work with any custom block.
+
 ## Usage
 
 1. **Clone or Download:** Get the templates by cloning the repository or downloading the ZIP file.
