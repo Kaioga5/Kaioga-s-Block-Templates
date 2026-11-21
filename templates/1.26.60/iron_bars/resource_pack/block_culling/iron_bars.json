@@ -4,7 +4,7 @@
     "description": {
       "identifier": "kai_templates:iron_bars_culling"
     },
-    // Each rule hides one face of one cube while a neighbour covers that direction.
+    // Each rule hides one face of one cube while a neighbour covers that direction. Only one rule per face is allowed, so the arm ends cull against other iron bars (vanilla draws no face where two bars join); against a solid block they are hidden inside it anyway.
     "rules": [
       {
         "geometry_part": {
@@ -12,7 +12,8 @@
           "cube": 1,
           "face": "north"
         },
-        "direction": "north"
+        "direction": "north",
+        "condition": "same_block"
       },
       {
         "geometry_part": {
@@ -20,7 +21,8 @@
           "cube": 1,
           "face": "south"
         },
-        "direction": "south"
+        "direction": "south",
+        "condition": "same_block"
       },
       {
         "geometry_part": {
@@ -28,7 +30,8 @@
           "cube": 1,
           "face": "east"
         },
-        "direction": "east"
+        "direction": "east",
+        "condition": "same_block"
       },
       {
         "geometry_part": {
@@ -36,7 +39,8 @@
           "cube": 1,
           "face": "west"
         },
-        "direction": "west"
+        "direction": "west",
+        "condition": "same_block"
       }
     ]
   }
