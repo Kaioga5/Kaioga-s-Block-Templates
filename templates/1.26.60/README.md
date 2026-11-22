@@ -1,6 +1,6 @@
 # Block Templates - 1.26.60
 
-This module contains 83 block templates for Minecraft Bedrock Edition 1.26.60,
+This module contains 84 block templates for Minecraft Bedrock Edition 1.26.60,
 covering building blocks, plants, crops, redstone, lighting and interactive
 blocks. All of them run on the current stable platform, and none require an
 experimental toggle.
@@ -140,6 +140,7 @@ uses them.
 | [Coral Decoration](coral_decoration/) | placement_position | Yes | The coral plant, sea-floor fan and wall fan with their dead forms: water-dependent, waterloggable, breaking instantly and popping when their support goes. |
 | [Crafting Table](crafting_table/) | none | No | A working crafting table built on the native `minecraft:crafting_table` component, opening the real crafting screen with no script. |
 | [Frogspawn](frogspawn/) | none | Yes | Frogspawn that floats on water, pops when the water goes, cannot be collected, and hatches into tadpoles after a few minutes. |
+| [Sniffer Egg](sniffer_egg/) | none | Yes | A sniffer egg with six different faces that cracks twice and hatches into a snifflet, on vanilla's own timing: each step is a third of 20 minutes give or take a tenth, half that on a moss block, timed by the block's saved `minecraft:tick` so a half-done step survives a reload, and following the `randomTickSpeed` game rule the way vanilla's egg does. Vanilla's crack and hatch sounds and sparkles, centre-only support, break time, map color and yellow item name. |
 | [Jukebox](jukebox/) | none | Yes | A jukebox that plays and ejects music discs, keeps the disc in its own block entity, drops it when broken, shows notes and the track title, and reports the disc to a comparator. Ships a custom music disc of its own: a `minecraft:record` item with its own namespaced sound event, streamed `.ogg`, icon and comparator signal, added without touching a vanilla disc. |
 | [Kelp](kelp/) | none | Yes | Kelp that roots on the sea floor and grows upward through water on random ticks with an animated texture and a distinct tip, taking bone meal and dropping everything above a cut. |
 | [Lantern](lantern/) | placement_position | No | A lantern that stands on a block or hangs under one from a single item, emits light 15, and pops off when its support is removed. No script. |

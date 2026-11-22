@@ -1,0 +1,62 @@
+{
+  "resource_pack_name": "kai_templates_sniffer_egg",
+  "texture_name": "atlas.terrain",
+  // Texture aliases. Block and item files refer to these names, not to file paths.
+  // Every vanilla sniffer_egg_<face> alias is a three entry variant array and a material instance cannot index one, so each face gets one alias per crack stage.
+  "texture_data": {
+    "kai_templates_sniffer_egg_top_0": {
+      "textures": "textures/blocks/sniffer_egg_not_cracked_top"
+    },
+    "kai_templates_sniffer_egg_top_1": {
+      "textures": "textures/blocks/sniffer_egg_slightly_cracked_top"
+    },
+    "kai_templates_sniffer_egg_top_2": {
+      "textures": "textures/blocks/sniffer_egg_very_cracked_top"
+    },
+    "kai_templates_sniffer_egg_bottom_0": {
+      "textures": "textures/blocks/sniffer_egg_not_cracked_bottom"
+    },
+    "kai_templates_sniffer_egg_bottom_1": {
+      "textures": "textures/blocks/sniffer_egg_slightly_cracked_bottom"
+    },
+    "kai_templates_sniffer_egg_bottom_2": {
+      "textures": "textures/blocks/sniffer_egg_very_cracked_bottom"
+    },
+    "kai_templates_sniffer_egg_north_0": {
+      "textures": "textures/blocks/sniffer_egg_not_cracked_north"
+    },
+    "kai_templates_sniffer_egg_north_1": {
+      "textures": "textures/blocks/sniffer_egg_slightly_cracked_north"
+    },
+    "kai_templates_sniffer_egg_north_2": {
+      "textures": "textures/blocks/sniffer_egg_very_cracked_north"
+    },
+    "kai_templates_sniffer_egg_south_0": {
+      "textures": "textures/blocks/sniffer_egg_not_cracked_south"
+    },
+    "kai_templates_sniffer_egg_south_1": {
+      "textures": "textures/blocks/sniffer_egg_slightly_cracked_south"
+    },
+    "kai_templates_sniffer_egg_south_2": {
+      "textures": "textures/blocks/sniffer_egg_very_cracked_south"
+    },
+    "kai_templates_sniffer_egg_east_0": {
+      "textures": "textures/blocks/sniffer_egg_not_cracked_east"
+    },
+    "kai_templates_sniffer_egg_east_1": {
+      "textures": "textures/blocks/sniffer_egg_slightly_cracked_east"
+    },
+    "kai_templates_sniffer_egg_east_2": {
+      "textures": "textures/blocks/sniffer_egg_very_cracked_east"
+    },
+    "kai_templates_sniffer_egg_west_0": {
+      "textures": "textures/blocks/sniffer_egg_not_cracked_west"
+    },
+    "kai_templates_sniffer_egg_west_1": {
+      "textures": "textures/blocks/sniffer_egg_slightly_cracked_west"
+    },
+    "kai_templates_sniffer_egg_west_2": {
+      "textures": "textures/blocks/sniffer_egg_very_cracked_west"
+    }
+  }
+}

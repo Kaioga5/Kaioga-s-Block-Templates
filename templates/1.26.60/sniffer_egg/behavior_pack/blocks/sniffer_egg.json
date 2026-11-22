@@ -1,0 +1,199 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      // The ID for your custom block. Format must be namespace:block_name.
+      "identifier": "kai_templates:sniffer_egg",
+      // Where the block appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      },
+      // Custom block states. The permutations below switch components on their values.
+      // Vanilla spells the cracks cracked_state, with the values no_cracks, cracked and max_cracked.
+      // on_moss has no vanilla twin: the script sets it when a step of the hatch begins on a moss block, and it picks the shorter of the two clocks below.
+      "states": {
+        "kai_templates:cracks": [0, 1, 2],
+        "kai_templates:on_moss": [false, true]
+      }
+    },
+    // Component overrides that apply while their Molang condition is true.
+    // A crack stage changes all six textures at once, and a material instance is a component, so each stage has to be a permutation.
+    "permutations": [
+      // An egg on moss takes half as long over each step: 3 minutes 20 seconds, give or take a tenth.
+      {
+        "condition": "q.block_state('kai_templates:on_moss')",
+        "components": {
+          "minecraft:tick": {
+            "interval_range": [3600, 4400],
+            "looping": true
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cracks') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_sniffer_egg_north_1",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "kai_templates_sniffer_egg_top_1",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "kai_templates_sniffer_egg_bottom_1",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "kai_templates_sniffer_egg_north_1",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "kai_templates_sniffer_egg_south_1",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "kai_templates_sniffer_egg_east_1",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "kai_templates_sniffer_egg_west_1",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('kai_templates:cracks') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "kai_templates_sniffer_egg_north_2",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "kai_templates_sniffer_egg_top_2",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "kai_templates_sniffer_egg_bottom_2",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "kai_templates_sniffer_egg_north_2",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "kai_templates_sniffer_egg_south_2",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "kai_templates_sniffer_egg_east_2",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "kai_templates_sniffer_egg_west_2",
+              "render_method": "opaque"
+            }
+          }
+        }
+      }
+    ],
+    "components": {
+      // Text shown for the block in the inventory and hotbar. Translated through the language files.
+      "minecraft:display_name": "tile.kai_templates.sniffer_egg.name",
+      // Block tags. Vanilla content and Molang queries can match on them.
+      "minecraft:tags": ["kai_templates:sniffer_egg"],
+      // The vanilla or custom geometry used by the block.
+      "minecraft:geometry": "geometry.kai_templates_sniffer_egg",
+      // The texture or textures used by the block. Six named instances, one per face, because the egg is drawn differently on every side.
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "kai_templates_sniffer_egg_north_0",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "kai_templates_sniffer_egg_top_0",
+          "render_method": "opaque"
+        },
+        "down": {
+          "texture": "kai_templates_sniffer_egg_bottom_0",
+          "render_method": "opaque"
+        },
+        "north": {
+          "texture": "kai_templates_sniffer_egg_north_0",
+          "render_method": "opaque"
+        },
+        "south": {
+          "texture": "kai_templates_sniffer_egg_south_0",
+          "render_method": "opaque"
+        },
+        "east": {
+          "texture": "kai_templates_sniffer_egg_east_0",
+          "render_method": "opaque"
+        },
+        "west": {
+          "texture": "kai_templates_sniffer_egg_west_0",
+          "render_method": "opaque"
+        }
+      },
+      // The block's collision box.
+      "minecraft:collision_box": [
+        {
+          "origin": [-7, 0, -6],
+          "size": [14, 16, 12]
+        }
+      ],
+      // The block's selection box.
+      "minecraft:selection_box": {
+        "origin": [-7, 0, -6],
+        "size": [14, 16, 12]
+      },
+      // How hard the block is to mine. The game takes one and a half times this number as the seconds a bare hand needs, so 0.5 is vanilla's 0.75 seconds. No tool is faster.
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      // Resistance to explosions. Bedrock stores five times the blast resistance the wiki lists for a block, so the listed number goes in multiplied by five.
+      "minecraft:destructible_by_explosion": {
+        // 0.5 x 5
+        "explosion_resistance": 2.5
+      },
+      // Texture used for the break particles.
+      "minecraft:destruction_particles": {
+        "texture": "kai_templates_sniffer_egg_north_0"
+      },
+      // How much light the block stops. 0 lets light through, 15 blocks it fully. Bedrock counts the sniffer egg as transparent, unlike Java.
+      "minecraft:light_dampening": 0,
+      // Vanilla sound set used for placing, breaking and stepping on the block. blocks.json would override this, so the template does not ship one.
+      "minecraft:sound": {
+        "sound": "metal"
+      },
+      // Color the block shows on maps.
+      "minecraft:map_color": "#993333",
+      // What may stand on the block. A custom block defaults to full-cube support. The fence shape gives vanilla's: a torch, a pressure plate or a hanging lantern holds on the middle of the top and bottom, while redstone dust, a rail, a snow layer, a ladder or a button finds nothing to hold on to.
+      "minecraft:support": {
+        "shape": "fence"
+      },
+      // Whether the block carries redstone power like a solid block.
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": false
+      },
+      // How pistons can move the block.
+      "minecraft:movable": {
+        "movement_type": "push_pull"
+      },
+      // Whether blocks with connection behavior, such as fences and panes, can connect to this block.
+      "minecraft:connection_rule": {
+        "accepts_connections_from": "none"
+      },
+      // The hatch clock. It fires the script's onTick after a random number of ticks in this range, and starts over whenever the block's state changes. One firing is one step: a crack, a second crack, the hatch. 7200 to 8800 ticks is vanilla's step, a third of 20 minutes give or take a tenth, and the game saves the wait with the block.
+      "minecraft:tick": {
+        "interval_range": [7200, 8800],
+        "looping": true
+      },
+      // Custom components are registered by the scripts in behavior_pack/scripts.
+      "kai_templates:sniffer_egg_hatch": {}
+    }
+  }
+}

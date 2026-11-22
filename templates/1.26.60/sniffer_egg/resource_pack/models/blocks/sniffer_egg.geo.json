@@ -1,0 +1,38 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:geometry": [
+    // One cuboid, fourteen wide, sixteen tall and twelve deep, which is the size the six vanilla face textures are drawn at.
+    // Every face names its own material instance, because the egg carries a different texture on all six sides.
+    // The top and bottom are turned half a turn, which is what the negative uv_size does: vanilla draws its own top and bottom that way round, and a custom cube does not.
+    {
+      "description": {
+        "identifier": "geometry.kai_templates_sniffer_egg",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "egg",
+          "pivot": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-7, 0, -6],
+              "size": [14, 16, 12],
+              "uv": {
+                "up": { "uv": [14, 12], "uv_size": [-14, -12], "material_instance": "up" },
+                "down": { "uv": [14, 12], "uv_size": [-14, -12], "material_instance": "down" },
+                "north": { "uv": [0, 0], "uv_size": [14, 16], "material_instance": "north" },
+                "south": { "uv": [0, 0], "uv_size": [14, 16], "material_instance": "south" },
+                "east": { "uv": [0, 0], "uv_size": [12, 16], "material_instance": "east" },
+                "west": { "uv": [0, 0], "uv_size": [12, 16], "material_instance": "west" }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

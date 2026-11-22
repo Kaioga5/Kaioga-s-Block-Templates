@@ -1,0 +1,29 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      // The ID for the item. Format must be namespace:item_name.
+      "identifier": "kai_templates:sniffer_egg",
+      // Where the item appears in the creative inventory.
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      // Colors the item's name. Vanilla's sniffer egg is uncommon, which shows its name in yellow.
+      "minecraft:rarity": "uncommon",
+      // Places the block when the item is used. replace_block_item makes this item stand in for the block's own item.
+      "minecraft:block_placer": {
+        "block": "kai_templates:sniffer_egg",
+        "replace_block_item": true
+      },
+      // Sprite shown in the inventory, resolved through item_texture.json.
+      "minecraft:icon": {
+        "textures": {
+          "default": "kai_templates_sniffer_egg_carried"
+        }
+      }
+    }
+  }
+}

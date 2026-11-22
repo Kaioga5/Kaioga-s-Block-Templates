@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Kaioga's Sniffer Egg",
+    "description": "Sniffer Egg block template created by Kaioga for Minecraft Bedrock Edition.",
+    "uuid": "e044aafa-3681-58e3-bd24-efb13b0624ee",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 60]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "b27252e2-873f-520e-94e6-da2e8144a06b",
+      "version": [1, 0, 0]
+    }
+  ],
+  // The paired pack's header UUID, so enabling one pack enables the other. Script packs also list the API module they need.
+  "dependencies": [
+    {
+      "uuid": "21d85310-f335-56d7-9f90-bd0702f6e819",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Kaioga"]
+  }
+}
